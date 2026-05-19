@@ -3,6 +3,7 @@ import { ExternalLink, ShieldCheck } from "lucide-react";
 import { HoverLift } from "@/components/hover-lift";
 import { PillChip } from "@/components/pill-chip";
 import { TrustBadge } from "@/components/trust-badge";
+import { paidListingWebsiteRel } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export type EditorialDirectoryCardApp = {
@@ -21,6 +22,7 @@ export type EditorialDirectoryCardApp = {
   reviewDeskNote?: string;
   checkedFor?: string[];
   complianceNote?: string;
+  websiteRel?: string;
 };
 
 type AppDirectoryCardProps = {
@@ -83,7 +85,7 @@ export function AppDirectoryCard({
     >
       {featured ? (
         <div className="mb-4 flex flex-wrap items-center gap-2">
-          <PillChip variant="gold">Listed on Review Desk</PillChip>
+          <PillChip variant="gold">Profile published</PillChip>
           <PillChip variant="outline">Editorial pick</PillChip>
         </div>
       ) : null}
@@ -210,7 +212,7 @@ export function AppDirectoryCard({
           <a
             href={app.website}
             target="_blank"
-            rel="sponsored nofollow noopener"
+            rel={app.websiteRel ?? paidListingWebsiteRel}
             className="inline-flex h-10 flex-1 items-center justify-center gap-1.5 rounded-[8px] bg-[#0B1220] px-3 text-xs font-semibold text-[#FFFDF7] transition hover:bg-[#111827]"
           >
             Visit website

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AlertCircle, CheckCircle2 } from "lucide-react";
 import { SecondaryButton } from "@/components/buttons";
+import { siteConfig } from "@/lib/site";
 import { getPaymentIntentId, markSubmissionPaid } from "@/lib/submission-status";
 import { getStripeClient } from "@/lib/stripe-server";
 
@@ -122,7 +123,7 @@ async function verifyCheckoutSession(sessionId?: string) {
       return {
         paid: false,
         message:
-          "Stripe verified the payment, but the submission status could not be updated. Please contact support before resubmitting.",
+          `Stripe verified the payment, but the submission status could not be updated. Please contact ${siteConfig.supportEmail} before resubmitting.`,
       };
     }
 

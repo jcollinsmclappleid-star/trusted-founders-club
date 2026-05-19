@@ -66,7 +66,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${libre.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-[#F7F3EA] text-[#111827]">
+      <body className="flex min-h-full flex-col bg-[#F5F1E8] text-[#111827]">
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

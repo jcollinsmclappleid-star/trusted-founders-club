@@ -1,95 +1,116 @@
-import { ArrowUpRight, CheckCircle2, ExternalLink } from "lucide-react";
-import { exampleApp } from "@/lib/site";
-import { SecondaryButton } from "@/components/buttons";
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { ReviewedSignalPill } from "@/components/reviewed-signal-pill";
 import { TrustBadge } from "@/components/trust-badge";
+import { heroProfileExample } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
-export function ProfilePreviewCard() {
-  const initials = exampleApp.name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0]?.toUpperCase() ?? "")
-    .join("");
+type ProfilePreviewCardProps = {
+  variant?: "hero" | "section";
+  className?: string;
+  showLink?: boolean;
+};
+
+export function ProfilePreviewCard({
+  variant = "hero",
+  className,
+  showLink = true,
+}: ProfilePreviewCardProps) {
+  const data = heroProfileExample;
+  const compact = variant === "section";
 
   return (
-    <article className="overflow-hidden rounded-[10px] border border-[#E7E0D2] bg-[#FFFDF7] shadow-[0_28px_80px_rgba(7,10,15,0.12)]">
-      <div className="border-b border-[#E7E0D2] bg-[#F7F3EA] px-6 py-4">
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#B8944E]">
-            Live desk profile · Divorce Calculator UK
+    <article
+      className={cn(
+        "overflow-hidden rounded-[var(--radius-panel)] border border-white/10 bg-[#151922] shadow-[0_32px_100px_rgba(0,0,0,0.4)]",
+        className,
+      )}
+    >
+      <header className="border-b border-white/10 bg-[#1B202B] px-5 py-3.5">
+        <div className="flex items-center justify-between gap-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#D4A943]">
+            Public Review Profile
           </p>
-          <span className="rounded-[6px] border border-[#B8944E]/35 bg-[#B8944E]/10 px-2.5 py-1 text-xs font-semibold text-[#7A5D2D]">
-            Review Published
+          <span className="status-published rounded-full border border-[#22C55E]/30 bg-[#22C55E]/10 px-2.5 py-0.5 text-xs font-semibold">
+            {data.status}
           </span>
         </div>
-      </div>
+      </header>
 
-      <div className="p-6">
-        <div className="flex items-start gap-4">
-          <div className="flex size-14 shrink-0 items-center justify-center rounded-[8px] border border-[#B8944E]/35 bg-[#0B1220] text-lg font-semibold text-[#E6D3A3]">
-            {initials}
+      <div className={cn("p-5", compact ? "md:p-6" : "md:p-6")}>
+        <p className="text-sm text-[#A8ADB7]">{data.category}</p>
+        <h3
+          className={cn(
+            "mt-1 font-semibold text-[#F8F4EA]",
+            compact ? "text-xl" : "text-2xl",
+          )}
+        >
+          {data.productName}
+        </h3>
+
+        {!compact ? (
+          <>
+            <p className="mt-4 text-sm leading-7 text-[#A8ADB7]">{data.summary}</p>
+            <figure className="mt-4 rounded-[8px] border border-[#D4A943]/25 bg-[#D4A943]/5 p-3">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#E7C76B]">
+                Visitor quote
+              </p>
+              <blockquote className="mt-1 font-serif text-sm leading-6 text-[#F8F4EA]">
+                &ldquo;{data.publishableQuote}&rdquo;
+              </blockquote>
+            </figure>
+          </>
+        ) : null}
+
+        <section className="mt-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A8ADB7]">
+            Reviewed signals
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {data.reviewedSignals.map((signal) => (
+              <ReviewedSignalPill key={signal} label={signal} dark />
+            ))}
+          </div>
+        </section>
+
+        <div className="mt-5 grid gap-3 border-t border-white/10 pt-5 sm:grid-cols-2">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A8ADB7]">
+              Review ID
+            </p>
+            <p className="font-mono-label mt-1 text-[#F8F4EA]">{data.reviewId}</p>
           </div>
           <div>
-            <p className="text-sm font-medium text-[#6B7280]">
-              {exampleApp.category}
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A8ADB7]">
+              Backlink
             </p>
-            <h3 className="mt-1 font-serif text-3xl text-[#111827]">
-              {exampleApp.name}
-            </h3>
+            <p className="mt-1 flex items-center gap-1 text-sm font-medium text-[#22C55E]">
+              Visit {data.websiteLabel}
+              <ExternalLink size={12} aria-hidden="true" />
+            </p>
           </div>
         </div>
 
-        <p className="mt-5 text-base leading-7 text-[#4B5563]">
-          {exampleApp.shortDescription}
-        </p>
-
-        <div className="mt-6 rounded-[8px] border border-[#E7E0D2] bg-white/55 p-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#B8944E]">
-            Review excerpt
-          </p>
-          <p className="mt-3 font-serif text-lg leading-7 text-[#111827]">
-            &quot;{exampleApp.quote}&quot;
-          </p>
+        <div className="mt-5 flex flex-col gap-4 rounded-[10px] border border-white/10 bg-[#101216] p-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A8ADB7]">
+              Badge
+            </p>
+            <p className="mt-1 text-sm text-[#F8F4EA]">Reviewed by Review Signal</p>
+            <p className="mt-1 text-xs text-[#A8ADB7]">Click to view profile</p>
+          </div>
+          <TrustBadge variant="dark" className="max-w-[200px] shrink-0" />
         </div>
 
-        <div className="mt-6 grid gap-3 border-y border-[#E7E0D2] py-5 text-sm text-[#6B7280] sm:grid-cols-3">
-          {[
-            ["Review ID", exampleApp.reviewId],
-            ["Review note", exampleApp.reviewedDate],
-            ["Status", "Review Published"],
-          ].map(([label, value]) => (
-            <div key={label}>
-              <p className="text-xs uppercase tracking-[0.14em] text-[#B8944E]">
-                {label}
-              </p>
-              <p className="mt-1 font-medium text-[#111827]">{value}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <span className="dark-showcase rounded-[12px] border border-[#B8944E]/30 p-2">
-            <TrustBadge compact href="/example-review" />
-          </span>
-          <SecondaryButton href="/example-review" className="sm:h-11">
-            Open editorial profile
-          </SecondaryButton>
-        </div>
-
-        <div className="mt-5 flex flex-wrap gap-3 text-sm text-[#6B7280]">
-          <span className="inline-flex items-center gap-1.5">
-            <CheckCircle2 size={16} className="text-[#B8944E]" />
-            Website reviewed for listing context
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <ExternalLink size={16} className="text-[#6C8DBF]" />
-            Website link included
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <ArrowUpRight size={16} className="text-[#B8944E]" />
-            Click-to-verify badge
-          </span>
-        </div>
+        {showLink ? (
+          <Link
+            href="/example-review"
+            className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#E7C76B] hover:text-[#F8F4EA]"
+          >
+            View example profile
+            <ExternalLink aria-hidden="true" size={14} />
+          </Link>
+        ) : null}
       </div>
     </article>
   );

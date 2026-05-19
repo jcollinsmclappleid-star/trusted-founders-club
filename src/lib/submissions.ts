@@ -1,6 +1,5 @@
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, ownedListingWebsiteRel, paidListingWebsiteRel } from "@/lib/site";
 import { editorialListings } from "@/lib/editorial-real-listings";
-import { createSupabaseUserServerClient } from "@/lib/supabase-auth-server";
 import { getSupabaseAdmin } from "@/lib/supabase-server";
 
 export type PaymentStatus =
@@ -22,7 +21,6 @@ export type ReviewStatus =
 
 export type AppSubmission = {
   id: string;
-  user_id: string | null;
   app_name: string;
   slug: string | null;
   founder_name: string;
@@ -95,6 +93,7 @@ export type DirectoryApp = {
   whyListed?: string;
   badgeMeaning?: string;
   website: string;
+  websiteRel?: string;
   logoSrc?: string;
   screenshotSrc?: string;
   profileHref: string;
@@ -116,7 +115,6 @@ export type AdminFilter =
 
 const submissionSelect = `
   id,
-  user_id,
   app_name,
   slug,
   founder_name,
@@ -219,6 +217,7 @@ export function toDirectoryApp(submission: AppSubmission): DirectoryApp {
       submission.public_review_quote ??
       "Listed after a manual suitability review by Review Signal.",
     website: submission.app_url,
+    websiteRel: submission.external_link_rel ?? paidListingWebsiteRel,
     profileHref: `/apps/${submission.slug}`,
     reviewedDate: getReviewedDate(submission),
     statusLabel: "Review Published",
@@ -267,6 +266,7 @@ export function sampleDirectoryApps(): DirectoryApp[] {
     whyListed: listing.whyListed,
     badgeMeaning: listing.badgeMeaning,
     website: listing.website,
+    websiteRel: listing.websiteRel ?? ownedListingWebsiteRel,
     logoSrc: listing.logoSrc,
     screenshotSrc: listing.screenshotSrc,
     profileHref: listing.profileHref,
@@ -487,66 +487,6 @@ export async function getAdminSubmissionByPaymentIntentId(
 
 export function profileUrl(slug: string) {
   return absoluteUrl(`/apps/${slug}`);
-}
-
-export function isCustomerEditable(submission: AppSubmission) {
-  return ["draft", "paid_pending_review", "needs_changes"].includes(
-    submission.review_status,
-  );
-}
-
-export function customerNextStep(submission: AppSubmission) {
-  if (submission.review_status === "draft") {
-    return "Your submission has not entered review yet.";
-  }
-  if (submission.review_status === "paid_pending_review") {
-    return "Your app is in the manual review queue.";
-  }
-  if (submission.review_status === "needs_changes") {
-    return "We need a few updates before we can publish your profile.";
-  }
-  if (
-    ["approved_noindex", "approved_public", "approved_indexable", "review_added"].includes(
-      submission.review_status,
-    )
-  ) {
-    return "Your app profile is live.";
-  }
-  if (submission.review_status === "rejected_refunded") {
-    return "This submission was not approved for publication.";
-  }
-  return "Review status is being updated.";
-}
-
-export async function getCustomerSubmissions(userId: string) {
-  const { client: supabase, error } = await createSupabaseUserServerClient();
-  if (!supabase) return { submissions: [], error };
-
-  const { data, error: queryError } = await supabase
-    .from("app_submissions")
-    .select(submissionSelect)
-    .eq("user_id", userId)
-    .order("created_at", { ascending: false });
-
-  if (queryError) return { submissions: [], error: queryError.message };
-
-  return { submissions: (data ?? []) as AppSubmission[], error: null };
-}
-
-export async function getCustomerSubmissionById(id: string, userId: string) {
-  const { client: supabase, error } = await createSupabaseUserServerClient();
-  if (!supabase) return { submission: null, error };
-
-  const { data, error: queryError } = await supabase
-    .from("app_submissions")
-    .select(submissionSelect)
-    .eq("id", id)
-    .eq("user_id", userId)
-    .maybeSingle();
-
-  if (queryError) return { submission: null, error: queryError.message };
-
-  return { submission: data as AppSubmission | null, error: null };
 }
 
 export async function createSignedAssetUrl(path?: string | null) {

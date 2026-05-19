@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-shell";
-import { pageMetadata } from "@/lib/site";
+import { pageMetadata, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Terms",
@@ -32,7 +32,7 @@ const sections = [
   },
   {
     title: "Review quote usage",
-    copy: "Approved Founder Review submissions may use the published review quote on their own landing page, provided it is not edited in a misleading way or used after a profile has been removed.",
+    copy: "Approved Enhanced Review Profile submissions may use the published review quote on their own landing page, provided it is not edited in a misleading way or used after a profile has been removed.",
   },
   {
     title: "Badge usage",
@@ -50,6 +50,10 @@ const sections = [
     title: "Public listing consent",
     copy: "By submitting an app, applicants consent to public listing details being published if the submission is approved. Private notes, demo login details and admin review notes are not intended for public display.",
   },
+  {
+    title: "Contact and company details",
+    copy: `${siteConfig.name} is operated by ${siteConfig.companyName}, ${siteConfig.companyRegistration}. Contact ${siteConfig.supportEmail} for support queries about an application or published profile.`,
+  },
 ];
 
 export default function TermsPage() {
@@ -58,7 +62,7 @@ export default function TermsPage() {
       <PageHero
         eyebrow="Terms"
         title="Service terms."
-        copy="These terms explain the review, profile and badge service for Review Signal. They should be reviewed by counsel before launch."
+        copy="These terms explain the review, profile and badge service for Review Signal."
       />
 
       <section className="bg-[#F7F3EA] px-5 py-16 sm:px-6 md:py-24 lg:px-8">

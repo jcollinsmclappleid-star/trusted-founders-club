@@ -28,7 +28,7 @@ export function PricingCard({ plan }: PricingCardProps) {
       className={cn(
         "relative flex h-full flex-col rounded-[var(--radius-panel)] border bg-[#FFFDF7] p-6 md:p-7",
         plan.featured
-          ? "z-[1] scale-[1.01] border-[#B8944E] shadow-[var(--shadow-glow-gold)] ring-1 ring-[#B8944E]/40 md:-mt-1 md:mb-1"
+          ? "z-[1] scale-[1.01] border-[#D4A943] shadow-[var(--shadow-glow-gold)] ring-1 ring-[#D4A943]/40 md:-mt-1 md:mb-1"
           : "border-[#E7E0D2] shadow-[var(--shadow-soft)]",
       )}
     >
@@ -82,7 +82,7 @@ export function PricingCard({ plan }: PricingCardProps) {
 
       {plan.featured ? (
         <p className="text-eyebrow mt-5 text-xs uppercase tracking-[0.14em]">
-          Badge, quote, and full verification metadata
+          Badge pack, strengths/limitations and expanded profile
         </p>
       ) : null}
 

@@ -11,18 +11,19 @@ export type ReviewPackage = {
 export const reviewPackages: Record<PackageKey, ReviewPackage> = {
   launch_listing: {
     key: "launch_listing",
-    name: "Launch Listing",
-    price: 2900,
-    displayPrice: "\u00a329",
-    description: "Public directory record after manual suitability review.",
+    name: "Starter Review Profile",
+    price: 9900,
+    displayPrice: "\u00a399",
+    description:
+      "Manual review and public profile for early-stage apps, tools and simple websites.",
   },
   founder_review: {
     key: "founder_review",
-    name: "Founder Review",
-    price: 7900,
-    displayPrice: "\u00a379",
+    name: "Enhanced Review Profile",
+    price: 19900,
+    displayPrice: "\u00a3199",
     description:
-      "Full review record with note, quote, badge and verification metadata.",
+      "Deeper review profile with strengths, limitations, badge pack and expanded summary.",
   },
 };
 

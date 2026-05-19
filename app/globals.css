@@ -1,29 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --near-black: #070a0f;
-  --deep-navy: #0b1220;
+  --near-black: #101216;
+  --deep-navy: #0b0f17;
+  --card-dark: #151922;
+  --card-elevated: #1b202b;
   --ink: #111827;
-  --off-white: #f7f3ea;
+  --off-white: #f5f1e8;
   --warm-white: #fffdf7;
-  --muted-gold: #b8944e;
-  --soft-gold: #e6d3a3;
-  --gold-readable: #8a6b2e;
+  --muted-gold: #d4a943;
+  --soft-gold: #e7c76b;
+  --gold-readable: #9a7324;
   --slate: #6b7280;
   --text-secondary: #374151;
-  --text-muted: #4b5563;
-  --text-on-dark: #f7f3ea;
-  --text-on-dark-muted: #d4cbb8;
+  --text-muted: #6b7280;
+  --text-on-dark: #f8f4ea;
+  --text-on-dark-muted: #a8adb7;
   --line: #e7e0d2;
-  --blue-accent: #6c8dbf;
-  --success: #4f7f63;
+  --line-dark: rgba(255, 255, 255, 0.1);
+  --blue-accent: #3b82f6;
+  --success: #22c55e;
   --warning: #a66a2c;
   --shadow-soft: 0 24px 70px rgba(17, 24, 39, 0.06);
   --shadow-lift: 0 32px 90px rgba(17, 24, 39, 0.1);
-  --shadow-glow-gold: 0 36px 95px rgba(184, 148, 78, 0.18);
+  --shadow-glow-gold: 0 36px 95px rgba(212, 169, 67, 0.18);
   --radius-panel: 18px;
   --radius-card: 14px;
-  --glow-gold: 0 0 0 1px rgba(184, 148, 78, 0.35), 0 20px 60px rgba(184, 148, 78, 0.12);
+  --glow-gold: 0 0 0 1px rgba(212, 169, 67, 0.35), 0 20px 60px rgba(212, 169, 67, 0.12);
 }
 
 @theme inline {
@@ -212,16 +215,59 @@ summary::-webkit-details-marker {
 
 .editorial-glow {
   background:
-    radial-gradient(circle at 18% 14%, rgba(230, 211, 163, 0.38), transparent 32%),
-    radial-gradient(circle at 82% 8%, rgba(108, 141, 191, 0.14), transparent 30%),
-    linear-gradient(180deg, #fffdf7 0%, #f7f3ea 100%);
+    radial-gradient(circle at 18% 14%, rgba(212, 169, 67, 0.2), transparent 32%),
+    radial-gradient(circle at 82% 8%, rgba(59, 130, 246, 0.08), transparent 30%),
+    linear-gradient(180deg, var(--warm-white) 0%, var(--off-white) 100%);
+}
+
+.header-glow {
+  box-shadow:
+    0 1px 0 rgba(212, 169, 67, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.section-dark {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(212, 169, 67, 0.12), transparent 35%),
+    radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.06), transparent 40%),
+    var(--deep-navy);
+  color: var(--text-on-dark);
+}
+
+.section-light {
+  background: var(--off-white);
+  color: var(--ink);
+}
+
+.card-dark {
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-card);
+  background: var(--card-dark);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+}
+
+.card-elevated {
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-card);
+  background: var(--card-elevated);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+}
+
+.font-mono-label {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.status-published {
+  color: var(--success);
 }
 
 .dark-showcase {
   background:
-    radial-gradient(circle at 24% 14%, rgba(230, 211, 163, 0.17), transparent 30%),
-    radial-gradient(circle at 82% 70%, rgba(108, 141, 191, 0.13), transparent 34%),
-    #070a0f;
+    radial-gradient(circle at 24% 14%, rgba(231, 199, 107, 0.14), transparent 30%),
+    radial-gradient(circle at 82% 70%, rgba(59, 130, 246, 0.08), transparent 34%),
+    var(--near-black);
   color: var(--text-on-dark);
 }
 

@@ -24,7 +24,7 @@ export const includedManifestIntro = {
 
 export const includedManifestTiers = {
   launch: {
-    label: "Launch Listing",
+    label: "Starter Review Profile",
     items: [
       {
         id: "01",
@@ -35,7 +35,7 @@ export const includedManifestTiers = {
       {
         id: "02",
         title: "Service summary",
-        description: "Category, audience, and practical use case on the review desk.",
+        description: "Category, audience, and practical use case on the public profile.",
         zone: "summary",
       },
       {
@@ -47,19 +47,19 @@ export const includedManifestTiers = {
       {
         id: "04",
         title: "Link to your website",
-        description: "Outbound link from the profile when the desk accepts the listing.",
+        description: "Outbound link from the profile when the submission is accepted.",
         zone: "website",
       },
       {
         id: "05",
         title: "Directory placement",
-        description: "Listed in the relevant desk section for discovery.",
+        description: "Listed in the relevant profile directory for discovery.",
         zone: "directory",
       },
     ] satisfies IncludedManifestItem[],
   },
   founder: {
-    label: "Founder Review",
+    label: "Enhanced Review Profile",
     items: [
       {
         id: "01",
@@ -70,7 +70,7 @@ export const includedManifestTiers = {
       {
         id: "02",
         title: "Service summary",
-        description: "Category, audience, and practical use case on the review desk.",
+        description: "Category, audience, and practical use case on the public profile.",
         zone: "summary",
       },
       {
@@ -89,7 +89,7 @@ export const includedManifestTiers = {
       {
         id: "05",
         title: "Link to your website",
-        description: "Outbound link from the profile when the desk accepts the listing.",
+        description: "Outbound link from the profile when the submission is accepted.",
         zone: "website",
       },
       {
@@ -102,7 +102,7 @@ export const includedManifestTiers = {
       {
         id: "07",
         title: "Directory placement",
-        description: "Listed in the relevant desk section for discovery.",
+        description: "Listed in the relevant profile directory for discovery.",
         zone: "directory",
       },
       {

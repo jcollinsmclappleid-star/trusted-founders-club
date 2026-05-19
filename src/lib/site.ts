@@ -6,11 +6,35 @@ export { editorialListings } from "@/lib/editorial-real-listings";
 
 export const siteConfig = {
   name: "Review Signal",
+  tagline: "Review · Quote · Backlink",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://reviewsignal.com",
   description:
-    "An editorial review desk for useful digital products—public review profiles, verification badges, and records visitors can open before they reach your site.",
+    "Get an independent review profile, a publishable quote for your site, and a backlink from a public record prospects can verify before they buy.",
   submitHref: "/submit",
+  supportEmail: "support@sitesignalstudio.co.uk",
+  companyName: "Ianson Systems Ltd",
+  companyRegistration: "Registered in England and Wales",
 };
+
+export const primaryCta = "Apply for Review";
+export const secondaryCta = "View Example Profile";
+
+/** Outbound link rel for paying third-party applicants (paid placement). */
+export const paidListingWebsiteRel = "sponsored nofollow noopener";
+
+/** Outbound link rel for Review Signal–owned portfolio sites (editorial listings). */
+export const ownedListingWebsiteRel = "noopener noreferrer";
+
+export const trustDisclaimers = {
+  payment:
+    "Payment covers the review process and profile creation. It does not guarantee a positive review, approval, endorsement or specific commercial outcome.",
+  badge:
+    "Review Signal badges link to a public profile. They are not legal, financial, medical or regulatory certification.",
+  conversion:
+    "Review profiles can support trust and reduce uncertainty, but they do not guarantee sales, enquiries or conversion improvements.",
+  short:
+    "Paid review process. No guaranteed positive outcome. Profiles are published with clear review context.",
+} as const;
 
 /** Published verification badge artwork (light = cream UI, dark = navy panels). */
 export const badgeAssets = {
@@ -20,102 +44,277 @@ export const badgeAssets = {
 } as const;
 
 export const navItems = [
-  { href: "/apps", label: "Review Desk" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/apps", label: "Directory" },
+  { href: "/#how-it-works", label: "How it works" },
   { href: "/example-review", label: "Example profile" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/guidelines", label: "Guidelines" },
+];
+
+export const footerExploreLinks = [
+  { href: "/apps", label: "Profile directory" },
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/example-review", label: "Example profile" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/guidelines", label: "Guidelines" },
+  { href: siteConfig.submitHref, label: primaryCta },
+];
+
+export const footerGuideLinks = [
+  { href: "/guides", label: "All guides" },
+  {
+    href: "/how-to-get-more-traffic-to-your-app",
+    label: "Get more app traffic",
+  },
+  {
+    href: "/how-to-get-new-users-for-your-app",
+    label: "Get new users",
+  },
+  {
+    href: "/how-to-get-paying-customers-for-your-saas",
+    label: "Get paying customers",
+  },
+  {
+    href: "/how-to-get-reviews-for-your-product",
+    label: "Get product reviews",
+  },
+  {
+    href: "/how-to-build-trust-on-your-website",
+    label: "Build website trust",
+  },
+];
+
+/** Three commercial outcomes sold on the homepage. */
+export const homeOutcomes = [
+  {
+    id: "review",
+    title: "Independent review",
+    outcome: "A public profile that records what we checked—not a star rating you bought.",
+    detail: "Manual review summary, reviewed signals and review ID prospects can open before they trust you.",
+    accent: "#3B82F6",
+  },
+  {
+    id: "quote",
+    title: "Visitor-ready quote",
+    outcome: "A short editorial line you can place on landing pages, decks and emails.",
+    detail: "Real review wording from Review Signal—clear context, not fake testimonial filler.",
+    accent: "#D4A943",
+  },
+  {
+    id: "backlink",
+    title: "Profile backlink",
+    outcome: "An outbound link from your published profile to your website when accepted.",
+    detail: "Prospects read the review, then click through to your product from the same record.",
+    accent: "#22C55E",
+  },
+] as const;
+
+export const homeProcessFlow = [
+  {
+    label: "Apply",
+    description: "Tell us about your product and choose Starter or Enhanced.",
+  },
+  {
+    label: "We review",
+    description: "Manual check of your live site, offer and trust signals.",
+  },
+  {
+    label: "You publish",
+    description: "Profile, quote, badge and backlink go live together.",
+  },
+] as const;
+
+export const heroProfileExample = {
+  productName: "Example AI Planner",
+  category: "Productivity / AI Tool",
+  status: "Profile Published",
+  reviewId: "RS-18427",
+  profileUrl: "reviewsignal.com/profile/example-ai-planner",
+  publishableQuote:
+    "A clear, focused planner for people who want structure without heavyweight project software.",
+  websiteLabel: "yourproduct.com",
+  summary:
+    "A focused productivity tool for planning tasks with AI-assisted scheduling. The public profile records what was reviewed and links to the live product.",
+  reviewedSignals: [
+    "Product purpose",
+    "Website clarity",
+    "Pricing visibility",
+    "Trust signals",
+    "User value",
+    "Support/contact route",
+  ],
+};
+
+export const audienceCards = [
+  {
+    title: "New app builders",
+    copy: "Give early users a clear third-party review profile to check before signing up.",
+  },
+  {
+    title: "SaaS and AI tools",
+    copy: "Show what your product does, who it is for and what was reviewed.",
+  },
+  {
+    title: "Service businesses",
+    copy: "Add a public credibility record that supports enquiries and website conversion.",
+  },
+  {
+    title: "Agencies and consultants",
+    copy: "Offer review profiles as an add-on to website, SEO and conversion work.",
+  },
+];
+
+export const profileDeliverables = [
+  "Public review profile",
+  "Editorial review summary",
+  "Key product details",
+  "Reviewed signals",
+  "Strengths and limitations",
+  "Category and use-case tags",
+  "Review Signal badge",
+  "Verification link / profile URL",
+  "Review ID",
+  "Optional screenshots or product evidence",
+];
+
+export const reviewProcessSteps = [
+  {
+    step: "01",
+    title: "Apply",
+    copy: "Submit your product, website or service for review.",
+  },
+  {
+    step: "02",
+    title: "We review",
+    copy: "We manually assess the product, public website and key trust signals.",
+  },
+  {
+    step: "03",
+    title: "Profile is drafted",
+    copy: "Your review profile is created with a clear summary and reviewed signals.",
+  },
+  {
+    step: "04",
+    title: "Profile is published",
+    copy: "You receive a public profile URL and badge that links back to your review record.",
+  },
+];
+
+export const integrityDoItems = [
+  "Manual review process",
+  "Public profile with clear review context",
+  "Suitability checks before publication",
+  "Editorial summary of what was reviewed",
+  "Honest strengths and limitations where applicable",
+];
+
+export const integrityDontItems = [
+  "Sell guaranteed positive reviews",
+  "Create fake customer ratings",
+  "Guarantee approval or endorsement",
+  "Verify claims that cannot be checked",
+  "Provide legal, financial or medical endorsement",
+  "Guarantee conversions, traffic or rankings",
+];
+
+export const conversionBenefits = [
+  "A third-party page to click",
+  "A clear record of what was reviewed",
+  "Product context before they enquire",
+  "Credibility signals from an independent review",
+  "An external proof asset for your site",
+  "Reassurance before enquiring or buying",
 ];
 
 export const faqItems = [
   {
-    question: "Is this a backlink service?",
+    question: "What am I paying for?",
     answer:
-      "Review Signal is a manual review desk: public review profiles, editorial notes, and verification badges. Approved profiles include a website link as part of the record—we do not sell ranking or SEO outcomes.",
+      "You pay for the manual review process and creation of a public review profile. Payment does not guarantee a positive review, approval or any specific commercial outcome.",
   },
   {
-    question: "Do you guarantee SEO results?",
+    question: "What do I receive after I apply?",
     answer:
-      "We publish review records and badges, not search performance. Rankings, indexing, traffic, and sales depend on your product and market; those outcomes are outside the review scope.",
+      "If your product is suitable and accepted, you receive a public review profile URL, reviewed signals, an editorial summary and—on Enhanced—a badge pack, strengths/limitations and expanded profile content.",
   },
   {
-    question: "Will my profile be indexed by Google?",
+    question: "Is a positive review guaranteed?",
     answer:
-      "Profiles default to noindex unless we approve indexing for a specific listing. A public review profile may still be shared by link; indexing is handled case by case and is not guaranteed.",
+      "No. Review Signal does not sell guaranteed positive reviews. We publish profiles with clear review context based on what we assessed.",
   },
   {
-    question: "How long does review take?",
+    question: "How long does the review take?",
     answer:
       "Approved submissions are usually reviewed and published within 24 hours after payment.",
   },
   {
-    question: "Can I use the review quote on my site?",
+    question: "Can I use the badge on my website?",
     answer:
-      "Yes. Founder Review includes a published quote and badge for use on your site, provided the badge links to your public review record on the desk.",
+      "Yes. Enhanced includes badge files that must link to your public Review Signal profile so visitors can see what was reviewed.",
   },
   {
-    question: "What happens if my app is rejected?",
+    question: "Can service businesses apply?",
+    answer:
+      "Yes. Review Signal accepts useful digital products, SaaS tools, apps, websites and service businesses with a clear public presence.",
+  },
+  {
+    question: "What happens if my submission is declined?",
     answer:
       "We may request changes or decline publication. Refund handling follows the terms shown at checkout.",
-  },
-  {
-    question: "What types of apps are not accepted?",
-    answer:
-      "We focus on clear, useful digital products. We may decline misleading, harmful, illegal, non-functional, or unsuitable submissions; regulated claims may need extra review.",
   },
 ];
 
 export const pricingPlans = [
   {
-    name: "Launch Listing",
+    name: reviewPackages.launch_listing.name,
     key: reviewPackages.launch_listing.key,
     price: reviewPackages.launch_listing.displayPrice,
     description:
-      "For businesses seeking a public directory record with a website link after manual suitability review.",
-    cta: "Apply for Launch Listing",
-    tierHint: "Focused entry",
+      "For early-stage apps, tools and simple websites that need a clear public review profile.",
+    cta: primaryCta,
+    tierHint: "Starter",
     featured: false,
     includes: [
-      "Public review desk record",
-      "Website link from the profile",
-      "Category placement in the directory",
-      "Manual suitability review",
-      "Publication if the desk accepts the submission",
+      "Manual review & public profile",
+      "Website backlink from profile",
+      "Reviewed signal checklist",
+      "Standard badge linking to profile",
+      "Profile URL to share",
     ],
   },
   {
-    name: "Founder Review",
+    name: reviewPackages.founder_review.name,
     key: reviewPackages.founder_review.key,
     price: reviewPackages.founder_review.displayPrice,
-    badge: "Full Review Output",
+    badge: "Most complete",
     recommendedLabel: "Recommended",
-    tierHint: "Full review output",
+    tierHint: "Enhanced",
     description:
-      "For businesses seeking a fuller review record with note, quote, badge and verification metadata.",
-    cta: "Apply for Founder Review",
+      "For SaaS tools, digital products and service businesses needing a stronger public profile.",
+    cta: primaryCta,
     featured: true,
     includes: [
-      "Everything in Launch Listing",
-      "Manual editorial review note",
-      "Short published review quote",
-      "Reviewed by Review Signal badge",
-      "Click-to-verify profile",
-      "Review ID and reviewed date",
-      "Human feedback on clarity and public trust signals",
+      "Everything in Starter",
+      "Publishable visitor quote for your site",
+      "Deeper review summary & limitations",
+      "Screenshots / product evidence",
+      "Multiple badge styles",
+      "Profile improvement notes",
     ],
   },
 ];
 
 export const comparisonRows = [
-  ["Public review record", true, true],
-  ["Website link from profile", true, true],
-  ["Category placement", true, true],
-  ["Manual suitability review", true, true],
-  ["Editorial review note", false, true],
-  ["Public review quote", false, true],
-  ["Black verification badge", false, true],
-  ["Click-to-verify profile", false, true],
-  ["Review ID and reviewed date", false, true],
-  ["Human clarity and trust feedback", false, true],
+  ["Public review profile", true, true],
+  ["Manual review process", true, true],
+  ["Editorial review summary", true, true],
+  ["Reviewed signal checklist", true, true],
+  ["Profile URL", true, true],
+  ["Standard badge", true, true],
+  ["Strengths and limitations", false, true],
+  ["Screenshots / product evidence", false, true],
+  ["Multiple badge styles", false, true],
+  ["Profile improvement notes", false, true],
 ] as const;
 
 export const categoryOptions = [
@@ -132,7 +331,7 @@ export const categoryOptions = [
   "Other",
 ];
 
-/** Editorial example profile backing `/example-review` (Divorce Calculator UK). */
+/** Example profile backing `/example-review` (Divorce Calculator UK). */
 export const exampleApp = {
   name: exampleDivorceCalculatorProfile.name,
   category: exampleDivorceCalculatorProfile.category,

@@ -97,7 +97,7 @@ export function WhatIsIncludedSection({ className }: WhatIsIncludedSectionProps)
                         <span className="font-semibold text-[#111827]">{item.title}</span>
                         {item.founderOnly ? (
                           <span className="rounded-full border border-[#B8944E]/30 bg-[#B8944E]/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.1em] text-[#8A6B2E]">
-                            Founder Review
+                            Enhanced Review Profile
                           </span>
                         ) : null}
                       </span>

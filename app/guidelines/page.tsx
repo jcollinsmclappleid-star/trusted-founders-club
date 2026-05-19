@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { AlertCircle, CheckCircle2, ShieldCheck } from "lucide-react";
 import { DisclaimerPanel } from "@/components/disclaimer-panel";
+import { IntegrityCard } from "@/components/integrity-card";
 import { ContentBand, PageHero, SectionHeading } from "@/components/page-shell";
+import { TrustNote } from "@/components/trust-note";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -40,9 +42,14 @@ export default function GuidelinesPage() {
     <>
       <PageHero
         eyebrow="Guidelines"
-        title="Curated reviews for credible digital products."
-        copy="Review Signal is selective by design. These guidelines explain what we review, what we reject and how we keep profiles useful, accurate and safe."
+        title="Manual review profiles with clear integrity standards."
+        copy="Review Signal is selective by design. These guidelines explain what we review, what we reject and how we keep public profiles useful, accurate and trustworthy."
       />
+
+      <ContentBand variant="wash">
+        <IntegrityCard />
+        <TrustNote className="mt-8 max-w-3xl" />
+      </ContentBand>
 
       <ContentBand>
         <div className="grid gap-8 lg:grid-cols-2">

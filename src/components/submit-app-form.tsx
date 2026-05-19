@@ -1,6 +1,7 @@
 "use client";
 
 import type { FormEvent, ReactNode } from "react";
+import type { LucideIcon } from "lucide-react";
 import { useMemo, useState } from "react";
 import {
   AlertCircle,
@@ -8,6 +9,8 @@ import {
   Clock3,
   CreditCard,
   FileText,
+  FileUp,
+  Image,
   Send,
   ShieldCheck,
 } from "lucide-react";
@@ -43,6 +46,7 @@ type FormValues = {
 };
 
 type ErrorMap = Partial<Record<keyof FormValues, string>>;
+type AssetErrorMap = ErrorMap & Partial<Record<"logoFile" | "screenshotFile", string>>;
 type ConsentField =
   | "accurateInfo"
   | "publicListingConsent"
@@ -51,7 +55,7 @@ type ConsentField =
   | "acceptsTerms";
 
 const defaultValues: FormValues = {
-  packageName: "Founder Review",
+  packageName: "Enhanced Review Profile",
   founderName: "",
   founderEmail: "",
   founderWebsite: "",
@@ -100,7 +104,8 @@ const requiredConsents: Array<{ name: ConsentField; label: string }> = [
   },
   {
     name: "understandsAcceptance",
-    label: "I understand not every submission is accepted.",
+    label:
+      "I understand that payment covers the review process and profile creation, not a guaranteed positive review or endorsement.",
   },
   {
     name: "understandsNoSeoGuarantees",
@@ -116,7 +121,7 @@ const requiredConsents: Array<{ name: ConsentField; label: string }> = [
 const sidebarSteps: ProcessStep[] = [
   {
     title: "Choose your output",
-    copy: "Select Launch Listing or Founder Review on the form.",
+    copy: "Select Starter or Enhanced on the form.",
   },
   {
     title: "Submit details",
@@ -125,7 +130,7 @@ const sidebarSteps: ProcessStep[] = [
   {
     title: "Desk review",
     copy: "We review manually after payment—usually within 24 hours when accepted.",
-    focus: "Publication follows desk standards, not payment alone.",
+    focus: "Publication follows review standards, not payment alone.",
   },
 ];
 
@@ -140,6 +145,14 @@ function isValidHttpUrl(value: string) {
   } catch {
     return false;
   }
+}
+
+function formatFileSize(bytes: number) {
+  if (bytes < 1024 * 1024) {
+    return `${Math.max(1, Math.round(bytes / 1024))}KB`;
+  }
+
+  return `${(bytes / (1024 * 1024)).toFixed(1)}MB`;
 }
 
 function fieldLabel(field: keyof FormValues) {
@@ -160,7 +173,9 @@ function fieldLabel(field: keyof FormValues) {
 
 export function SubmitAppForm() {
   const [values, setValues] = useState<FormValues>(defaultValues);
-  const [errors, setErrors] = useState<ErrorMap>({});
+  const [errors, setErrors] = useState<AssetErrorMap>({});
+  const [logoFile, setLogoFile] = useState<File | null>(null);
+  const [screenshotFile, setScreenshotFile] = useState<File | null>(null);
   const [checkoutError, setCheckoutError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -182,8 +197,23 @@ export function SubmitAppForm() {
     setCheckoutError("");
   }
 
+  function updateAsset(field: "logoFile" | "screenshotFile", file: File | null) {
+    if (field === "logoFile") {
+      setLogoFile(file);
+    } else {
+      setScreenshotFile(file);
+    }
+    setErrors((current) => {
+      if (!current[field]) return current;
+      const next = { ...current };
+      delete next[field];
+      return next;
+    });
+    setCheckoutError("");
+  }
+
   function validate() {
-    const nextErrors: ErrorMap = {};
+    const nextErrors: AssetErrorMap = {};
 
     if (!values.packageName) {
       nextErrors.packageName = "Choose a package.";
@@ -212,6 +242,21 @@ export function SubmitAppForm() {
       },
     );
 
+    (
+      [
+        ["logoFile", logoFile],
+        ["screenshotFile", screenshotFile],
+      ] as const
+    ).forEach(([field, file]) => {
+      if (!file) return;
+
+      if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+        nextErrors[field] = "Upload a JPG, PNG or WebP image.";
+      } else if (file.size > 5 * 1024 * 1024) {
+        nextErrors[field] = "Upload an image smaller than 5MB.";
+      }
+    });
+
     requiredConsents.forEach(({ name }) => {
       if (!values[name]) {
         nextErrors[name] = "Required before continuing.";
@@ -233,20 +278,30 @@ export function SubmitAppForm() {
     setCheckoutError("");
 
     try {
+      const formData = new FormData();
+      Object.entries({
+        ...values,
+        packageKey: selectedPlan.key,
+      }).forEach(([key, value]) => {
+        formData.append(key, String(value));
+      });
+
+      if (logoFile) {
+        formData.append("logoFile", logoFile);
+      }
+
+      if (screenshotFile) {
+        formData.append("screenshotFile", screenshotFile);
+      }
+
       const response = await fetch("/api/submissions/checkout", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...values,
-          packageKey: selectedPlan.key,
-        }),
+        body: formData,
       });
       const result = (await response.json()) as {
         checkoutUrl?: string;
         error?: string;
-        fields?: ErrorMap;
+        fields?: AssetErrorMap;
       };
 
       if (!response.ok) {
@@ -292,7 +347,7 @@ export function SubmitAppForm() {
               </h2>
               <p className="mt-2 text-sm text-[#6B7280]">
                 Publication is not automatic. The selected output defines what
-                can be issued if the desk accepts the submission.
+                can be issued if the submission is accepted for publication.
               </p>
             </div>
             {errors.packageName ? <FieldError message={errors.packageName} /> : null}
@@ -483,12 +538,27 @@ export function SubmitAppForm() {
           </div>
         </FormSection>
 
-        <FormSection eyebrow="Assets" title="Add optional image links.">
+        <FormSection eyebrow="Profile assets" title="Upload assets for the profile.">
           <p className="-mt-2 mb-5 text-sm leading-7 text-[#6B7280]">
-            Uploads will be added in a later sprint. For now, you can provide
-            public image links if available.
+            Add the image assets we can use on an approved public profile. JPG,
+            PNG and WebP files up to 5MB are accepted. Public image links are
+            still useful if your assets already live online.
           </p>
           <div className="grid gap-5 md:grid-cols-2">
+            <FileField
+              label="Logo upload"
+              file={logoFile}
+              error={errors.logoFile}
+              icon={Image}
+              onChange={(file) => updateAsset("logoFile", file)}
+            />
+            <FileField
+              label="Product screenshot upload"
+              file={screenshotFile}
+              error={errors.screenshotFile}
+              icon={FileUp}
+              onChange={(file) => updateAsset("screenshotFile", file)}
+            />
             <TextField
               label="Logo URL"
               value={values.logoUrl}
@@ -699,6 +769,55 @@ function TextField({
         aria-describedby={error ? `${id}-error` : undefined}
         className={fieldClassName(error)}
       />
+      {error ? <FieldError id={`${id}-error`} message={error} /> : null}
+    </div>
+  );
+}
+
+function FileField({
+  label,
+  file,
+  onChange,
+  error,
+  icon: Icon,
+}: {
+  label: string;
+  file: File | null;
+  onChange: (file: File | null) => void;
+  error?: string;
+  icon: LucideIcon;
+}) {
+  const id = label.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+  return (
+    <div>
+      <FieldLabel htmlFor={id} label={label} helper="Optional" />
+      <label
+        htmlFor={id}
+        className={cn(
+          "flex min-h-28 cursor-pointer flex-col justify-between rounded-[8px] border bg-[#F7F3EA] p-4 transition focus-within:ring-2 focus-within:ring-[#B8944E]",
+          error ? "border-[#A66A2C]" : "border-[#E7E0D2] hover:border-[#B8944E]/50",
+        )}
+      >
+        <input
+          id={id}
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          className="sr-only"
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? `${id}-error` : undefined}
+          onChange={(event) => onChange(event.target.files?.[0] ?? null)}
+        />
+        <span className="flex items-center gap-3 text-sm font-semibold text-[#111827]">
+          <span className="flex size-10 items-center justify-center rounded-[6px] border border-[#B8944E]/30 bg-[#FFFDF7] text-[#8A6B2E]">
+            <Icon aria-hidden="true" size={18} />
+          </span>
+          Choose image
+        </span>
+        <span className="mt-4 block min-h-5 truncate text-xs font-medium text-[#6B7280]">
+          {file ? `${file.name} (${formatFileSize(file.size)})` : "JPG, PNG or WebP up to 5MB"}
+        </span>
+      </label>
       {error ? <FieldError id={`${id}-error`} message={error} /> : null}
     </div>
   );

@@ -10,7 +10,7 @@ import { BadgeVerificationPanel } from "@/components/badge-verification-panel";
 import { DisclaimerPanel } from "@/components/disclaimer-panel";
 import { ReviewQuoteCard } from "@/components/review-quote-card";
 import { TrustBadge } from "@/components/trust-badge";
-import { siteConfig } from "@/lib/site";
+import { paidListingWebsiteRel, siteConfig } from "@/lib/site";
 
 export type EditorialProfileLayoutProps = {
   eyebrow?: string;
@@ -60,7 +60,7 @@ export function EditorialProfileLayout({
   logoAlt,
   shortDescription,
   website,
-  websiteRel = "sponsored nofollow noopener",
+  websiteRel = paidListingWebsiteRel,
   quote,
   quoteMeta = `Reviewed by ${siteConfig.name}`,
   reviewId,
@@ -78,22 +78,22 @@ export function EditorialProfileLayout({
   badgeVerifyHref,
 }: EditorialProfileLayoutProps) {
   return (
-    <section className="bg-[#F7F3EA] px-5 py-16 sm:px-6 md:py-24 lg:px-8">
+    <section className="bg-[#F5F1E8] px-5 py-16 sm:px-6 md:py-24 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="rounded-[10px] border border-[#E7E0D2] bg-[#FFFDF7] shadow-[0_28px_90px_rgba(7,10,15,0.1)]">
-          <div className="border-b border-[#E7E0D2] bg-[#F7F3EA] px-6 py-4">
+          <header className="border-b border-white/10 bg-[#0B0F17] px-6 py-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#B8944E]">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D4A943]">
                   {eyebrow}
                 </p>
-                <p className="mt-1 text-sm text-[#6B7280]">{profileNote}</p>
+                <p className="mt-1 text-sm text-[#A8ADB7]">{profileNote}</p>
               </div>
-              <span className="rounded-[6px] border border-[#B8944E]/35 bg-[#B8944E]/10 px-3 py-1.5 text-xs font-semibold text-[#7A5D2D]">
+              <span className="status-published rounded-full border border-[#22C55E]/30 bg-[#22C55E]/10 px-3 py-1.5 text-xs font-semibold">
                 {statusLabel}
               </span>
             </div>
-          </div>
+          </header>
 
           <div className="grid gap-10 p-6 md:grid-cols-[0.9fr_1.1fr] md:p-8">
             <div>
@@ -156,7 +156,11 @@ export function EditorialProfileLayout({
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#B8944E]">
                   {label}
                 </p>
-                <p className="mt-2 font-medium text-[#111827]">{value}</p>
+                <p
+                  className={`mt-2 font-medium text-[#111827] ${label === "Review ID" ? "font-mono-label" : ""}`}
+                >
+                  {value}
+                </p>
               </div>
             ))}
           </div>
@@ -186,7 +190,7 @@ export function EditorialProfileLayout({
 
             <section className="rounded-[8px] border border-[#E7E0D2] bg-[#FFFDF7] p-6">
               <h2 className="font-serif text-3xl text-[#111827]">
-                What we checked
+                Reviewed signals
               </h2>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {checkedItems.map((item) => (
@@ -292,8 +296,8 @@ export function EditorialProfileLayout({
               </p>
             </div>
             <p className="text-sm leading-7 text-[#6B7280]">
-              Desk verification for {name} is dated {reviewedDate}. Website
-              experiences may change after publication.
+              Profile published {reviewedDate}. Website experiences may change
+              after publication.
             </p>
           </aside>
         </div>

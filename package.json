@@ -7,10 +7,11 @@
     "build": "next build",
     "start": "next start",
     "fetch:editorial-assets": "node scripts/fetch-editorial-assets.mjs",
-    "lint": "eslint"
+    "lint": "eslint",
+    "verify:seo": "npx tsx -e \"import { validateSeoGuideWordCounts } from './src/lib/seo-pages.ts'; validateSeoGuideWordCounts(); console.log('All SEO guides meet word count.');\"",
+    "analyze:seo": "npx tsx scripts/analyze-seo-duplication.ts"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.10.3",
     "@supabase/supabase-js": "^2.105.4",
     "lucide-react": "latest",
     "next": "latest",

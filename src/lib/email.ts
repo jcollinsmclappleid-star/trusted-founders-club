@@ -161,7 +161,7 @@ export function buildSubmissionEmailPreview(
         ]
       : [
           "",
-          "This package includes the public listing profile. Review quote and badge embed assets are included with the Founder Review package.",
+          "This package includes the public listing profile. Review quote and badge embed assets are included with the Enhanced Review Profile package.",
         ];
 
     return {
@@ -195,7 +195,7 @@ export function buildSubmissionEmailPreview(
         "",
         submission.change_request_message ?? "[Change Request Message]",
         "",
-        "You can update your submission from your account.",
+        `Reply to this email or contact ${siteConfig.supportEmail} with the requested updates.`,
         "",
         "Thanks,",
         "Review Signal",

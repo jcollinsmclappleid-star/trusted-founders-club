@@ -109,7 +109,6 @@ export default async function SubmissionDetailPage({
           <DetailSection title="Founder">
             <ValueRow label="Founder name" value={submission.founder_name} />
             <ValueRow label="Founder email" value={submission.founder_email} />
-            <ValueRow label="Customer user ID" value={submission.user_id} />
             <ValueRow label="Founder website" value={submission.founder_website} />
             <ValueRow label="Founder social URL" value={submission.founder_social_url} />
           </DetailSection>

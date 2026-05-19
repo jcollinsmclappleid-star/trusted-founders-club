@@ -1,0 +1,178 @@
+import { buildGuideBody } from "@/content/seo/build-guide";
+import type { SeoGuideContent } from "@/lib/seo-types";
+
+export const howToStandOutAsANewAppContent: SeoGuideContent = buildGuideBody({
+  valueBenefits: [
+    {
+      title: "Differentiation story",
+      outcome: "Say clearly who you are for.",
+      detail:
+        "Editorial reviews summarise your niche and use case—helping you stand out in crowded markets.",
+      accent: "#3B82F6",
+    },
+    {
+      title: "Launch-ready proof",
+      outcome: "Ship day one with credibility.",
+      detail:
+        "Publish a profile before major launch moments so every channel points to verification.",
+      accent: "#D4A943",
+    },
+    {
+      title: "Shareable review link",
+      outcome: "Make launches memorable.",
+      detail:
+        "Product Hunt, newsletters and LinkedIn posts pop when you link a real review, not only a landing page.",
+      accent: "#22C55E",
+    },
+  ],
+  winningParagraphs: [
+    "New apps compete for attention in crowded categories. Standing out means a sharp position, visible proof and consistent presence where your ideal users already spend time.",
+    "Differentiation is a promise only you can keep—not a list of ten feature bullets every competitor also claims.",
+    "Launch is a sequence, not a day. Prepare proof assets before the spike so traffic converts instead of bouncing.",
+    "Write positioning as a single sentence you can repeat verbatim in every channel for thirty days.",
+    "Capture launch metrics publicly after day seven—transparency builds trust with the next wave of users.",
+    "Standing out is a repeat game: show up weekly in one channel with the same sharp story and verifiable proof link.",
+  ],
+  trustParagraphs: [
+    "Unknown apps trigger skepticism by default. You stand out faster when you look reviewed, specific and approachable—not generic.",
+    "UK founders win niches by speaking directly to a job-to-be-done and showing evidence early.",
+    "A public review profile is a differentiation asset: it says someone examined your product and published a record prospects can read.",
+    "Differentiation plus verification beats differentiation alone—novelty attracts clicks, proof earns signups.",
+    "Launch traffic spikes fade; a durable review profile keeps working in search and sales cycles.",
+  ],
+  playbookParagraphs: [
+    "Choose a wedge market small enough to dominate. Own one phrase in buyers’ minds.",
+    "Craft a homepage headline a stranger understands in five seconds. Test it on people outside your industry.",
+    "Build in public selectively—share milestones that matter to users, not every commit.",
+    "Design a visual identity that is cohesive across site, social and product—not necessarily flashy.",
+    "Prepare launch assets two weeks early: screenshots, short demo video, FAQ, profile link, email to waitlist.",
+    "Line up five amplifiers: newsletters, communities, partners, friends with audiences, micro-creators.",
+    "Run a timed launch on platforms your ICP uses. Comment thoughtfully all day; do not post and disappear.",
+    "Follow up launches with a case study or tutorial—extend the news cycle.",
+    "Collect early user quotes quickly; pair them with an editorial profile for depth.",
+    "Avoid feature parity wars. Highlight the one workflow you do better than anyone.",
+    "Publish your Review Signal profile and lead with the review ID in launch threads—stand out with verification, not hype.",
+    "List in the directory so discovery continues after launch day adrenaline fades.",
+    "Name a clear enemy—spreadsheet chaos, manual reporting, generic AI—not a competitor you cannot beat yet.",
+    "Ship a memorable micro-brand moment: illustration style, tone or onboarding copy only you would write.",
+    "Prepare three launch angles for different channels—community story, founder story, product story.",
+    "Collect screenshots from day one; retroactive visuals look rushed on launch week.",
+    "Pin your review profile link in founder social bios before launch day traffic arrives.",
+    "Document launch learnings in a short post after day seven—specific metrics and a profile link read as honest, not hype.",
+    "Repurpose launch screenshots into a tutorial post so discovery continues when the initial spike fades.",
+    "When amplifiers ask for assets, send profile URL, quote and review ID before they ask for a deck.",
+    "Avoid launching the same story on every channel; tailor community, founder and product angles with the same proof link.",
+    "After launch, reply to every thoughtful comment with substance—visibility plus credibility compounds.",
+    "Submit to one quality UK startup list with your profile URL—not ten spam directories that dilute your brand.",
+    "Record a ninety-second demo focused on one workflow; short proof beats a ten-minute tour for launch-week attention.",
+    "Write three LinkedIn posts from one launch story—problem, proof link, customer outcome—instead of one generic announcement.",
+    "Invite five beta users to a live Q&A; record answers (with permission) for post-launch proof content.",
+    "Create a comparison table against the status quo—not only named competitors—so positioning feels honest.",
+    "Ship a memorable onboarding moment users screenshot and share; organic proof beats paid influencer posts early on.",
+  ],
+  sellParagraphs: [
+    "Review Signal helps new apps stand out with a published editorial profile, quote, badge and directory visibility—proof you can ship before your biggest launch week.",
+    "Starter (£99) is tailored to early apps; Enhanced (£199) when you need richer editorial depth for complex positioning.",
+    "You are buying assets that make every channel look more serious overnight.",
+    "Browse /example-review to see how early-stage products present reviewed signals beside a clear niche headline.",
+  ],
+  convertParagraphs: [
+    "Standing out earns attention; proof converts it. Launch traffic should land on pages with quote, badge and profile link ready.",
+    "Make your differentiation claim match what the editorial review documents—alignment feels professional.",
+    "Preview the example profile as a template for how new apps present themselves credibly.",
+    "In launch threads, link the profile before the homepage—curious readers verify first and arrive warmer.",
+    "Product Hunt maker comments with a review ID often outperform feature lists because voters can fact-check in one click.",
+    "Waitlist pages with proof convert better than hype-only headlines—give strangers a clear reason to leave an email address.",
+  ],
+  credibleParagraphs: [
+    "Differentiation without proof reads as marketing fluff. Proof without differentiation reads as generic.",
+    "Editorial reviews capture who you serve and what was checked—ideal for new apps establishing category position.",
+    "Guidelines show how reviews are conducted so early adopters trust the process.",
+    "When press asks what makes you different, send the profile URL plus one customer quote—two voices beat a pitch deck.",
+    "Update launch creative after publication so screenshots match what the editorial review describes.",
+  ],
+  sellBullets: [
+    "Editorial positioning captured on a public profile",
+    "Launch-ready quote for social and newsletter creative",
+    "Badge for site, launch page and maker comments",
+    "Review ID to stand out in crowded launch threads",
+    "Directory listing for post-launch discovery",
+    "Backlink from profile to your app or site",
+  ],
+  placementParagraphs: [
+    "Launch proof everywhere attention goes during week one.",
+    "Pre-write three posts that each lead with the profile URL—launch day is too hectic to invent copy.",
+    "Keep the badge on the launch landing page after week one; post-launch traffic still needs verification.",
+  ],
+  placementBullets: [
+    "Launch landing page hero",
+    "Product Hunt maker comment",
+    "Newsletter sponsor copy",
+    "LinkedIn launch carousel",
+    "Email waitlist announcement",
+    "Community posts with profile URL",
+  ],
+  comparisonParagraphs: [
+    "New apps often launch with loud feature grids and no verification—voters and visitors admire the design but hesitate to sign up.",
+    "Review Signal gives launch week a shareable editorial page with review ID, so you stand out with proof competitors cannot fake overnight.",
+    "A homepage alone asks strangers to trust your copy; a profile gives them an independent page to open before they join your waitlist.",
+    "Launch hype fades quickly; a published profile keeps giving amplifiers and journalists a credible link for months after day one.",
+  ],
+  fastWinsParagraphs: [
+    "Write your one-sentence positioning today and test it on three people outside your industry before you design launch graphics.",
+    "Apply for a profile two weeks before your biggest launch so quote and badge are live when amplifiers post.",
+    "Pin the profile URL in your bio and maker comment template tonight—launch day is too late to hunt for links.",
+    "Draft three launch headlines today and test them in a small UK founder community post before the main event.",
+  ],
+  nextStepsParagraphs: [
+    "Apply at /submit before launch week, compare Starter (£99) and Enhanced (£199) on /pricing, and study /example-review for how new products present proof.",
+    "After publication, pin the profile URL in founder bios and add the review ID to your Product Hunt maker comment template.",
+    "One week post-launch, publish a short recap post with metrics and the profile link—second-wave readers convert better with proof ready.",
+    "Add the profile to your pitch deck appendix so investors and partners verify claims without a second meeting.",
+    "Comment on ten launch threads with helpful advice and your profile link only when asked—standing out is generosity plus proof.",
+  ],
+  winsBullets: [
+    "Write one-sentence positioning",
+    "Schedule launch assets two weeks out",
+    "Line up five amplifiers",
+    "Apply for Review Signal pre-launch",
+    "Add badge to homepage",
+    "Publish tutorial post-launch",
+    "Collect three user quotes",
+    "Submit to directory after publish",
+  ],
+  faq: [
+    {
+      q: "How do I market a new app in the UK?",
+      a: "Pick a niche, prepare proof, launch where your users gather and follow up with helpful content. A public review profile gives launches a credible link beyond your homepage.",
+    },
+    {
+      q: "How can a new app stand out in a crowded market?",
+      a: "Sharpen positioning, show verifiable proof early and focus on one channel until it works. Generic feature lists rarely differentiate.",
+    },
+    {
+      q: "Should I get a review before launching?",
+      a: "Ideally yes—publish proof before your biggest traffic spike so visitors convert during attention peaks.",
+    },
+    {
+      q: "What goes in a launch press kit?",
+      a: "Screenshots, founder story, pricing summary, contact details and a link to your Review Signal profile with review ID.",
+    },
+    {
+      q: "Does Review Signal work for mobile apps?",
+      a: "Yes—web and mobile apps with clear live sites and offers can be reviewed when suitable.",
+    },
+    {
+      q: "How much for early-stage apps?",
+      a: "Starter profiles from £99 include manual review and core published assets.",
+    },
+    {
+      q: "Will I be in the directory?",
+      a: "Published suitable profiles can appear in the Review Signal directory for ongoing discovery.",
+    },
+    {
+      q: "Can I update my profile later?",
+      a: "Contact support for material changes; keep your live site aligned with what was reviewed.",
+    },
+  ],
+});

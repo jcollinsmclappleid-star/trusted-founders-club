@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { EditorialProfileLayout } from "@/components/editorial-profile-layout";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, paidListingWebsiteRel } from "@/lib/site";
 import {
   createSignedAssetUrl,
   defaultDeskCheckedItems,
@@ -95,7 +95,7 @@ export default async function AppProfilePage({ params }: ProfilePageProps) {
         shortDescription={submission.short_description}
         website={submission.app_url}
         websiteRel={
-          submission.external_link_rel ?? "sponsored nofollow noopener"
+          submission.external_link_rel ?? paidListingWebsiteRel
         }
         quote={
           submission.public_review_quote ??

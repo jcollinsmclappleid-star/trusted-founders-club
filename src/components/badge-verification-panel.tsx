@@ -23,12 +23,12 @@ export function BadgeVerificationPanel({
           Badge verification
         </p>
         <h2 className="mt-3 font-serif text-3xl leading-tight text-[#111827] md:text-4xl">
-          A badge your visitors can verify.
+          A badge that links back to your review profile
         </h2>
         <p className="text-muted mt-4 max-w-lg text-base leading-7">
-          Accepted Founder Review submissions receive a badge that opens their
-          public review profile—editorial note, checks, review ID, and website link in
-          one place.
+          Enhanced profiles include a badge visitors can click to open your public
+          review record—summary, reviewed signals, review ID and profile URL in one
+          place.
         </p>
         <Link
           href="/guidelines"

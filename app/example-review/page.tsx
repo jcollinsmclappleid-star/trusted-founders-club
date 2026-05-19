@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { EditorialProfileLayout } from "@/components/editorial-profile-layout";
 import { PageHero } from "@/components/page-shell";
-import { exampleApp, pageMetadata } from "@/lib/site";
+import { exampleApp, ownedListingWebsiteRel, pageMetadata } from "@/lib/site";
 import { getInitials } from "@/lib/submissions";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Divorce Calculator UK — Example Editorial Profile",
+  title: "Example public review profile",
   description:
-    "See how Review Signal publishes an editorial review profile: summary, desk checks, trust signals, website link and verification badge framing.",
+    "See how Review Signal publishes a public review profile: summary, reviewed signals, trust notes, website link and badge linked to the review record.",
   path: "/example-review",
 });
 
@@ -16,8 +16,8 @@ export default function ExampleReviewPage() {
     <>
       <PageHero
         eyebrow="Example profile"
-        title="Editorial review profile: Divorce Calculator UK."
-        copy="This is a real-format desk listing shown as an example. Wording focuses on what we publish and verify—not legal, financial or outcome guarantees."
+        title="Public review profile: Divorce Calculator UK"
+        copy="A published example showing review summary, reviewed signals and a badge that links back to this record—not legal, financial or outcome guarantees."
       />
 
       <EditorialProfileLayout
@@ -30,6 +30,7 @@ export default function ExampleReviewPage() {
         screenshotAlt={`${exampleApp.name} website screenshot`}
         shortDescription={exampleApp.shortDescription}
         website={exampleApp.website}
+        websiteRel={ownedListingWebsiteRel}
         quote={exampleApp.quote}
         reviewId={exampleApp.reviewId}
         reviewedDate={exampleApp.reviewedDate}

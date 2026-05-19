@@ -1,7 +1,7 @@
 import { CheckCircle2, Minus } from "lucide-react";
-import { comparisonRows } from "@/lib/site";
+import { comparisonRows, pricingPlans } from "@/lib/site";
 
-const planNames = ["Launch Listing", "Founder Review"];
+const planNames = pricingPlans.map((p) => p.name);
 
 export function ComparisonTable() {
   return (

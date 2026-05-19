@@ -21,10 +21,10 @@ export function PrimaryButton({
   const isExternal = href.startsWith("http") || href.startsWith("mailto:");
 
   const classes = cn(
-    "inline-flex h-12 items-center justify-center gap-2 rounded-[8px] px-5 text-sm font-semibold shadow-sm transition duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#B8944E] focus:ring-offset-2",
+    "inline-flex h-12 items-center justify-center gap-2 rounded-[8px] px-5 text-sm font-semibold shadow-sm transition duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#D4A943] focus:ring-offset-2",
     dark
-      ? "bg-[#B8944E] text-[#070A0F] hover:bg-[#E6D3A3] focus:ring-offset-[#0B1220]"
-      : "border border-[#111827] bg-[#0B1220] text-[#FFFDF7] hover:border-[#B8944E] hover:bg-[#111827] focus:ring-offset-[#F7F3EA]",
+      ? "bg-[#D4A943] text-[#0B0F17] hover:bg-[#E7C76B] focus:ring-offset-[#0B0F17]"
+      : "border border-[#111827] bg-[#0B0F17] text-[#F8F4EA] hover:border-[#D4A943] hover:bg-[#101216] focus:ring-offset-[#F5F1E8]",
     fullMobile && "w-full sm:w-auto",
     className,
   );
@@ -56,10 +56,10 @@ export function SecondaryButton({
   const isExternal = href.startsWith("http") || href.startsWith("mailto:");
 
   const classes = cn(
-    "inline-flex h-12 items-center justify-center rounded-[8px] border px-5 text-sm font-semibold transition duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#B8944E] focus:ring-offset-2",
+    "inline-flex h-12 items-center justify-center rounded-[8px] border px-5 text-sm font-semibold transition duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#D4A943] focus:ring-offset-2",
     dark
-      ? "border-[#F7F3EA]/40 text-[#FFFDF7] hover:border-[#E6D3A3] hover:bg-white/5 focus:ring-offset-[#0B1220]"
-      : "border-[#B8944E]/45 bg-[#FFFDF7] text-[#0B1220] hover:border-[#0B1220]/40 hover:bg-[#F7F3EA] focus:ring-offset-[#F7F3EA]",
+      ? "border-[#F8F4EA]/40 text-[#F8F4EA] hover:border-[#E7C76B] hover:bg-white/5 focus:ring-offset-[#0B0F17]"
+      : "border-[#D4A943]/45 bg-white text-[#0B0F17] hover:border-[#101216]/40 hover:bg-[#F5F1E8] focus:ring-offset-[#F5F1E8]",
     fullMobile && "w-full sm:w-auto",
     className,
   );

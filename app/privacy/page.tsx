@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-shell";
-import { pageMetadata } from "@/lib/site";
+import { pageMetadata, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Privacy",
@@ -12,7 +12,7 @@ export const metadata: Metadata = pageMetadata({
 const sections = [
   {
     title: "Data collected through submission forms",
-    copy: "Review Signal may collect applicant name, email address, account details, app name, app URL, category, description, target customer, applicant notes, logo and screenshot assets, selected package details and review workflow information when an app is submitted.",
+    copy: "Review Signal may collect applicant name, email address, app name, app URL, category, description, target customer, applicant notes, logo and screenshot assets, selected package details and review workflow information when an app is submitted.",
   },
   {
     title: "Payment handling",
@@ -28,7 +28,7 @@ const sections = [
   },
   {
     title: "Contact details",
-    copy: "A production privacy notice should include a valid contact email for privacy questions and data requests before launch.",
+    copy: `For privacy questions and data requests, contact ${siteConfig.supportEmail}. ${siteConfig.name} is operated by ${siteConfig.companyName}, ${siteConfig.companyRegistration}.`,
   },
   {
     title: "Data deletion and contact requests",
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
       <PageHero
         eyebrow="Privacy"
         title="Privacy notice."
-        copy="This notice explains the expected handling of submission data, account data, payment processing, transactional emails and public listing consent."
+        copy="This notice explains the expected handling of application data, payment processing, transactional emails and public listing consent."
       />
 
       <section className="bg-[#F7F3EA] px-5 py-16 sm:px-6 md:py-24 lg:px-8">

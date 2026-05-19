@@ -2,7 +2,6 @@
  * Approved editorial listings showcased when live Supabase data is absent.
  * Excludes domains the client chose not to feature publicly (e.g. adult content sites).
  */
-
 export type EditorialListing = {
   initials: string;
   name: string;
@@ -16,6 +15,8 @@ export type EditorialListing = {
   whyListed: string;
   badgeMeaning: string;
   website: string;
+  /** Owned portfolio sites use follow links; defaults to ownedListingWebsiteRel. */
+  websiteRel?: string;
   logoSrc: string;
   screenshotSrc: string;
   /** Public profile preview target */
