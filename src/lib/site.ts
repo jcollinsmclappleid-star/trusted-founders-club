@@ -45,6 +45,7 @@ export const badgeAssets = {
 
 export const navItems = [
   { href: "/apps", label: "Directory" },
+  { href: "/guides", label: "Guides" },
   { href: "/#how-it-works", label: "How it works" },
   { href: "/example-review", label: "Example profile" },
   { href: "/pricing", label: "Pricing" },
@@ -53,6 +54,7 @@ export const navItems = [
 
 export const footerExploreLinks = [
   { href: "/apps", label: "Profile directory" },
+  { href: "/guides", label: "All guides" },
   { href: "/#how-it-works", label: "How it works" },
   { href: "/example-review", label: "Example profile" },
   { href: "/pricing", label: "Pricing" },
