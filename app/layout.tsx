@@ -1,80 +1,141 @@
 import type { Metadata } from "next";
-import { Inter, Libre_Baskerville } from "next/font/google";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
-import { absoluteUrl, siteConfig } from "@/lib/site";
+import { Cormorant_Garamond, Crimson_Text, Julius_Sans_One } from "next/font/google";
+import { SiteShell } from "@/components/site-shell";
+import { isProductionHost, siteConfig } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
-const libre = Libre_Baskerville({
-  variable: "--font-display",
+const crimson = Crimson_Text({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-crimson",
   display: "swap",
 });
+
+const julius = Julius_Sans_One({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-julius",
+  display: "swap",
+});
+
+const indexing = isProductionHost();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url),
   title: {
-    default: "Review Signal | App Reviews, Public Profiles & Trust Badges",
-    template: "%s | Review Signal",
+    default: "Dermot Cox Counselling | Little Hampden, near Great Missenden",
+    template: "%s | Dermot Cox Counselling",
   },
   description: siteConfig.description,
   alternates: {
-    canonical: absoluteUrl("/"),
+    canonical: siteConfig.url,
   },
   openGraph: {
-    title: "Review Signal | App Reviews, Public Profiles & Trust Badges",
+    title: "Dermot Cox Counselling",
     description: siteConfig.description,
-    url: absoluteUrl("/"),
+    url: siteConfig.url,
     siteName: siteConfig.name,
     type: "website",
+    locale: "en_GB",
+    images: [
+      {
+        url: "/media/woodland.jpg",
+        width: 1500,
+        height: 1000,
+        alt: "Two people sitting together on a fallen tree in autumn woodland",
+      },
+    ],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: indexing
+    ? { index: true, follow: true }
+    : { index: false, follow: false, nocache: true },
 };
 
-const organizationJsonLd = {
+const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.name,
-  url: siteConfig.url,
-  description: siteConfig.description,
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      description: siteConfig.description,
+      inLanguage: "en-GB",
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteConfig.url}/#dermot`,
+      name: "Dermot Cox",
+      url: siteConfig.url,
+      email: siteConfig.email,
+      telephone: "+447831572050",
+      jobTitle: "Psychotherapist and counsellor",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Little Hampden",
+        addressRegion: "Buckinghamshire",
+        postalCode: "HP16 9PS",
+        addressCountry: "GB",
+      },
+      memberOf: [
+        {
+          "@type": "Organization",
+          name: "British Association for Counselling and Psychotherapy",
+        },
+        {
+          "@type": "Organization",
+          name: "UK Council for Psychotherapy",
+        },
+      ],
+    },
+    {
+      "@type": "Service",
+      name: "Individual therapy",
+      serviceType: "Psychotherapy and counselling",
+      provider: { "@id": `${siteConfig.url}/#dermot` },
+      areaServed: "Little Hampden, near Great Missenden, Buckinghamshire",
+      offers: {
+        "@type": "Offer",
+        price: "75",
+        priceCurrency: "GBP",
+        description: "50 minutes, in person or online",
+      },
+    },
+    {
+      "@type": "Service",
+      name: "Couples therapy",
+      serviceType: "Relationship psychotherapy and counselling",
+      provider: { "@id": `${siteConfig.url}/#dermot` },
+      areaServed: "Little Hampden, near Great Missenden, Buckinghamshire",
+      offers: {
+        "@type": "Offer",
+        price: "120",
+        priceCurrency: "GBP",
+        description: "60 minutes, in person or online",
+      },
+    },
+  ],
 };
 
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: siteConfig.name,
-  url: siteConfig.url,
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
-      className={`${inter.variable} ${libre.variable} h-full scroll-smooth antialiased`}
+      lang="en-GB"
+      className={`${cormorant.variable} ${crimson.variable} ${julius.variable} h-full`}
     >
-      <body className="flex min-h-full flex-col bg-[#F5F1E8] text-[#111827]">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+      <body className="min-h-full antialiased">
+        <SiteShell>{children}</SiteShell>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationJsonLd, websiteJsonLd]),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </body>
     </html>
