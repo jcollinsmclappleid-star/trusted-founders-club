@@ -257,28 +257,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             {chapterLabels[active] ?? "Little Hampden"}
           </span>
         </p>
-        <div className="scroll-leaf" aria-hidden="true">
-          <svg viewBox="0 0 64 80">
-            <path
-              fill="#c65c28"
-              d="M34 4c10 8 24 22 22 40-2 16-12 26-22 30-10-4-20-14-22-30C10 26 24 12 34 4z"
-            />
-            <path
-              d="M33 18c1 14 1 28 0 42"
-              fill="none"
-              stroke="#8a3d16"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-            />
-            <path
-              d="M33 34c6-2 12-2 16 1M33 46c-5-1-11 0-15 3"
-              fill="none"
-              stroke="#8a3d16"
-              strokeWidth="1.2"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
       </header>
 
       {open ? (

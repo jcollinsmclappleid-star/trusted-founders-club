@@ -9,7 +9,6 @@
   --color-gold: #a8741a;
   --color-ember: #c65c28;
   --color-line: rgba(78, 93, 78, 0.14);
-  --leaf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 80'%3E%3Cpath fill='black' d='M34 4c10 8 24 22 22 40-2 16-12 26-22 30-10-4-20-14-22-30C10 26 24 12 34 4z'/%3E%3C/svg%3E");
 }
 
 * {
@@ -228,18 +227,7 @@ h4,
 }
 
 .menu-link[data-current="true"] {
-  color: var(--color-ember);
-}
-
-.menu-link[data-current="true"]::before {
-  content: "";
-  width: 0.7rem;
-  height: 0.85rem;
-  margin-right: 0.45rem;
-  flex: none;
-  background: var(--color-ember);
-  -webkit-mask: var(--leaf) center / contain no-repeat;
-  mask: var(--leaf) center / contain no-repeat;
+  box-shadow: inset 0 -1px 0 var(--color-ember);
 }
 
 .menu-child {
@@ -342,24 +330,6 @@ h4,
   overflow: visible;
 }
 
-.scroll-leaf {
-  position: absolute;
-  z-index: 5;
-  left: calc(var(--scroll, 0) * (100% - 3rem));
-  bottom: -1.85rem;
-  width: 2.15rem;
-  height: 2.7rem;
-  pointer-events: none;
-  filter: drop-shadow(0 2px 2px rgba(90, 36, 12, 0.35));
-}
-
-.scroll-leaf svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform: rotate(calc(-16deg + var(--scroll, 0) * 24deg));
-}
-
 .chapter-slot {
   display: none;
   margin: 0;
@@ -406,24 +376,6 @@ h4,
   font-size: clamp(1.85rem, 4.6vw, 3.15rem);
   line-height: 1.35;
   color: var(--color-forest);
-}
-
-#page-content h2::before,
-#page-content h3::before {
-  content: "";
-  display: inline-block;
-  width: 0.95rem;
-  height: 1.15rem;
-  margin-right: 0.55rem;
-  vertical-align: 0.02em;
-  background: var(--color-ember);
-  -webkit-mask: var(--leaf) center / contain no-repeat;
-  mask: var(--leaf) center / contain no-repeat;
-}
-
-#page-content h3::before {
-  width: 0.72rem;
-  height: 0.88rem;
 }
 
 .about-chapter {
@@ -740,10 +692,6 @@ h4,
   .menu-panel {
     animation: menu-in 560ms cubic-bezier(0.16, 1, 0.3, 1);
   }
-
-  .scroll-leaf {
-    transition: left 140ms linear;
-  }
 }
 
 @keyframes menu-in {
@@ -779,8 +727,7 @@ h4,
   }
 
   .chapter-label,
-  .menu-panel,
-  .scroll-leaf {
+  .menu-panel {
     animation: none;
     transition: none;
   }
