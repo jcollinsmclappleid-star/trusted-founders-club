@@ -7,7 +7,9 @@
   --color-ivory: #fffbf5;
   --color-ivory-deep: #f3eee4;
   --color-gold: #a8741a;
-  --color-line: rgba(78, 93, 78, 0.18);
+  --color-ember: #c65c28;
+  --color-line: rgba(78, 93, 78, 0.14);
+  --leaf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 80'%3E%3Cpath fill='black' d='M34 4c10 8 24 22 22 40-2 16-12 26-22 30-10-4-20-14-22-30C10 26 24 12 34 4z'/%3E%3C/svg%3E");
 }
 
 * {
@@ -52,17 +54,36 @@ img.logo-mark {
   height: 2.5rem;
 }
 
+.menu-panel img.logo-mark {
+  height: 1.85rem;
+  max-width: 8.5rem;
+}
+
 a {
   color: inherit;
 }
 
-:focus-visible,
+:focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 3px;
+}
+
 h1:focus,
 h2:focus,
 h3:focus,
 h4:focus {
-  outline: 2px solid var(--color-forest);
-  outline-offset: 3px;
+  outline: none;
+}
+
+h1:focus-visible,
+h2:focus-visible,
+h3:focus-visible,
+h4:focus-visible {
+  outline: none;
+  background-image: linear-gradient(var(--color-ember), var(--color-ember));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 2.75rem 2px;
 }
 
 h1,
@@ -152,8 +173,9 @@ h4,
 
 .enquire-link {
   font-size: 0.78rem;
-  border: 1px solid rgba(255, 251, 245, 0.7);
-  padding: 0.7rem 0.95rem;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 251, 245, 0.75);
+  padding: 0.35rem 0;
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -174,9 +196,14 @@ h4,
 }
 
 .menu-button {
-  border: 1px solid rgba(255, 251, 245, 0.7);
-  padding: 0.7rem 0.95rem;
+  border: 0;
+  padding: 0.7rem 0.2rem;
   font-size: 0.78rem;
+}
+
+.menu-button:focus-visible {
+  outline: none;
+  box-shadow: inset 0 -2px 0 var(--color-ember);
 }
 
 .menu-close {
@@ -190,17 +217,29 @@ h4,
 .menu-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 0.85rem 1.25rem;
-  text-align: center;
-  font-size: 0.95rem;
+  justify-content: flex-start;
+  min-height: 48px;
+  padding: 0.65rem 0.2rem;
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
   color: var(--color-forest);
   text-decoration: none;
 }
 
 .menu-link[data-current="true"] {
-  box-shadow: inset 0 -2px 0 var(--color-gold);
+  color: var(--color-ember);
+}
+
+.menu-link[data-current="true"]::before {
+  content: "";
+  width: 0.7rem;
+  height: 0.85rem;
+  margin-right: 0.45rem;
+  flex: none;
+  background: var(--color-ember);
+  -webkit-mask: var(--leaf) center / contain no-repeat;
+  mask: var(--leaf) center / contain no-repeat;
 }
 
 .menu-child {
@@ -210,11 +249,29 @@ h4,
 }
 
 .menu-disclosure {
-  width: 52px;
+  width: 44px;
   border: 0;
-  border-left: 1px solid var(--color-line);
   color: var(--color-forest);
   font-size: 1.4rem;
+}
+
+.menu-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 36, 28, 0.05);
+}
+
+.menu-panel {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  display: flex;
+  width: min(58vw, 15.25rem);
+  flex-direction: column;
+  overflow-y: auto;
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  box-shadow: 10px 0 28px rgba(26, 36, 28, 0.06);
 }
 
 .footer-link {
@@ -250,26 +307,28 @@ h4,
 
 .field-input {
   width: 100%;
-  border: 1px solid rgba(78, 93, 78, 0.35);
-  background: white;
+  border: 0;
+  border-bottom: 1px solid rgba(78, 93, 78, 0.28);
+  background: transparent;
   color: var(--color-ink);
   font: inherit;
   font-size: 1.05rem;
   line-height: 1.5;
-  padding: 0.8rem 0.9rem;
+  padding: 0.7rem 0;
   border-radius: 0;
 }
 
 .field-input[aria-invalid="true"] {
-  border-color: var(--color-forest);
-  box-shadow: inset 3px 0 0 var(--color-gold);
+  border-bottom-color: var(--color-ember);
+  box-shadow: none;
 }
 
 .submit-button {
   border: 0;
+  border-radius: 999px;
   background: var(--color-forest);
   color: var(--color-ivory);
-  padding: 0.9rem 1.3rem;
+  padding: 0.95rem 1.45rem;
   font-size: 0.78rem;
 }
 
@@ -280,19 +339,25 @@ h4,
 
 #site-header {
   position: sticky;
+  overflow: visible;
 }
 
-#site-header::after {
-  content: "";
+.scroll-leaf {
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--color-ivory);
-  transform: scaleX(var(--scroll, 0));
-  transform-origin: left center;
+  z-index: 5;
+  left: calc(var(--scroll, 0) * (100% - 3rem));
+  bottom: -1.85rem;
+  width: 2.15rem;
+  height: 2.7rem;
   pointer-events: none;
+  filter: drop-shadow(0 2px 2px rgba(90, 36, 12, 0.35));
+}
+
+.scroll-leaf svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: rotate(calc(-16deg + var(--scroll, 0) * 24deg));
 }
 
 .chapter-slot {
@@ -321,9 +386,9 @@ h4,
 .hero-copy {
   position: relative;
   z-index: 1;
-  margin-top: -2.25rem;
-  background: var(--color-ivory);
-  padding: 2rem 1.5rem 0.5rem;
+  margin-top: -4rem;
+  background: linear-gradient(to bottom, transparent, var(--color-ivory) 3.25rem);
+  padding: 3.4rem 1.5rem 0.5rem;
 }
 
 .opening-sheet {
@@ -338,14 +403,31 @@ h4,
   margin: 0;
   font-family: var(--font-cormorant), Georgia, serif;
   font-weight: 500;
-  font-size: clamp(1.85rem, 4.6vw, 3.35rem);
-  line-height: 1.22;
+  font-size: clamp(1.85rem, 4.6vw, 3.15rem);
+  line-height: 1.35;
   color: var(--color-forest);
+}
+
+#page-content h2::before,
+#page-content h3::before {
+  content: "";
+  display: inline-block;
+  width: 0.95rem;
+  height: 1.15rem;
+  margin-right: 0.55rem;
+  vertical-align: 0.02em;
+  background: var(--color-ember);
+  -webkit-mask: var(--leaf) center / contain no-repeat;
+  mask: var(--leaf) center / contain no-repeat;
+}
+
+#page-content h3::before {
+  width: 0.72rem;
+  height: 0.88rem;
 }
 
 .about-chapter {
   background: var(--color-ivory-deep);
-  border-top: 1px solid var(--color-line);
 }
 
 .about-layout,
@@ -363,8 +445,6 @@ h4,
 
 .about-film {
   margin-top: 3.5rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--color-line);
 }
 
 .forest-spread {
@@ -378,8 +458,7 @@ h4,
 }
 
 .spread-companion {
-  border-top: 1px solid rgba(255, 251, 245, 0.28);
-  padding-top: 3rem;
+  padding-top: 0.5rem;
 }
 
 .forest-spread .text-link {
@@ -387,13 +466,11 @@ h4,
 }
 
 .training-note {
-  border-top: 1px solid var(--color-line);
-  padding-top: 2.5rem;
+  margin-top: 2.75rem;
 }
 
 .visit-chapter {
   background: var(--color-ivory);
-  border-top: 1px solid var(--color-line);
 }
 
 .visit-figure {
@@ -405,9 +482,7 @@ h4,
 }
 
 .online-nest {
-  margin-top: 3.25rem;
-  padding-top: 2.25rem;
-  border-top: 1px solid var(--color-line);
+  margin-top: 3.5rem;
 }
 
 .fees-sky {
@@ -423,15 +498,6 @@ h4,
   margin-top: -3.5rem;
   background: var(--color-ivory);
   padding: 2.75rem 1.5rem 4.5rem;
-}
-
-.fees-sheet::before {
-  content: "";
-  display: block;
-  width: 3.5rem;
-  height: 1px;
-  margin-bottom: 1.75rem;
-  background: var(--color-gold);
 }
 
 .fee-list {
@@ -548,6 +614,7 @@ h4,
     width: auto;
     height: auto;
     margin-top: 0;
+    background: var(--color-ivory);
     padding: 2.75rem 2.75rem 2.5rem;
   }
 
@@ -585,14 +652,12 @@ h4,
   }
 
   .spread-companion {
-    border-top: 0;
-    border-left: 1px solid rgba(255, 251, 245, 0.28);
     padding-top: 0;
+    padding-left: 3rem;
   }
 
   .training-note {
-    border-top: 0;
-    border-left: 1px solid var(--color-line);
+    margin-top: 0;
     padding: 0.25rem 0 0 3rem;
   }
 
@@ -660,8 +725,8 @@ h4,
 
 @media (prefers-reduced-motion: no-preference) {
   html.motion .chapter {
-    transform: translateY(1.5rem);
-    transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(1.25rem);
+    transition: transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   html.motion .chapter.is-in {
@@ -669,7 +734,25 @@ h4,
   }
 
   .chapter-label {
-    animation: chapter-in 420ms ease;
+    animation: chapter-in 520ms ease;
+  }
+
+  .menu-panel {
+    animation: menu-in 560ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-leaf {
+    transition: left 140ms linear;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: none;
   }
 }
 
@@ -695,8 +778,11 @@ h4,
     transition: none;
   }
 
-  .chapter-label {
+  .chapter-label,
+  .menu-panel,
+  .scroll-leaf {
     animation: none;
+    transition: none;
   }
 
   .hero-frame {

@@ -257,22 +257,40 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             {chapterLabels[active] ?? "Little Hampden"}
           </span>
         </p>
+        <div className="scroll-leaf" aria-hidden="true">
+          <svg viewBox="0 0 64 80">
+            <path
+              fill="#c65c28"
+              d="M34 4c10 8 24 22 22 40-2 16-12 26-22 30-10-4-20-14-22-30C10 26 24 12 34 4z"
+            />
+            <path
+              d="M33 18c1 14 1 28 0 42"
+              fill="none"
+              stroke="#8a3d16"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+            />
+            <path
+              d="M33 34c6-2 12-2 16 1M33 46c-5-1-11 0-15 3"
+              fill="none"
+              stroke="#8a3d16"
+              strokeWidth="1.2"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
       </header>
 
       {open ? (
         <div className="fixed inset-0 z-50">
-          <div
-            className="absolute inset-0 bg-forest/45"
-            onClick={() => closeMenu(true)}
-            aria-hidden="true"
-          />
+          <div className="menu-scrim" onClick={() => closeMenu(true)} aria-hidden="true" />
           <div
             id="site-menu"
             ref={panelRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby={menuTitleId}
-            className="absolute inset-y-0 left-0 flex w-[min(86vw,400px)] flex-col overflow-y-auto bg-ivory text-ink shadow-[8px_0_40px_rgba(26,36,28,0.12)]"
+            className="menu-panel"
           >
             <div className="flex items-center justify-between gap-4 px-5 pt-5">
               <Image
@@ -295,7 +313,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             <h2 id={menuTitleId} className="sr-only">
               Menu
             </h2>
-            <nav className="mt-4 border-t border-line" aria-label="Page">
+            <nav className="mt-6 px-5" aria-label="Page">
               {menuItems.map((item) => (
                 <MenuRow
                   key={item.id}
@@ -368,7 +386,7 @@ function MenuRow({
 }) {
   const current = navIsCurrent(item.id, active);
   return (
-    <div className="border-b border-line">
+    <div>
       <div className="flex min-h-11 items-stretch">
         <a
           href={`#${item.id}`}

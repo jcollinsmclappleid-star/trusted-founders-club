@@ -197,7 +197,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="approach" className="chapter border-t border-line">
+      <section aria-labelledby="approach" className="chapter">
         <div className="mx-auto grid max-w-6xl gap-16 px-6 py-20 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20 lg:py-28">
           <div>
             <Alias id="working-together" />
