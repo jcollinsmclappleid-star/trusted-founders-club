@@ -53,6 +53,139 @@ export default function HomePage() {
         </section>
       </div>
 
+      <figure className="wood-pause" aria-hidden="true">
+        <Image
+          src="/media/woodland.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-[center_18%]"
+        />
+      </figure>
+
+      <section aria-labelledby="services" className="forest-spread chapter">
+        <div className="spread-inner mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
+          <h2 id="services" tabIndex={-1} className="scroll-mt-28 max-w-3xl font-display text-5xl sm:text-6xl">
+            Individual and couples work
+          </h2>
+          <p className="mt-6 max-w-xl text-xl leading-relaxed text-ivory/90">
+            Both take place in the same practice. The shape of the work is different, so each is
+            described on its own.
+          </p>
+        </div>
+      </section>
+
+      <div className="service-flow">
+        <article className="offering chapter">
+          <h3
+            id="individual-therapy"
+            tabIndex={-1}
+            className="scroll-mt-28 font-display text-4xl text-forest"
+          >
+            Individual therapy
+          </h3>
+          <div className="prose-copy text-xl leading-relaxed">
+            <p>
+              I’m someone you can talk to who will listen attentively. I’ll learn what matters to
+              you and concerns you – without judging. I provide a space where you can discover how
+              you really feel. We’ll look at what’s causing you difficulty or distress now. We
+              might also explore whether that links to experiences in your earlier life. The
+              problems we have with relationships or self-destructive behaviour often have roots in
+              the past.
+            </p>
+          </div>
+        </article>
+
+        <article className="offering chapter">
+          <h3 id="grief" tabIndex={-1} className="scroll-mt-28 font-display text-4xl text-forest">
+            Grief and loss
+          </h3>
+          <div className="prose-copy text-xl leading-relaxed">
+            <p>
+              I also trained as a bereavement volunteer with Cruse and work with people
+              experiencing intense grief and loss.
+            </p>
+          </div>
+        </article>
+
+        <article className="offering chapter">
+          <h3
+            id="work-and-life"
+            tabIndex={-1}
+            className="scroll-mt-28 font-display text-4xl text-forest"
+          >
+            Work and a personal life
+          </h3>
+          <div className="prose-copy text-xl leading-relaxed">
+            <p>
+              Before becoming a therapist, I worked as a marketing consultant in professional and
+              financial services. I’m familiar with the tension this world creates between business
+              success and personal life. I know the pressures it puts on building and sustaining
+              personal relationships.
+            </p>
+          </div>
+        </article>
+
+        <article className="offering chapter">
+          <h3
+            id="couples-therapy"
+            tabIndex={-1}
+            className="scroll-mt-28 font-display text-4xl text-forest"
+          >
+            ‘Couples’ therapy
+          </h3>
+          <div className="offering-body">
+            <div className="prose-copy text-xl leading-relaxed">
+              <p>
+                I also offer ‘couples’ therapy – I use quotation marks because some people wishing
+                to work on their intimate relationships don’t see themselves as being in an exclusive
+                ‘couple’.
+              </p>
+              <p>
+                Relationships are where we have some of the most intense experiences in our lives.
+                They are also where we have the greatest scope to learn and grow, particularly by
+                examining the painful experiences they can give rise to. As therapist, I offer a
+                neutral and contained space where you can look at repetitive patterns of conflict or
+                dissatisfaction in safety, knowing each person’s perspective will be given equal
+                value.
+              </p>
+              <p>
+                Together, you may find new ways of relating that rekindle the intimacy you originally
+                sought. You will certainly reach a deeper understanding of the dynamics of your
+                relationship and what scope there is for change.
+              </p>
+            </div>
+            <p className="mt-8 text-lg">
+              <a className="text-link" href="#contact">
+                Ask about couples work
+              </a>
+            </p>
+          </div>
+        </article>
+
+        <article className="offering chapter">
+          <h3 id="relating" tabIndex={-1} className="scroll-mt-28 font-display text-4xl text-forest">
+            Sexual identity and open relating
+          </h3>
+          <div className="prose-copy text-xl leading-relaxed">
+            <p>
+              I’m comfortable in the world of conscious sexuality and work with clients exploring
+              their experiences and feelings around sexual identity and open relating/polyamory.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <figure className="wood-pause wood-pause-lower" aria-hidden="true">
+        <Image
+          src="/media/woodland.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-[28%_12%]"
+        />
+      </figure>
+
       <section aria-labelledby="about" className="about-chapter">
         <div className="about-layout">
           <div className="about-intro">
@@ -86,15 +219,8 @@ export default function HomePage() {
                 still deeply affected by the divorce of their parents.
               </p>
               <p>
-                I also trained as a bereavement volunteer with Cruse and work with people
-                experiencing intense grief and loss.
-              </p>
-              <p>
                 Being connected to nature is important to me. I live in the Chiltern Hills in
-                Buckinghamshire. Before becoming a therapist, I worked as a marketing consultant in
-                professional and financial services. I’m familiar with the tension this world
-                creates between business success and personal life. I know the pressures it puts on
-                building and sustaining personal relationships.
+                Buckinghamshire.
               </p>
               <p>
                 With the help of a teacher, I’m exploring non-duality through practising being
@@ -122,82 +248,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="services" className="forest-spread chapter">
-        <div className="mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
-          <h2 id="services" tabIndex={-1} className="scroll-mt-28 max-w-3xl font-display text-5xl sm:text-6xl">
-            Individual and couples work
-          </h2>
-          <p className="mt-6 max-w-xl text-xl leading-relaxed text-ivory/90">
-            Both take place in the same practice. The shape of the work is different, so each is
-            described on its own.
-          </p>
-          <div className="mt-16 grid gap-16 lg:mt-20 lg:grid-cols-2 lg:gap-0">
-            <article className="lg:pr-12 xl:pr-16">
-              <h3
-                id="individual-therapy"
-                tabIndex={-1}
-                className="scroll-mt-28 font-display text-4xl sm:text-5xl"
-              >
-                Someone to talk to
-              </h3>
-              <div className="prose-copy mt-6 max-w-xl text-lg leading-relaxed text-ivory/92 sm:text-xl">
-                <p>
-                  I’m someone you can talk to who will listen attentively. I’ll learn what matters to
-                  you and concerns you – without judging. I provide a space where you can discover how
-                  you really feel. We’ll look at what’s causing you difficulty or distress now. We
-                  might also explore whether that links to experiences in your earlier life. The
-                  problems we have with relationships or self-destructive behaviour often have roots in
-                  the past.
-                </p>
-                <p>
-                  People also bring grief and loss, strain in their relationships, or the pressure that
-                  work can place on a personal life.
-                </p>
-              </div>
-            </article>
-            <article className="spread-companion lg:pl-12 xl:pl-16">
-              <h3
-                id="couples-therapy"
-                tabIndex={-1}
-                className="scroll-mt-28 font-display text-4xl sm:text-5xl"
-              >
-                ‘Couples’ therapy
-              </h3>
-              <div className="prose-copy mt-6 max-w-xl text-lg leading-relaxed text-ivory/92 sm:text-xl">
-                <p>
-                  I also offer ‘couples’ therapy – I use quotation marks because some people wishing to
-                  work on their intimate relationships don’t see themselves as being in an exclusive
-                  ‘couple’.
-                </p>
-                <p>
-                  Relationships are where we have some of the most intense experiences in our lives.
-                  They are also where we have the greatest scope to learn and grow, particularly by
-                  examining the painful experiences they can give rise to. As therapist, I offer a
-                  neutral and contained space where you can look at repetitive patterns of conflict or
-                  dissatisfaction in safety, knowing each person’s perspective will be given equal
-                  value.
-                </p>
-                <p>
-                  Together, you may find new ways of relating that rekindle the intimacy you originally
-                  sought. You will certainly reach a deeper understanding of the dynamics of your
-                  relationship and what scope there is for change.
-                </p>
-                <p>
-                  I’m comfortable in the world of conscious sexuality and work with clients exploring
-                  their experiences and feelings around sexual identity and open relating/polyamory.
-                </p>
-              </div>
-              <p className="mt-8 text-lg">
-                <a className="text-link" href="#contact">
-                  Ask about couples work
-                </a>
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="approach" className="chapter">
+      <section aria-labelledby="approach" className="approach-chapter chapter">
         <div className="mx-auto grid max-w-6xl gap-16 px-6 py-20 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20 lg:py-28">
           <div>
             <Alias id="working-together" />

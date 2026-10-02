@@ -29,7 +29,9 @@ export const menuItems: MenuItem[] = [
     label: "Services",
     children: [
       { id: "individual-therapy", label: "Individual therapy" },
+      { id: "grief", label: "Grief and loss" },
       { id: "couples-therapy", label: "Couples therapy" },
+      { id: "relating", label: "Sexual identity and open relating" },
     ],
   },
   { id: "approach", label: "Approach" },
@@ -49,10 +51,13 @@ export const desktopNav = [
 
 export const sectionIds = [
   "top",
-  "about",
   "services",
   "individual-therapy",
+  "grief",
+  "work-and-life",
   "couples-therapy",
+  "relating",
+  "about",
   "approach",
   "experience",
   "in-person",
@@ -61,7 +66,14 @@ export const sectionIds = [
   "contact",
 ] as const;
 
-const serviceIds = new Set(["services", "individual-therapy", "couples-therapy"]);
+const serviceIds = new Set([
+  "services",
+  "individual-therapy",
+  "grief",
+  "work-and-life",
+  "couples-therapy",
+  "relating",
+]);
 
 export function navIsCurrent(itemId: string, activeId: string) {
   if (itemId === "services") return serviceIds.has(activeId);
@@ -71,10 +83,13 @@ export function navIsCurrent(itemId: string, activeId: string) {
 
 export const chapterLabels: Record<string, string> = {
   top: "Little Hampden",
-  about: "About",
   services: "Individual and couples",
-  "individual-therapy": "Individual and couples",
-  "couples-therapy": "Individual and couples",
+  "individual-therapy": "Individual therapy",
+  grief: "Grief and loss",
+  "work-and-life": "Work and a personal life",
+  "couples-therapy": "Couples",
+  relating: "Sexual identity",
+  about: "About",
   approach: "Working together",
   experience: "Working together",
   "in-person": "Little Hampden",

@@ -21,8 +21,8 @@ The preview uses the public homepage as its wording. Nothing below is presented 
 ## Light edits, not new claims
 
 - The first screen now says Dermot Cox, psychotherapy and counselling, in-person work in Little Hampden near Great Missenden, and individual and couples work. Those facts were already on the page, further down.
-- His existing paragraphs are split into About, Individual therapy, Couples, Approach, Experience, Visit in person, Online, and Fees. Online is shorter and comes after the visit section.
-- One linking sentence in Individual therapy ties together grief, relationships and work pressure, which he already describes in other paragraphs. It is not a list of specialisms.
+- His existing paragraphs are placed as open sections on the one page: Individual therapy, Grief and loss, Work and a personal life, ‘Couples’ therapy, Sexual identity and open relating, then how the work is held, About, the visit, fees and contact. Online stays shorter and after the visit.
+- The Cruse grief paragraph and the marketing-consultant sentences have moved out of About into those headings. About keeps the nature and Chilterns sentences. The earlier linking sentence in Individual therapy has been removed. No new clinical claims were written.
 - The enquiry form asks for a short message and says a detailed history is not needed. Squarespace did not say that.
 - The form requires name, email and message. On Squarespace every field was optional. Phone stays optional.
 - Captions for the film are described as not yet available. No transcript was found.
@@ -31,7 +31,7 @@ The preview uses the public homepage as its wording. Nothing below is presented 
 
 - Do not say the practice room is in Great Missenden. The BACP listing “Therapist – Great Missenden, HP16” is a directory label. The homepage says Little Hampden, close to Great Missenden.
 - BACP “Sessions from £60” disagrees with the homepage fees. The preview shows £75 and £120 only.
-- The BACP “what I can help with” list is not shown: addictions, anxiety, bereavement, depression, eating disorders, loss, post-traumatic stress, relationships, self-harm, sexual identity, sexuality, spirituality, trauma, work related issues. Grief, outdoor work, work pressure and inclusive relationship work can become on-page subsections after the requirements call. There is no “Areas of focus” menu item until one of those has a real destination.
+- The BACP “what I can help with” list is not shown: addictions, anxiety, bereavement, depression, eating disorders, loss, post-traumatic stress, relationships, self-harm, sexual identity, sexuality, spirituality, trauma, work related issues. Grief, work pressure and open relating appear only as headings for paragraphs already on the homepage. There is no “Areas of focus” menu item.
 - BACP lists young people, and telephone therapy as a way he delivers therapy. The homepage’s work with teenagers and people in their twenties is the past university role. The preview does not offer therapy for young people, and it does not add telephone sessions as a mode. The free introductory call by phone is a separate, published fact.
 - The Vimeo description offers sessions at One Canada Square, Canary Wharf, London E14 5AA. Some child-page titles also say London. Neither fact is on the current homepage. London is omitted.
 - No street address, parking, step-free access, waiting room, or interior description. The room photograph is the outside of the garden room.
