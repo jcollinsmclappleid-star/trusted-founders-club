@@ -68,3 +68,18 @@ export function navIsCurrent(itemId: string, activeId: string) {
   if (itemId === "fees") return activeId === "fees" || activeId === "questions";
   return itemId === activeId;
 }
+
+export const chapterLabels: Record<string, string> = {
+  top: "Little Hampden",
+  about: "About",
+  services: "Individual and couples",
+  "individual-therapy": "Individual and couples",
+  "couples-therapy": "Individual and couples",
+  approach: "Working together",
+  experience: "Working together",
+  "in-person": "Little Hampden",
+  online: "Online",
+  fees: "Fees",
+  questions: "Fees",
+  contact: "Get in touch",
+};

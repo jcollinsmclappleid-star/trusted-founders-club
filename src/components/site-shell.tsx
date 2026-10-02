@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import {
+  chapterLabels,
   desktopNav,
   menuItems,
   navIsCurrent,
@@ -33,21 +34,35 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     let frame = 0;
 
     function markActive() {
-      const line = window.scrollY + 150;
+      const header = document.getElementById("site-header");
+      const line =
+        window.scrollY +
+        Math.max((header?.offsetHeight ?? 96) + 48, Math.round(window.innerHeight * 0.34));
       let current: string = sectionIds[0];
       for (const id of sectionIds) {
         const element = document.getElementById(id);
         if (!element) continue;
         const top = element.getBoundingClientRect().top + window.scrollY;
-        if (top <= line) current = id;
+        if (top <= line + 1) current = id;
       }
       setActive((previous) => (previous === current ? previous : current));
+    }
+
+    function measure() {
+      const header = document.getElementById("site-header");
+      if (header) {
+        document.documentElement.style.setProperty("--header-offset", `${header.offsetHeight}px`);
+      }
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      document.documentElement.style.setProperty("--scroll", progress.toFixed(4));
     }
 
     function onScroll() {
       if (frame) return;
       frame = window.requestAnimationFrame(() => {
         frame = 0;
+        measure();
         if (!reduce) {
           const y = window.scrollY;
           setCompact((current) => (current ? y > 24 : y > 96));
@@ -56,11 +71,42 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       });
     }
 
+    measure();
     markActive();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) return;
+    const nodes = [...document.querySelectorAll<HTMLElement>(".chapter")];
+    for (const node of nodes) {
+      const rect = node.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+        node.classList.add("is-in");
+      }
+    }
+    document.documentElement.classList.add("motion");
+    const pending = nodes.filter((node) => !node.classList.contains("is-in"));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("is-in");
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+    );
+    pending.forEach((node) => observer.observe(node));
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove("motion");
     };
   }, []);
 
@@ -206,6 +252,11 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             Menu
           </button>
         </div>
+        <p className="chapter-slot" aria-hidden="true">
+          <span key={chapterLabels[active] ?? "Little Hampden"} className="chapter-label">
+            {chapterLabels[active] ?? "Little Hampden"}
+          </span>
+        </p>
       </header>
 
       {open ? (

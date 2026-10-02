@@ -65,6 +65,14 @@ h4:focus {
   outline-offset: 3px;
 }
 
+h1,
+h2,
+h3,
+h4,
+.scroll-mt-28 {
+  scroll-margin-top: 6.75rem;
+}
+
 #site-header :focus-visible {
   outline-color: var(--color-ivory);
 }
@@ -270,6 +278,413 @@ h4:focus {
   cursor: wait;
 }
 
+#site-header {
+  position: sticky;
+}
+
+#site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-ivory);
+  transform: scaleX(var(--scroll, 0));
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.chapter-slot {
+  display: none;
+  margin: 0;
+  padding: 0 1.5rem 0.7rem;
+  text-align: center;
+}
+
+.chapter-label {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(255, 251, 245, 0.92);
+}
+
+.hero-photo {
+  position: relative;
+  height: min(68vh, 34rem);
+  min-height: 18rem;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  margin-top: -2.25rem;
+  background: var(--color-ivory);
+  padding: 2rem 1.5rem 0.5rem;
+}
+
+.opening-sheet {
+  position: relative;
+  z-index: 1;
+  background: var(--color-ivory);
+  padding: 3.5rem 1.5rem 4.5rem;
+}
+
+.opening-line {
+  max-width: 22em;
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.85rem, 4.6vw, 3.35rem);
+  line-height: 1.22;
+  color: var(--color-forest);
+}
+
+.about-chapter {
+  background: var(--color-ivory-deep);
+  border-top: 1px solid var(--color-line);
+}
+
+.about-layout,
+.visit-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
+  padding: 4.5rem 1.5rem;
+}
+
+.about-portrait {
+  width: min(100%, 16rem);
+  margin: 0;
+}
+
+.about-film {
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.forest-spread {
+  background: var(--color-forest);
+  color: var(--color-ivory);
+}
+
+.forest-spread :focus,
+.forest-spread :focus-visible {
+  outline-color: var(--color-ivory);
+}
+
+.spread-companion {
+  border-top: 1px solid rgba(255, 251, 245, 0.28);
+  padding-top: 3rem;
+}
+
+.forest-spread .text-link {
+  color: inherit;
+}
+
+.training-note {
+  border-top: 1px solid var(--color-line);
+  padding-top: 2.5rem;
+}
+
+.visit-chapter {
+  background: var(--color-ivory);
+  border-top: 1px solid var(--color-line);
+}
+
+.visit-figure {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 3 / 2;
+  margin: 0;
+}
+
+.online-nest {
+  margin-top: 3.25rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.fees-sky {
+  position: relative;
+  height: min(62vh, 36rem);
+  min-height: 16rem;
+  margin: 0;
+}
+
+.fees-sheet {
+  position: relative;
+  z-index: 1;
+  margin-top: -3.5rem;
+  background: var(--color-ivory);
+  padding: 2.75rem 1.5rem 4.5rem;
+}
+
+.fees-sheet::before {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  margin-bottom: 1.75rem;
+  background: var(--color-gold);
+}
+
+.fee-list {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.fee-list dt {
+  font-family: var(--font-julius), "Gill Sans", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--color-forest);
+}
+
+.fee-figure {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(4rem, 8vw, 5.5rem);
+  line-height: 0.9;
+  color: var(--color-forest);
+}
+
+.fee-length {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.15rem;
+}
+
+.question-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 44rem;
+}
+
+.question-grid p {
+  margin: 0.55rem 0 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.contact-aside {
+  background: var(--color-forest);
+  color: var(--color-ivory);
+  padding: 4.5rem 1.5rem;
+}
+
+.contact-aside :focus,
+.contact-aside :focus-visible {
+  outline-color: var(--color-ivory);
+}
+
+.contact-link {
+  color: inherit;
+  text-underline-offset: 0.18em;
+}
+
+.contact-form {
+  background: var(--color-ivory-deep);
+  padding: 2.5rem 1.5rem 4.5rem;
+}
+
+@media (min-width: 640px) {
+  .hero-copy,
+  .opening-sheet,
+  .about-layout,
+  .visit-layout,
+  .fees-sheet,
+  .contact-aside,
+  .contact-form {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .chapter-slot {
+    display: block;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .scroll-mt-28 {
+    scroll-margin-top: 9rem;
+  }
+
+  .hero-frame {
+    position: sticky;
+    top: var(--header-offset, 6.5rem);
+    z-index: 0;
+    display: grid;
+    grid-template-columns: minmax(20rem, 34rem) minmax(0, 1fr);
+    align-items: stretch;
+    min-height: calc(100svh - var(--header-offset, 6.5rem));
+  }
+
+  .hero-photo {
+    position: relative;
+    order: 2;
+    height: auto;
+    min-height: 100%;
+  }
+
+  .hero-copy {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: auto;
+    height: auto;
+    margin-top: 0;
+    padding: 2.75rem 2.75rem 2.5rem;
+  }
+
+  .opening-sheet {
+    padding-top: 7vh;
+    padding-bottom: 12vh;
+  }
+
+  .opening-line {
+    max-width: 16em;
+  }
+
+  .about-layout {
+    grid-template-columns: 17rem minmax(0, 1fr);
+    column-gap: 4.5rem;
+    row-gap: 1.5rem;
+    align-items: start;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+  }
+
+  .about-portrait {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    position: sticky;
+    top: calc(var(--header-offset, 6.5rem) + 1.5rem);
+    width: 17rem;
+  }
+
+  .about-intro,
+  .about-copy {
+    grid-column: 2;
+  }
+
+  .spread-companion {
+    border-top: 0;
+    border-left: 1px solid rgba(255, 251, 245, 0.28);
+    padding-top: 0;
+  }
+
+  .training-note {
+    border-top: 0;
+    border-left: 1px solid var(--color-line);
+    padding: 0.25rem 0 0 3rem;
+  }
+
+  .visit-layout {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    column-gap: 4rem;
+    row-gap: 1.25rem;
+    align-items: start;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+
+  .visit-figure {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    position: sticky;
+    top: calc(var(--header-offset, 6.5rem) + 1.25rem);
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .visit-intro,
+  .visit-body {
+    grid-column: 2;
+    max-width: 36rem;
+  }
+
+  .fees-sky {
+    height: min(78vh, 46rem);
+  }
+
+  .fees-sheet {
+    width: auto;
+    margin-top: -6.5rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 4rem max(2.5rem, calc((100% - 68rem) / 2)) 6rem;
+  }
+
+  .fee-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 46rem;
+  }
+
+  .question-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 4rem;
+    max-width: 52rem;
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .contact-aside,
+  .contact-form {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.motion .chapter {
+    transform: translateY(1.5rem);
+    transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.motion .chapter.is-in {
+    transform: none;
+  }
+
+  .chapter-label {
+    animation: chapter-in 420ms ease;
+  }
+}
+
+@keyframes chapter-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -278,5 +693,35 @@ h4:focus {
   .header-logo,
   #site-header {
     transition: none;
+  }
+
+  .chapter-label {
+    animation: none;
+  }
+
+  .hero-frame {
+    position: relative;
+    top: auto;
+    display: block;
+    min-height: 0;
+    height: auto;
+  }
+
+  .hero-photo {
+    position: relative;
+    order: 0;
+    inset: auto;
+    height: min(68vh, 34rem);
+    min-height: 18rem;
+  }
+
+  .hero-copy {
+    position: relative;
+    display: block;
+    left: auto;
+    bottom: auto;
+    width: auto;
+    height: auto;
+    margin-top: -2.25rem;
   }
 }
