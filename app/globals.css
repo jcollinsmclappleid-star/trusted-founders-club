@@ -16,13 +16,13 @@
 }
 
 html {
-  background: var(--color-ivory);
+  background: #e7efe4;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: var(--color-ivory);
+  background: transparent;
   color: var(--color-ink);
   font-family: var(--font-crimson), Georgia, "Times New Roman", serif;
   font-size: 1.125rem;
@@ -258,56 +258,89 @@ h4,
   position: absolute;
   inset-block: 0;
   left: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 2.75rem;
-  grid-template-rows: minmax(0, 1fr);
-  width: min(64vw, 18.5rem);
-  overflow: hidden;
+  display: flex;
+  width: min(58vw, 16.25rem);
+  flex-direction: column;
+  overflow-y: auto;
   background: var(--color-ivory);
   color: var(--color-ink);
   box-shadow: 10px 0 28px rgba(26, 36, 28, 0.06);
 }
 
-.menu-body {
-  min-width: 0;
-  min-height: 0;
-  overflow-y: auto;
-  padding-bottom: 2rem;
-  background: var(--color-ivory);
-}
-
-.menu-wood {
-  position: relative;
-  min-height: 100%;
+.wood-bank {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
   overflow: hidden;
+  pointer-events: none;
 }
 
-.wood-edge {
-  display: none;
+.wood-bank img {
+  opacity: 0.55;
+  filter: blur(16px) saturate(1.08);
+  transform: scale(1.12);
 }
 
-.wood-pause {
+.wood-bank::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 251, 245, 0.58) 0%,
+    rgba(226, 206, 168, 0.42) 48%,
+    rgba(78, 93, 78, 0.22) 100%
+  );
+}
+
+#page-content,
+footer {
   position: relative;
-  height: min(22vh, 11rem);
-  min-height: 5.5rem;
-  margin: 0;
-  overflow: hidden;
+  z-index: 1;
+}
+
+.bank-block {
+  margin-inline: 0.85rem;
+}
+
+.bank-block + .bank-block {
+  margin-top: 0.85rem;
 }
 
 .service-flow {
-  background: var(--color-ivory);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: transparent;
 }
 
 .offering {
   display: grid;
   gap: 1.15rem;
-  max-width: 72rem;
-  margin-inline: auto;
+  background: var(--color-ivory);
   padding: 3.25rem 1.5rem;
 }
 
-.offering + .offering {
-  padding-top: 0.5rem;
+.offering:nth-child(even) {
+  background: var(--color-ivory-deep);
+}
+
+.offering.offering-forest {
+  background: var(--color-forest);
+  color: var(--color-ivory);
+}
+
+.offering-forest h3 {
+  color: var(--color-ivory);
+}
+
+.offering-forest .text-link {
+  color: inherit;
+}
+
+.offering-forest :focus,
+.offering-forest :focus-visible {
+  outline-color: var(--color-ivory);
 }
 
 .offering-body {
@@ -727,65 +760,50 @@ h4,
   }
 }
 
-@media (min-width: 900px) {
-  .offering {
-    grid-template-columns: minmax(12rem, 16rem) minmax(0, 38rem);
-    column-gap: 3.5rem;
-    align-items: start;
-    padding-top: 4.25rem;
-    padding-bottom: 4.25rem;
-  }
-
-  .offering + .offering {
-    padding-top: 0.75rem;
-  }
+.approach-chapter {
+  background: var(--color-ivory);
 }
 
-@media (min-width: 1280px) {
-  .wood-edge {
-    display: block;
-    position: fixed;
-    z-index: 30;
-    top: var(--header-offset, 6.5rem);
-    bottom: 0;
-    left: 0;
-    width: 3.25rem;
-    overflow: hidden;
-    pointer-events: none;
-    opacity: 0;
+.forest-spread,
+.fees-chapter {
+  margin-top: 0.85rem;
+}
+
+.contact-chapter {
+  margin-bottom: 0.85rem;
+}
+
+@media (min-width: 900px) {
+  .bank-block {
+    margin-inline: 2.5rem;
   }
 
-  html[data-in-page="true"] .wood-edge {
-    opacity: 1;
-  }
-
-  .wood-drift {
-    position: absolute;
-    inset: -24px 0;
-    transform: translate3d(0, calc(var(--drift, 0) * 1px), 0);
-  }
-
-  .opening-sheet {
-    padding-left: 4.5rem;
-  }
-
+  .bank-block + .bank-block,
   .forest-spread,
   .service-flow,
-  .about-chapter,
-  .approach-chapter,
-  .visit-chapter,
+  .fees-chapter,
   .contact-chapter {
-    padding-left: 3.25rem;
+    margin-top: 1.15rem;
   }
 
-  .fees-sheet {
-    padding-left: max(3.25rem, calc((100% - 68rem) / 2));
+  .contact-chapter {
+    margin-bottom: 1.15rem;
   }
 
-  .wood-pause,
-  .fees-sky {
-    margin-left: 3.25rem;
-    width: calc(100% - 3.25rem);
+  .service-flow {
+    gap: 1.15rem;
+  }
+
+  .offering {
+    grid-template-columns: minmax(12rem, 16rem) minmax(0, 38rem);
+    justify-content: center;
+    column-gap: 3.5rem;
+    align-items: start;
+    padding: 4.25rem 2.5rem;
+  }
+
+  .fees-sheet.bank-block {
+    margin-inline: 2.5rem;
   }
 }
 
@@ -805,10 +823,6 @@ h4,
 
   .menu-panel {
     animation: menu-in 560ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .wood-edge {
-    transition: opacity 700ms ease;
   }
 }
 
@@ -845,9 +859,7 @@ h4,
   }
 
   .chapter-label,
-  .menu-panel,
-  .wood-edge,
-  .wood-drift {
+  .menu-panel {
     animation: none;
     transition: none;
     transform: none;

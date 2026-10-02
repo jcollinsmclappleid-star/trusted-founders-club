@@ -53,17 +53,7 @@ export default function HomePage() {
         </section>
       </div>
 
-      <figure className="wood-pause" aria-hidden="true">
-        <Image
-          src="/media/woodland.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-[center_18%]"
-        />
-      </figure>
-
-      <section aria-labelledby="services" className="forest-spread chapter">
+      <section aria-labelledby="services" className="forest-spread bank-block chapter">
         <div className="spread-inner mx-auto max-w-6xl px-6 py-20 sm:px-10 lg:py-28">
           <h2 id="services" tabIndex={-1} className="scroll-mt-28 max-w-3xl font-display text-5xl sm:text-6xl">
             Individual and couples work
@@ -75,7 +65,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="service-flow">
+      <div className="service-flow bank-block">
         <article className="offering chapter">
           <h3
             id="individual-therapy"
@@ -126,11 +116,11 @@ export default function HomePage() {
           </div>
         </article>
 
-        <article className="offering chapter">
+        <article className="offering offering-forest chapter">
           <h3
             id="couples-therapy"
             tabIndex={-1}
-            className="scroll-mt-28 font-display text-4xl text-forest"
+            className="scroll-mt-28 font-display text-4xl"
           >
             ‘Couples’ therapy
           </h3>
@@ -176,17 +166,7 @@ export default function HomePage() {
         </article>
       </div>
 
-      <figure className="wood-pause wood-pause-lower" aria-hidden="true">
-        <Image
-          src="/media/woodland.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-[28%_12%]"
-        />
-      </figure>
-
-      <section aria-labelledby="about" className="about-chapter">
+      <section aria-labelledby="about" className="about-chapter bank-block">
         <div className="about-layout">
           <div className="about-intro">
             <Alias id="aboutme2" />
@@ -248,7 +228,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="approach" className="approach-chapter chapter">
+      <section aria-labelledby="approach" className="approach-chapter bank-block chapter">
         <div className="mx-auto grid max-w-6xl gap-16 px-6 py-20 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20 lg:py-28">
           <div>
             <Alias id="working-together" />
@@ -292,7 +272,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="in-person" className="visit-chapter">
+      <section aria-labelledby="in-person" className="visit-chapter bank-block">
         <div className="visit-layout">
           <div className="visit-intro">
             <h2 id="in-person" tabIndex={-1} className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl">
@@ -348,7 +328,7 @@ export default function HomePage() {
             className="object-cover object-[center_40%]"
           />
         </figure>
-        <div className="fees-sheet chapter">
+        <div className="fees-sheet bank-block chapter">
           <Alias id="pricing" />
           <h2 id="fees" tabIndex={-1} className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl">
             Fees
@@ -407,7 +387,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="contact" className="contact-chapter chapter">
+      <section aria-labelledby="contact" className="contact-chapter bank-block chapter">
         <div className="contact-layout">
           <div className="contact-aside">
             <h2 id="contact" tabIndex={-1} className="scroll-mt-28 font-display text-5xl sm:text-6xl">

@@ -56,11 +56,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
       document.documentElement.style.setProperty("--scroll", progress.toFixed(4));
-      const drift = reduce ? 0 : Math.min(24, window.scrollY * 0.015);
-      document.documentElement.style.setProperty("--drift", drift.toFixed(2));
-      const stage = document.querySelector<HTMLElement>(".hero-stage");
-      const passed = stage ? window.scrollY > stage.offsetHeight * 0.72 : window.scrollY > 480;
-      document.documentElement.dataset.inPage = passed ? "true" : "false";
     }
 
     function onScroll() {
@@ -211,16 +206,14 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       <a href="#top" className="skip-link">
         Skip to content
       </a>
-      <div className="wood-edge" aria-hidden="true">
-        <div className="wood-drift">
-          <Image
-            src="/media/woodland.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover object-[14%_42%]"
-          />
-        </div>
+      <div className="wood-bank" aria-hidden="true">
+        <Image
+          src="/media/woodland.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-[center_22%]"
+        />
       </div>
       <header
         id="site-header"
@@ -286,8 +279,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             aria-labelledby={menuTitleId}
             className="menu-panel"
           >
-            <div className="menu-body">
-              <div className="flex items-center justify-between gap-4 px-5 pt-5">
+            <div className="flex items-center justify-between gap-4 px-5 pt-5">
                 <Image
                   src="/media/logo-green.png"
                   alt=""
@@ -321,16 +313,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                   />
                 ))}
               </nav>
-            </div>
-            <div className="menu-wood" aria-hidden="true">
-              <Image
-                src="/media/woodland.jpg"
-                alt=""
-                fill
-                sizes="100vw"
-                className="object-cover object-[10%_58%]"
-              />
-            </div>
           </div>
         </div>
       ) : null}
