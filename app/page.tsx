@@ -57,8 +57,15 @@ export default function HomePage() {
       </section>
 
       <section aria-labelledby="about" className="border-t border-line bg-ivory-deep">
-        <div className="mx-auto grid max-w-6xl items-start gap-12 px-6 py-20 sm:px-10 lg:grid-cols-[16rem_1fr] lg:py-28">
-          <figure className="mx-auto w-full max-w-[16rem] lg:mx-0">
+        <div className="mx-auto grid max-w-6xl items-start gap-10 px-6 py-20 sm:px-10 lg:grid-cols-[16rem_1fr] lg:grid-rows-[auto_1fr] lg:gap-x-12 lg:py-28">
+          <div className="lg:col-start-2">
+            <Alias id="aboutme2" />
+            <p className="section-kicker">About</p>
+            <h2 id="about" tabIndex={-1} className="scroll-mt-28 mt-3 font-display text-5xl text-forest">
+              About me
+            </h2>
+          </div>
+          <figure className="mx-auto w-full max-w-[16rem] lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mx-0">
             <Image
               src="/media/portrait.jpg"
               alt="Dermot Cox, photographed outdoors with autumn leaves behind him"
@@ -68,13 +75,8 @@ export default function HomePage() {
               className="h-auto w-full"
             />
           </figure>
-          <div className="max-w-xl">
-            <Alias id="aboutme2" />
-            <p className="section-kicker">About</p>
-            <h2 id="about" tabIndex={-1} className="scroll-mt-28 mt-3 font-display text-5xl text-forest">
-              About me
-            </h2>
-            <div className="prose-copy mt-6 text-xl leading-relaxed">
+          <div className="max-w-xl lg:col-start-2">
+            <div className="prose-copy text-xl leading-relaxed">
               <p>
                 I trained as a psychotherapist at Re-Vision, which describes its approach as
                 ‘therapy with a soulful perspective’. The strongest influence in this training is
@@ -280,17 +282,8 @@ export default function HomePage() {
       </section>
 
       <section aria-labelledby="in-person" className="border-t border-line bg-ivory-deep">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 sm:px-10 lg:grid-cols-2 lg:gap-16 lg:py-28">
-          <figure className="relative aspect-[3/2] overflow-hidden">
-            <Image
-              src="/media/garden-room.jpg"
-              alt="The timber garden consulting room, with a green roof, among trees and fallen leaves"
-              fill
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover"
-            />
-          </figure>
-          <div className="max-w-xl">
+        <div className="mx-auto grid max-w-6xl items-start gap-10 px-6 py-20 sm:px-10 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-16 lg:py-28">
+          <div className="lg:col-start-2">
             <p className="section-kicker">Little Hampden</p>
             <h2
               id="in-person"
@@ -299,7 +292,18 @@ export default function HomePage() {
             >
               Visiting in person
             </h2>
-            <div className="prose-copy mt-6 text-xl leading-relaxed">
+          </div>
+          <figure className="relative aspect-[3/2] overflow-hidden lg:col-start-1 lg:row-span-2 lg:row-start-1">
+            <Image
+              src="/media/garden-room.jpg"
+              alt="The timber garden consulting room, with a green roof, among trees and fallen leaves"
+              fill
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover"
+            />
+          </figure>
+          <div className="max-w-xl lg:col-start-2">
+            <div className="prose-copy text-xl leading-relaxed">
               <p>
                 I work face-to-face with clients from my consulting room in Little Hampden, close
                 to Great Missenden in Buckinghamshire. The room is in my garden, with views over

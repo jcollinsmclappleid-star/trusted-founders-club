@@ -172,7 +172,8 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
               alt="Dermot Cox Counselling"
               width={1038}
               height={270}
-              className="header-logo h-11 w-auto"
+              priority
+              className="header-logo"
             />
           </a>
           <nav className="ml-auto hidden items-center gap-5 lg:flex" aria-label="Page">
@@ -228,7 +229,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
                 alt=""
                 width={1131}
                 height={279}
-                className="h-10 w-auto"
+                className="logo-mark"
               />
               <button
                 ref={closeButtonRef}
@@ -269,7 +270,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
               alt=""
               width={1131}
               height={279}
-              className="h-12 w-auto"
+              className="logo-mark"
             />
             <p className="mt-4 max-w-sm text-lg leading-relaxed">
               Psychotherapy and counselling in person in {siteConfig.place}.

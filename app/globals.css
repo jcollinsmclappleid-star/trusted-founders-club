@@ -38,6 +38,20 @@ img {
   height: auto;
 }
 
+img.header-logo {
+  width: auto;
+  height: 2.75rem;
+}
+
+#site-header[data-compact="true"] img.header-logo {
+  height: 2.25rem;
+}
+
+img.logo-mark {
+  width: auto;
+  height: 2.5rem;
+}
+
 a {
   color: inherit;
 }
