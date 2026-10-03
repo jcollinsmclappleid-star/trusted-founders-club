@@ -91,22 +91,35 @@ export default function HomePage() {
           >
             Individual therapy
           </h2>
-          <div className="service-note">
-            <h3 className="subhead">Who it is for</h3>
-            <p>
-              I’m someone you can talk to who will listen attentively. This is for you if you want a
-              place to discover how you really feel, and to look at what is causing you difficulty
-              or distress now.
-            </p>
-          </div>
-          <div className="service-note">
-            <h3 className="subhead">How it can help</h3>
-            <p>
-              I’ll learn what matters to you and concerns you – without judging. We might also
-              explore whether what is difficult now links to experiences in your earlier life. The
-              problems we have with relationships or self-destructive behaviour often have roots in
-              the past. There is time to stay with it, and to see it, rather than to be moved on.
-            </p>
+          <div className="service-spread">
+            <div className="service-copy">
+              <div className="service-note">
+                <h3 className="subhead">Who it is for</h3>
+                <p>
+                  I’m someone you can talk to who will listen attentively. This is for you if you want a
+                  place to discover how you really feel, and to look at what is causing you difficulty
+                  or distress now.
+                </p>
+              </div>
+              <div className="service-note">
+                <h3 className="subhead">How it can help</h3>
+                <p>
+                  I’ll learn what matters to you and concerns you – without judging. We might also
+                  explore whether what is difficult now links to experiences in your earlier life. The
+                  problems we have with relationships or self-destructive behaviour often have roots in
+                  the past. There is time to stay with it, and to see it, rather than to be moved on.
+                </p>
+              </div>
+            </div>
+            <figure className="service-figure">
+              <Image
+                src="/media/garden-room.jpg"
+                alt="The timber garden consulting room, with a green roof, among the trees"
+                fill
+                sizes="(min-width: 1024px) 42vw, 1px"
+                className="object-cover object-[center_42%]"
+              />
+            </figure>
           </div>
           <div className="service-questions">
             <h3 className="subhead">Questions you may have</h3>
@@ -148,25 +161,38 @@ export default function HomePage() {
           >
             ‘Couples’ therapy
           </h2>
-          <div className="service-note">
-            <h3 className="subhead">Who it is for</h3>
-            <p>
-              I also offer ‘couples’ therapy – I use quotation marks because some people wishing to
-              work on their intimate relationships don’t see themselves as being in an exclusive
-              ‘couple’. Relationships are where we have some of the most intense experiences in our
-              lives. They are also where we have the greatest scope to learn and grow, particularly
-              by examining the painful experiences they can give rise to.
-            </p>
-          </div>
-          <div className="service-note">
-            <h3 className="subhead">How it can help</h3>
-            <p>
-              As therapist, I offer a neutral and contained space where you can look at repetitive
-              patterns of conflict or dissatisfaction in safety, knowing each person’s perspective
-              will be given equal value. Together, you may find new ways of relating that rekindle
-              the intimacy you originally sought. You will certainly reach a deeper understanding of
-              the dynamics of your relationship and what scope there is for change.
-            </p>
+          <div className="service-spread">
+            <div className="service-copy">
+              <div className="service-note">
+                <h3 className="subhead">Who it is for</h3>
+                <p>
+                  I also offer ‘couples’ therapy – I use quotation marks because some people wishing to
+                  work on their intimate relationships don’t see themselves as being in an exclusive
+                  ‘couple’. Relationships are where we have some of the most intense experiences in our
+                  lives. They are also where we have the greatest scope to learn and grow, particularly
+                  by examining the painful experiences they can give rise to.
+                </p>
+              </div>
+              <div className="service-note">
+                <h3 className="subhead">How it can help</h3>
+                <p>
+                  As therapist, I offer a neutral and contained space where you can look at repetitive
+                  patterns of conflict or dissatisfaction in safety, knowing each person’s perspective
+                  will be given equal value. Together, you may find new ways of relating that rekindle
+                  the intimacy you originally sought. You will certainly reach a deeper understanding of
+                  the dynamics of your relationship and what scope there is for change.
+                </p>
+              </div>
+            </div>
+            <figure className="service-figure">
+              <Image
+                src="/media/woodland.jpg"
+                alt="Two people sitting together among autumn trees"
+                fill
+                sizes="(min-width: 1024px) 42vw, 1px"
+                className="object-cover object-[center_68%]"
+              />
+            </figure>
           </div>
           <div className="service-questions">
             <h3 className="subhead">Questions you may have</h3>
@@ -292,6 +318,8 @@ export default function HomePage() {
                 present and mindful.
               </p>
             </div>
+          </div>
+          <div className="about-rest">
             <aside className="accreditation" aria-labelledby="experience">
               <p className="path-label">Registration</p>
               <h3 id="experience" tabIndex={-1} className="subhead scroll-mt-28">
@@ -332,7 +360,7 @@ export default function HomePage() {
                 I recorded the short video below in my home consulting room so you can get a better
                 sense of me and my approach to therapy.
               </p>
-              <div className="mt-6 max-w-[40rem]">
+              <div className="mt-6 max-w-[40rem] lg:max-w-none">
                 <IntroVideo />
               </div>
             </div>
