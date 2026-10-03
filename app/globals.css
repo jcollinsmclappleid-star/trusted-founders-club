@@ -647,7 +647,7 @@ footer {
 
 .tree-break {
   margin: 1.75rem 0.85rem;
-  padding: 1.15rem;
+  padding: 1.35rem 1.15rem 1.15rem;
   background: #f6efe4;
 }
 
@@ -655,9 +655,22 @@ footer {
   margin-top: 2.75rem;
 }
 
+.tree-line {
+  max-width: 18.5rem;
+  margin: 0 auto 1rem;
+  text-align: center;
+  text-wrap: balance;
+  font-family: var(--font-crimson), Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.28rem;
+  line-height: 1.35;
+  color: #6d4328;
+}
+
 .tree-window {
   position: relative;
-  height: 13.5rem;
+  height: 12.5rem;
   overflow: hidden;
 }
 
@@ -1723,12 +1736,50 @@ img.member-logo-ukcp {
     display: block;
   }
 
+  #site-header > div {
+    max-width: none;
+    padding: 0.85rem 3.5rem 0.7rem;
+  }
+
+  img.header-logo {
+    height: 4.35rem;
+  }
+
+  #site-header[data-compact="true"] img.header-logo,
+  #site-header[data-compact="true"] .header-logo {
+    height: 3.05rem;
+  }
+
+  #site-header nav {
+    gap: 1.65rem;
+  }
+
+  .nav-link,
+  .enquire-link {
+    font-size: 0.84rem;
+  }
+
+  footer img.logo-mark {
+    height: 3.35rem;
+  }
+
+  footer > div {
+    max-width: none;
+    align-items: end;
+    padding: 4.5rem 3.5rem 4.25rem;
+  }
+
+  footer nav {
+    justify-self: end;
+    width: min(28rem, 100%);
+  }
+
   h1,
   h2,
   h3,
   h4,
   .scroll-mt-28 {
-    scroll-margin-top: 9rem;
+    scroll-margin-top: 11rem;
   }
 
   .hero-frame {
@@ -1754,6 +1805,7 @@ img.member-logo-ukcp {
 
   .opening-line {
     max-width: 40rem;
+    margin-inline: auto;
     font-size: 1.35rem;
   }
 
@@ -1835,7 +1887,6 @@ img.member-logo-ukcp {
   .opening-sheet,
   .wood-individual,
   .wood-couples,
-  .tree-break,
   .online-chapter,
   .about-chapter,
   .approach-chapter,
@@ -1848,7 +1899,17 @@ img.member-logo-ukcp {
   }
 
   .tree-break {
-    padding: 1.6rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 2.6rem 0 0;
+  }
+
+  .tree-line {
+    max-width: 54rem;
+    margin-bottom: 1.7rem;
+    padding-inline: 2.5rem;
+    font-size: 1.9rem;
+    line-height: 1.3;
   }
 
   .online-chapter + .tree-break {
@@ -1856,7 +1917,8 @@ img.member-logo-ukcp {
   }
 
   .tree-window {
-    height: 18rem;
+    height: min(48vh, 32rem);
+    min-height: 22rem;
   }
 
   .tree-break,
@@ -1980,6 +2042,16 @@ img.member-logo-ukcp {
 
   .fees-sheet.bank-block {
     margin-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  img.header-logo {
+    height: 3.65rem;
+  }
+
+  #site-header nav {
+    gap: 1.15rem;
   }
 }
 

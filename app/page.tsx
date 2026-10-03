@@ -22,6 +22,7 @@ function Alias({ id }: { id: string }) {
 function TreeBreak() {
   return (
     <figure className="tree-break">
+      <p className="tree-line">A time of real difficulty can still hold the beginning of growth.</p>
       <div className="tree-window">
         <Image
           src="/media/autumn-sky.jpg"
