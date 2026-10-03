@@ -1,95 +1,151 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
-export type TopicJump = {
-  kind: "jump";
+export type Topic = {
   id: string;
   label: string;
-  href: string;
+  detail: string;
 };
 
-export type TopicNote = {
-  kind: "note";
-  id: string;
-  label: string;
-  body: string;
-};
-
-export type TopicPiece = string | TopicJump | TopicNote;
-
-export function TopicTrail({ pieces }: { pieces: TopicPiece[] }) {
-  const notes = pieces.filter((piece): piece is TopicNote => typeof piece !== "string" && piece.kind === "note");
-  const [openId, setOpenId] = useState<string | null>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
+export function TopicTrail({
+  topics,
+  support,
+}: {
+  topics: Topic[];
+  support: string;
+}) {
+  const [open, setOpen] = useState<Topic | null>(null);
+  const [mounted, setMounted] = useState(false);
+  const openerRef = useRef<HTMLButtonElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
+  const midpoint = Math.ceil(topics.length / 2);
+  const columns = [topics.slice(0, midpoint), topics.slice(midpoint)];
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    if (!openId) return;
-    const panel = panelRef.current;
-    const title = panel?.querySelector<HTMLElement>(".topic-panel-title");
-    title?.focus({ preventScroll: true });
-    panel?.scrollIntoView({ block: "nearest", behavior: "smooth" });
-  }, [openId]);
+    if (!open) return;
+    const dialog = dialogRef.current;
+    const header = document.getElementById("site-header");
+    const content = document.getElementById("page-content");
+    header?.setAttribute("inert", "");
+    content?.setAttribute("inert", "");
+    document.documentElement.style.overflow = "hidden";
 
-  function close(id: string) {
-    setOpenId(null);
-    document.getElementById(id)?.focus();
+    const focusable = () =>
+      Array.from(
+        dialog?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])") ?? [],
+      );
+
+    dialog?.querySelector<HTMLElement>(".topic-dialog-title")?.focus();
+
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setOpen(null);
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const items = focusable();
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      header?.removeAttribute("inert");
+      content?.removeAttribute("inert");
+      document.documentElement.style.overflow = "";
+      openerRef.current?.focus();
+    };
+  }, [open]);
+
+  function close() {
+    setOpen(null);
   }
 
-  return (
-    <div className="topic-trail">
-      <p className="topic-sentence">
-        {pieces.map((piece, index) => {
-          if (typeof piece === "string") return <span key={index}>{piece}</span>;
-          if (piece.kind === "jump") {
-            return (
-              <a key={piece.id} id={piece.id} href={piece.href}>
-                {piece.label}
-              </a>
-            );
-          }
-          const open = openId === piece.id;
-          return (
-            <a
-              key={piece.id}
-              id={piece.id}
-              href={`#${piece.id}-note`}
-              aria-expanded={open}
-              onClick={(event) => {
-                event.preventDefault();
-                setOpenId(open ? null : piece.id);
-              }}
+  const dialog =
+    open && mounted
+      ? createPortal(
+          <div className="topic-dialog">
+            <div className="topic-scrim" onClick={close} />
+            <div
+              ref={dialogRef}
+              className="topic-dialog-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={titleId}
             >
-              {piece.label}
-            </a>
-          );
-        })}
-      </p>
-      {notes.map((note) => {
-        const open = openId === note.id;
-        return (
-          <div
-            key={note.id}
-            id={`${note.id}-note`}
-            ref={open ? panelRef : undefined}
-            className="topic-panel"
-            hidden={!open}
-            role="region"
-            aria-labelledby={open ? titleId : undefined}
-          >
-            <h3 id={open ? titleId : undefined} className="topic-panel-title" tabIndex={-1}>
-              {note.label}
-            </h3>
-            <p>{note.body}</p>
-            <p className="topic-back">
-              <button type="button" onClick={() => close(note.id)}>
-                Back to this passage
-              </button>
-            </p>
+              <div className="topic-dialog-head">
+                <p className="topic-kicker">How this can be held</p>
+                <button type="button" className="topic-close" onClick={close}>
+                  Close
+                </button>
+              </div>
+              <div className="topic-dialog-body">
+                <h2 id={titleId} tabIndex={-1} className="topic-dialog-title">
+                  {open.label}
+                </h2>
+                <p>{open.detail}</p>
+                <p>{support}</p>
+              </div>
+              <div className="topic-dialog-foot">
+                <a className="submit-button topic-dialog-cta" href="#contact" onClick={close}>
+                  Arrange a free conversation
+                </a>
+                <p>A free 30-minute conversation, by phone or video. It is not a session.</p>
+              </div>
+            </div>
+          </div>,
+          document.body,
+        )
+      : null;
+
+  return (
+    <div className="topic-tree">
+      <p className="topic-invite">If any of these resonate, open it.</p>
+      <div className="topic-canopy">
+        {columns.map((column) => (
+          <div key={column[0]?.id} className="topic-trunk">
+            {column.map((topic) => (
+              <div key={topic.id} className="topic-limb">
+                <span className="topic-stem" aria-hidden="true" />
+                <button
+                  type="button"
+                  className="topic-branch"
+                  aria-expanded={open?.id === topic.id}
+                  onClick={(event) => {
+                    openerRef.current = event.currentTarget;
+                    setOpen(topic);
+                  }}
+                >
+                  {topic.label}
+                </button>
+              </div>
+            ))}
           </div>
-        );
-      })}
+        ))}
+      </div>
+      <div className="sr-only">
+        {topics.map((topic) => (
+          <p key={topic.id}>
+            {topic.label}. {topic.detail} {support}
+          </p>
+        ))}
+      </div>
+      {dialog}
     </div>
   );
 }

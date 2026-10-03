@@ -98,59 +98,56 @@ export default function HomePage() {
             </p>
           </Further>
           <TopicTrail
-            pieces={[
-              "The work can begin with ",
-              { kind: "jump", id: "from-grief", label: "grief and loss", href: "#grief" },
-              ", or with the tension between ",
+            support="I’ll listen attentively, without judging. We look at what is causing difficulty now, and, if it belongs, whether an earlier experience is still part of it. You don’t have to arrive with it already named."
+            topics={[
               {
-                kind: "jump",
-                id: "from-work",
-                label: "work and a personal life",
-                href: "#work-and-life",
+                id: "topic-grief",
+                label: "Grief and loss",
+                detail:
+                  "I trained as a bereavement volunteer with Cruse and work with people experiencing intense grief and loss. If that is what you are carrying, it can be the centre of the work.",
               },
-              ". It can also begin with ",
               {
-                kind: "note",
+                id: "topic-work",
+                label: "Work and a personal life",
+                detail:
+                  "Before this work I was a marketing consultant in professional and financial services. I know the tension between business success and a personal life, and the pressure that puts on relationships.",
+              },
+              {
                 id: "topic-anxiety",
-                label: "anxiety",
-                body: "Anxiety is one of the most common reasons people look for a place to talk. It can be part of what is causing difficulty now, and, if it belongs, part of an earlier experience.",
+                label: "Anxiety",
+                detail:
+                  "Anxiety is one of the most common reasons people look for a place to talk. It can be part of what is difficult now, and, if it belongs, part of an earlier experience.",
               },
-              ", ",
               {
-                kind: "note",
                 id: "topic-mood",
-                label: "low mood",
-                body: "Low mood is a common reason to begin. The conversation can stay with how it feels now, and with whether something earlier is still part of it.",
+                label: "Low mood",
+                detail:
+                  "Low mood is a common reason to begin. The conversation can stay with how it feels now, and with whether something earlier is still part of it.",
               },
-              ", ",
               {
-                kind: "note",
                 id: "topic-stress",
-                label: "stress",
-                body: "Stress is often what brings someone to individual therapy. There is time to look at the pressure itself, rather than to be moved past it.",
+                label: "Stress",
+                detail:
+                  "Stress is often what brings someone to individual therapy. There is time to look at the pressure itself, rather than to be moved past it.",
               },
-              ", a ",
               {
-                kind: "note",
                 id: "topic-relationships",
-                label: "relationship",
-                body: "Difficulties in relationships are often part of individual therapy. We can look at what is happening now, and at whether it has roots further back, which is already how this work is described.",
+                label: "Relationships",
+                detail:
+                  "Difficulties in relationships are often part of individual therapy. We can look at what is happening now, and at whether it has roots further back.",
               },
-              ", ",
               {
-                kind: "note",
                 id: "topic-esteem",
-                label: "self-esteem",
-                body: "How you see yourself can be part of the same conversation: what is difficult now, and what may have shaped it.",
+                label: "Self-esteem",
+                detail:
+                  "How you see yourself can be part of the same conversation: what is difficult now, and what may have shaped it.",
               },
-              ", or a ",
               {
-                kind: "note",
                 id: "topic-change",
-                label: "change in life",
-                body: "A change in life is a common reason to begin. There is time here to see what it has stirred, rather than to be hurried on.",
+                label: "A change in life",
+                detail:
+                  "A change in life is a common reason to begin. There is time here to see what it has stirred, rather than to be hurried on.",
               },
-              " — whatever is causing difficulty now.",
             ]}
           />
           <div className="region-split">
@@ -169,11 +166,6 @@ export default function HomePage() {
                   There is room for how the loss actually feels.
                 </p>
               </Further>
-              <p className="mt-4 text-lg">
-                <a className="text-link" href="#from-grief">
-                  Back to individual therapy
-                </a>
-              </p>
             </article>
             <article>
               <h3
@@ -197,11 +189,6 @@ export default function HomePage() {
                   directly.
                 </p>
               </Further>
-              <p className="mt-4 text-lg">
-                <a className="text-link" href="#from-work">
-                  Back to individual therapy
-                </a>
-              </p>
             </article>
           </div>
         </div>
@@ -238,50 +225,44 @@ export default function HomePage() {
             </p>
           </Further>
           <TopicTrail
-            pieces={[
-              "From there, people often want to look at ",
+            support="I offer a neutral and contained space, and each person’s perspective is given equal value. You don’t have to arrive as an exclusive couple, or with the difficulty already named."
+            topics={[
               {
-                kind: "note",
                 id: "topic-communication",
-                label: "communication",
-                body: "How you speak, and how you hear each other, is often where this work begins. It can be looked at in the contained space, with equal attention to each person.",
+                label: "Communication",
+                detail:
+                  "How you speak, and how you hear each other, is often where this work begins.",
               },
-              ", ",
               {
-                kind: "note",
                 id: "topic-conflict",
-                label: "conflict",
-                body: "Repetitive patterns of conflict are already part of how this work is described: a neutral place to look at them, with each person’s perspective given equal value.",
+                label: "Conflict",
+                detail:
+                  "Repetitive patterns of conflict can be looked at here, with each person’s perspective given equal value.",
               },
-              ", ",
               {
-                kind: "note",
                 id: "topic-intimacy",
-                label: "intimacy",
-                body: "Intimacy is already in the writing above: the possibility of new ways of relating, and of understanding what scope there is for change.",
+                label: "Intimacy",
+                detail:
+                  "Together, you may find new ways of relating that rekindle the intimacy you originally sought, and a clearer sense of what can change.",
               },
-              ", ",
               {
-                kind: "note",
                 id: "topic-trust",
-                label: "trust",
-                body: "Trust is a common reason people look for couples therapy. It can be spoken about here, in the same contained space, with equal attention to each person.",
+                label: "Trust",
+                detail:
+                  "Trust is a common reason people look for couples therapy. It can be spoken about in the same contained space.",
               },
-              ", or ",
               {
-                kind: "note",
                 id: "topic-apart",
-                label: "growing apart",
-                body: "A sense of growing apart is a common reason to begin. The work is a place to understand the dynamics of the relationship, and what scope there is for change, which is already how this is described.",
+                label: "Growing apart",
+                detail:
+                  "A sense of growing apart is a common reason to begin. The work is a place to understand the dynamics of the relationship, and what scope there is for change.",
               },
-              ". ",
               {
-                kind: "jump",
-                id: "from-relating",
+                id: "topic-relating",
                 label: "Sexual identity and open relating",
-                href: "#relating",
+                detail:
+                  "I’m comfortable in the world of conscious sexuality and work with clients exploring sexual identity and open relating, including polyamory. This sits inside the couples work. It is not a separate service.",
               },
-              " is part of this same work.",
             ]}
           />
           <article className="relating-note">
@@ -298,11 +279,6 @@ export default function HomePage() {
                 and feelings can be spoken about here, and they will be met without judgement.
               </p>
             </Further>
-            <p className="mt-4 text-lg">
-              <a className="text-link" href="#from-relating">
-                Back to couples therapy
-              </a>
-            </p>
           </article>
           <p className="mt-8 text-lg">
             <a className="text-link" href="#contact">
