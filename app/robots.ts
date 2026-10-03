@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
-import { isProductionHost, siteConfig } from "@/lib/site";
+import { indexingAllowed } from "@/lib/indexing";
+import { siteConfig } from "@/lib/site";
 
-export default function robots(): MetadataRoute.Robots {
-  if (!isProductionHost()) {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  if (!(await indexingAllowed())) {
     return {
-      rules: { userAgent: "*", disallow: "/" },
+      rules: { userAgent: "*", allow: "/" },
     };
   }
 

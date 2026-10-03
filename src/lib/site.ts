@@ -13,9 +13,26 @@ export const siteConfig = {
   place: "Little Hampden, near Great Missenden, Buckinghamshire",
 } as const;
 
-export function isProductionHost() {
-  return process.env.NEXT_PUBLIC_SITE_URL === siteConfig.url;
+const indexableHosts = new Set(["dermotcox.com", "www.dermotcox.com"]);
+
+export function isIndexableHost(host: string) {
+  return indexableHosts.has(host);
 }
+
+export const previewRobots = {
+  index: false,
+  follow: false,
+  noarchive: true,
+  nosnippet: true,
+  noimageindex: true,
+  googleBot: {
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
+  },
+} as const;
 
 export type MenuChild = { id: string; label: string };
 

@@ -64,6 +64,6 @@ The preview uses the public homepage as its wording. Nothing below is presented 
 
 ## Preview behaviour that is not a content claim
 
-- Until `NEXT_PUBLIC_SITE_URL` is `https://www.dermotcox.com`, the site sends `noindex`. The canonical URL is still the production domain.
+- The preview is closed to search. Google is told not to index, follow, archive, snippet, or image-index it, both in the page and in the response header. There is no canonical link and no sitemap while the site is served from any host other than dermotcox.com. Setting an environment variable does not open it. These rules lift only when the request host is the real domain.
 - If Resend is not configured, the form states that it cannot send and offers the phone and email. It does not pretend the message was delivered.
 - Server logs record status only, not the message text.

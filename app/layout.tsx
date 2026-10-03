@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Crimson_Text, Julius_Sans_One } from "next/font/google";
 import { SiteShell } from "@/components/site-shell";
 import { areaServed, buckinghamshireAnswer } from "@/lib/areas";
-import { isProductionHost, siteConfig } from "@/lib/site";
+import { indexingAllowed, requestHost } from "@/lib/indexing";
+import { previewRobots, siteConfig } from "@/lib/site";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -27,38 +28,42 @@ const julius = Julius_Sans_One({
   display: "swap",
 });
 
-const indexing = isProductionHost();
+export async function generateMetadata(): Promise<Metadata> {
+  const host = await requestHost();
+  const indexable = await indexingAllowed();
+  const metadataBase = indexable
+    ? siteConfig.url
+    : host
+      ? `https://${host}`
+      : "http://localhost";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || siteConfig.url),
-  title: {
-    default: "Dermot Cox Counselling | Little Hampden, near Great Missenden",
-    template: "%s | Dermot Cox Counselling",
-  },
-  description: siteConfig.description,
-  alternates: {
-    canonical: siteConfig.url,
-  },
-  openGraph: {
-    title: "Dermot Cox Counselling",
+  return {
+    metadataBase: new URL(metadataBase),
+    title: {
+      default: "Dermot Cox Counselling | Little Hampden, near Great Missenden",
+      template: "%s | Dermot Cox Counselling",
+    },
     description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    type: "website",
-    locale: "en_GB",
-    images: [
-      {
-        url: "/media/woodland.jpg",
-        width: 1500,
-        height: 1000,
-        alt: "Two people sitting together on a fallen tree in autumn woodland",
-      },
-    ],
-  },
-  robots: indexing
-    ? { index: true, follow: true }
-    : { index: false, follow: false, nocache: true },
-};
+    alternates: indexable ? { canonical: siteConfig.url } : undefined,
+    openGraph: {
+      title: "Dermot Cox Counselling",
+      description: siteConfig.description,
+      url: indexable ? siteConfig.url : undefined,
+      siteName: siteConfig.name,
+      type: "website",
+      locale: "en_GB",
+      images: [
+        {
+          url: "/media/woodland.jpg",
+          width: 1500,
+          height: 1000,
+          alt: "Two people sitting together on a fallen tree in autumn woodland",
+        },
+      ],
+    },
+    robots: indexable ? { index: true, follow: true } : previewRobots,
+  };
+}
 
 const jsonLd = {
   "@context": "https://schema.org",

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { previewRobots } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Page not found",
-  robots: { index: false, follow: false },
+  robots: previewRobots,
 };
 
 export default function NotFound() {
