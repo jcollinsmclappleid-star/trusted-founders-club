@@ -646,9 +646,18 @@ footer {
 }
 
 .tree-break {
+  margin: 1.75rem 0.85rem;
+  padding: 1.15rem;
+  background: #f6efe4;
+}
+
+.online-chapter + .tree-break {
+  margin-top: 2.75rem;
+}
+
+.tree-window {
   position: relative;
-  height: 15rem;
-  margin: 1.15rem 0.85rem;
+  height: 13.5rem;
   overflow: hidden;
 }
 
@@ -1839,7 +1848,15 @@ img.member-logo-ukcp {
   }
 
   .tree-break {
-    height: 22rem;
+    padding: 1.6rem;
+  }
+
+  .online-chapter + .tree-break {
+    margin-top: 4.25rem;
+  }
+
+  .tree-window {
+    height: 18rem;
   }
 
   .tree-break,

@@ -22,13 +22,15 @@ function Alias({ id }: { id: string }) {
 function TreeBreak() {
   return (
     <figure className="tree-break">
-      <Image
-        src="/media/autumn-sky.jpg"
-        alt="Looking up through burnt orange and green autumn leaves"
-        fill
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      <div className="tree-window">
+        <Image
+          src="/media/autumn-sky.jpg"
+          alt="Looking up through burnt orange and green autumn leaves"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
     </figure>
   );
 }
@@ -70,7 +72,7 @@ export default function HomePage() {
           <nav className="service-paths" aria-label="Choose a service">
             <a href="#individual-therapy">Individual therapy</a>
             <a href="#couples-therapy">Couples therapy</a>
-            <a href="#online">Prefer online? Select here</a>
+            <a href="#online">Online</a>
           </nav>
         </section>
       </div>
