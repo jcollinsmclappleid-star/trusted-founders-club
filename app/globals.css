@@ -276,10 +276,10 @@ h4,
 }
 
 .wood-bank img {
-  opacity: 0.5;
-  filter: blur(18px) saturate(1.1);
-  transform: scale(1.45);
-  transform-origin: center top;
+  opacity: 1;
+  filter: saturate(1.45);
+  transform: scale(2.05);
+  transform-origin: center 12%;
 }
 
 .wood-bank::after {
@@ -288,9 +288,9 @@ h4,
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(255, 251, 245, 0.58) 0%,
-    rgba(226, 206, 168, 0.42) 48%,
-    rgba(78, 93, 78, 0.22) 100%
+    rgba(255, 251, 245, 0.08) 0%,
+    rgba(214, 132, 42, 0.05) 46%,
+    rgba(78, 93, 78, 0.14) 100%
   );
 }
 
@@ -298,6 +298,10 @@ h4,
 footer {
   position: relative;
   z-index: 1;
+}
+
+footer {
+  background: rgba(243, 238, 228, 0.55);
 }
 
 .bank-block {
@@ -512,7 +516,7 @@ footer {
   z-index: 1;
   isolation: isolate;
   overflow: hidden;
-  margin-top: 0;
+  margin: 1rem 0.85rem 0;
   padding: 2.75rem 1.5rem 1.25rem;
   background: none;
 }
@@ -526,6 +530,7 @@ footer {
   z-index: 1;
   isolation: isolate;
   overflow: hidden;
+  margin: 1.15rem 0.85rem;
   padding: 1.5rem 1.5rem 4.5rem;
   background: none;
 }
@@ -578,6 +583,16 @@ footer {
 .wood-couples,
 .about-chapter,
 .approach-chapter,
+.place-chapter,
+.fees-chapter,
+.contact-chapter {
+  margin: 1.15rem 0.85rem;
+}
+
+.wood-individual,
+.wood-couples,
+.about-chapter,
+.approach-chapter,
 .place-copy,
 .fees-sheet,
 .contact-aside,
@@ -604,18 +619,18 @@ footer {
   inset: -2.5rem;
   background-image: url("/media/woodland.jpg");
   background-repeat: no-repeat;
-  background-size: auto 380%;
+  background-size: auto 280%;
   background-position: center top;
-  filter: blur(18px) saturate(1.15);
+  filter: blur(2px) saturate(1.45);
   pointer-events: none;
 }
 
 .opening-sheet::before {
-  background-position: 15% top;
+  background-position: 18% top;
 }
 
 .wood-individual::before {
-  background-position: 72% top;
+  background-position: 76% top;
 }
 
 .wood-couples::before {
@@ -623,7 +638,7 @@ footer {
 }
 
 .about-chapter::before {
-  background-position: left top;
+  background-position: 6% top;
 }
 
 .approach-chapter::before {
@@ -631,11 +646,11 @@ footer {
 }
 
 .place-copy::before {
-  background-position: 8% top;
+  background-position: 14% top;
 }
 
 .fees-sheet::before {
-  background-position: 55% top;
+  background-position: 58% top;
 }
 
 .contact-aside::before {
@@ -655,11 +670,25 @@ footer {
   z-index: -1;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(255, 251, 245, 0.68), rgba(243, 238, 228, 0.78));
+  background: linear-gradient(
+    90deg,
+    rgba(255, 251, 245, 0.08),
+    rgba(255, 251, 245, 0.46) 14%,
+    rgba(255, 251, 245, 0.52) 50%,
+    rgba(255, 251, 245, 0.46) 86%,
+    rgba(255, 251, 245, 0.08)
+  );
 }
 
 .approach-chapter::after {
-  background: linear-gradient(180deg, rgba(255, 251, 245, 0.64), rgba(226, 210, 180, 0.76));
+  background: linear-gradient(
+    90deg,
+    rgba(255, 236, 214, 0.08),
+    rgba(255, 220, 180, 0.4) 14%,
+    rgba(255, 236, 214, 0.48) 50%,
+    rgba(255, 220, 180, 0.4) 86%,
+    rgba(255, 236, 214, 0.08)
+  );
 }
 
 .wood-couples {
@@ -673,7 +702,14 @@ footer {
   z-index: -1;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(78, 93, 78, 0.7), rgba(42, 54, 44, 0.8));
+  background: linear-gradient(
+    90deg,
+    rgba(42, 54, 44, 0.22),
+    rgba(78, 93, 78, 0.58) 12%,
+    rgba(54, 66, 54, 0.66) 50%,
+    rgba(78, 93, 78, 0.58) 88%,
+    rgba(42, 54, 44, 0.22)
+  );
 }
 
 .wood-couples .text-link,
@@ -847,6 +883,12 @@ img.member-logo-ukcp {
 
 .place-grid {
   display: grid;
+  gap: 0.85rem;
+}
+
+.contact-layout {
+  display: grid;
+  gap: 0.85rem;
 }
 
 .place-copy {
@@ -1119,6 +1161,31 @@ img.member-logo-ukcp {
     padding: 5rem max(2.5rem, calc((100% - 68rem) / 2)) 6rem;
   }
 
+  .hero-copy,
+  .opening-sheet,
+  .wood-individual,
+  .wood-couples,
+  .about-chapter,
+  .approach-chapter,
+  .place-chapter,
+  .fees-chapter,
+  .contact-chapter {
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+  }
+
+  .opening-sheet,
+  .wood-individual,
+  .wood-couples,
+  .about-chapter,
+  .approach-chapter,
+  .place-chapter,
+  .fees-chapter,
+  .contact-chapter {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
   .place-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1175,13 +1242,8 @@ img.member-logo-ukcp {
   background: none;
 }
 
-.forest-spread,
-.fees-chapter {
+.forest-spread {
   margin-top: 0.85rem;
-}
-
-.contact-chapter {
-  margin-bottom: 0.85rem;
 }
 
 @media (min-width: 900px) {
@@ -1301,7 +1363,7 @@ img.member-logo-ukcp {
     bottom: auto;
     width: auto;
     height: auto;
-    margin-top: 0;
+    margin-top: 0.85rem;
   }
 }
 
