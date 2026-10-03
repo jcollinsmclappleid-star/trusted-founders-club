@@ -273,6 +273,11 @@ export function TopicTrail({
         </div>
       ) : null}
       <div className="sr-only">
+        {promise ? (
+          <p>
+            My promise. {promise} {support}
+          </p>
+        ) : null}
         {topics.map((topic) => (
           <p key={topic.id}>
             {topic.label}. {topic.detail} {support}

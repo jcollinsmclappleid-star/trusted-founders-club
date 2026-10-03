@@ -33,9 +33,8 @@ export const menuItems: MenuItem[] = [
     label: "Services",
     children: [
       { id: "individual-therapy", label: "Individual therapy" },
-      { id: "grief", label: "Grief and loss" },
       { id: "couples-therapy", label: "Couples therapy" },
-      { id: "relating", label: "Sexual identity and open relating" },
+      { id: "online", label: "Online sessions" },
     ],
   },
   { id: "approach", label: "Approach" },
@@ -59,11 +58,11 @@ export const sectionIds = [
   "services",
   "individual-therapy",
   "couples-therapy",
+  "online",
   "about",
   "approach",
   "experience",
   "in-person",
-  "online",
   "fees",
   "contact",
 ] as const;
@@ -75,6 +74,7 @@ const serviceIds = new Set([
   "work-and-life",
   "couples-therapy",
   "relating",
+  "online",
 ]);
 
 export function navIsCurrent(itemId: string, activeId: string) {
@@ -85,7 +85,7 @@ export function navIsCurrent(itemId: string, activeId: string) {
 
 export const chapterLabels: Record<string, string> = {
   top: "Little Hampden",
-  services: "Individual and couples",
+  services: "Individual, couples, online",
   "individual-therapy": "Individual therapy",
   grief: "Grief and loss",
   "work-and-life": "Work and a personal life",
