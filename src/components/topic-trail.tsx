@@ -35,14 +35,58 @@ function TopicBranch({
   );
 }
 
+function PromiseSeal({ seal }: { seal: "one" | "two" }) {
+  return (
+    <svg className="promise-mark" viewBox="0 0 80 80" aria-hidden="true">
+      <circle cx="40" cy="40" r="37" fill="#fffbf5" />
+      <circle cx="40" cy="40" r="35.5" fill="none" stroke="#4e5d4e" strokeWidth="1.25" />
+      <circle cx="40" cy="40" r="29.5" fill="none" stroke="#c65c28" strokeWidth="0.7" />
+      {seal === "one" ? (
+        <>
+          <path
+            d="M24 54V40c0-10.5 7-18 16-18s16 7.5 16 18v14"
+            fill="none"
+            stroke="#4e5d4e"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+          <path d="M22 54h36" stroke="#4e5d4e" strokeWidth="1.6" strokeLinecap="round" />
+          <circle cx="40" cy="40" r="5.2" fill="#c65c28" />
+        </>
+      ) : (
+        <>
+          <path
+            d="M18 54V42c0-9 5.2-15 11-15"
+            fill="none"
+            stroke="#4e5d4e"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+          <path
+            d="M62 54V42c0-9-5.2-15-11-15"
+            fill="none"
+            stroke="#4e5d4e"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+          <path d="M18 54h44" stroke="#4e5d4e" strokeWidth="1.6" strokeLinecap="round" />
+          <circle cx="40" cy="42" r="5" fill="#c65c28" />
+        </>
+      )}
+    </svg>
+  );
+}
+
 export function TopicTrail({
   topics,
   support,
   promise,
+  seal = "one",
 }: {
   topics: Topic[];
   support: string;
   promise?: string;
+  seal?: "one" | "two";
 }) {
   const [open, setOpen] = useState<Topic | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -189,6 +233,18 @@ export function TopicTrail({
                   {open.detail.split(/\n\n+/).map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
+                  {promise ? (
+                    <div className="topic-end">
+                      <div className="topic-promise">
+                        <PromiseSeal seal={seal} />
+                        <p className="topic-promise-title">My promise</p>
+                        <p>{promise}</p>
+                      </div>
+                      <p className="topic-support">{support}</p>
+                    </div>
+                  ) : (
+                    <p className="topic-support">{support}</p>
+                  )}
                 </div>
                 <div className="topic-scroll-fade" aria-hidden="true" />
               </div>
@@ -200,26 +256,6 @@ export function TopicTrail({
                   </svg>
                 </p>
               ) : null}
-              {promise ? (
-                <div className="topic-promise">
-                  <svg className="promise-mark" viewBox="0 0 64 64" aria-hidden="true">
-                    <path
-                      d="M10 42V30c0-12 9.4-22 22-22s22 10 22 22v12"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                    />
-                    <path d="M8 42h48" stroke="currentColor" strokeWidth="1.6" />
-                    <circle cx="32" cy="34" r="7.5" fill="#c65c28" />
-                    <circle cx="32" cy="34" r="12" fill="none" stroke="#c65c28" strokeWidth="1" />
-                  </svg>
-                  <div>
-                    <p className="topic-promise-title">My promise</p>
-                    <p>{promise}</p>
-                  </div>
-                </div>
-              ) : null}
-              <p className="topic-support">{support}</p>
               <div className="topic-dialog-foot">
                 <a className="submit-button topic-dialog-cta" href="#contact" onClick={close}>
                   Arrange a free conversation

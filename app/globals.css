@@ -1153,39 +1153,56 @@ footer {
   height: 0.9rem;
 }
 
-.topic-promise {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.8rem;
-  align-items: center;
-  margin: 0.35rem 1.15rem 0;
-  padding: 0.85rem 0.95rem;
+.topic-end {
+  position: relative;
+  margin: 3.15rem 0 0.2rem;
+  padding: 2.7rem 1rem 1.05rem;
   background: #f6ecdf;
-  border-left: 3px solid var(--color-ember);
+  text-align: center;
+}
+
+.topic-end::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0.4rem;
+  left: 0.4rem;
+  height: 1px;
+  background: rgba(78, 93, 78, 0.28);
+}
+
+.topic-promise {
+  margin: 0;
+  padding: 0;
 }
 
 .promise-mark {
-  width: 3.1rem;
-  height: 3.1rem;
-  color: var(--color-forest);
+  display: block;
+  width: 4.85rem;
+  height: 4.85rem;
+  margin: -5.15rem auto 0.55rem;
+  filter: drop-shadow(0 8px 12px rgba(26, 36, 28, 0.14));
 }
 
 .topic-promise-title {
   margin: 0;
   color: var(--color-forest);
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 1.55rem;
+  font-size: 1.7rem;
   line-height: 1;
 }
 
-.topic-promise p {
-  margin: 0.28rem 0 0;
-  font-size: 1.05rem;
-  line-height: 1.45;
+.topic-promise p,
+.topic-end .topic-support {
+  margin: 0.7rem auto 0;
+  max-width: 34rem;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  text-align: left;
 }
 
 .topic-support {
-  margin: 0.8rem 1.35rem 0.95rem;
+  margin: 0.85rem 0 0;
   font-size: 1.08rem;
   line-height: 1.55;
 }

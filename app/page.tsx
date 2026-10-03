@@ -9,6 +9,7 @@ import {
   couplesPromise,
   couplesSupport,
   couplesTopics,
+  individualPromise,
   individualSupport,
   individualTopics,
 } from "@/lib/topics";
@@ -108,7 +109,12 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <TopicTrail support={individualSupport} topics={individualTopics} />
+          <TopicTrail
+            support={individualSupport}
+            promise={individualPromise}
+            seal="one"
+            topics={individualTopics}
+          />
         </div>
       </section>
 
@@ -169,6 +175,7 @@ export default function HomePage() {
           <TopicTrail
             support={couplesSupport}
             promise={couplesPromise}
+            seal="two"
             topics={couplesTopics}
           />
           <p className="mt-8 text-lg">

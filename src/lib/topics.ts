@@ -6,6 +6,9 @@ export const individualSupport =
 export const couplesSupport =
   "I offer a neutral and contained space, and each person’s perspective is given equal value. You don’t have to arrive as an exclusive couple, or with the difficulty already named.";
 
+export const individualPromise =
+  "I will give you my full attention. I will not judge what you bring, and I will not hurry you past it.";
+
 export const couplesPromise =
   "I will listen without taking sides. Each of you will be heard, and neither of you will be hurried. There is time for the difficult thing to be said, even before it has a name.";
 
