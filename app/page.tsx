@@ -304,11 +304,11 @@ export default function HomePage() {
           <ol className="process">
             <li>
               <img
-                className="place-mark mark-portrait"
-                src="/media/portrait.jpg"
-                alt="Dermot Cox"
-                width={150}
-                height={150}
+                className="line-mark"
+                src="/media/marks/conversation.png"
+                alt=""
+                width={256}
+                height={256}
               />
               <h3 className="subhead">A first conversation</h3>
               <p>
@@ -319,11 +319,11 @@ export default function HomePage() {
             </li>
             <li>
               <img
-                className="place-mark mark-door"
-                src="/media/garden-room.jpg"
-                alt="The garden room, where the weekly meetings are held"
-                width={150}
-                height={150}
+                className="line-mark"
+                src="/media/marks/time.png"
+                alt=""
+                width={256}
+                height={256}
               />
               <h3 className="subhead">A time to meet</h3>
               <p>
@@ -334,11 +334,11 @@ export default function HomePage() {
             </li>
             <li>
               <img
-                className="place-mark mark-welcome"
-                src="/media/woodland.jpg"
-                alt="Autumn woodland, with light between the trunks"
-                width={150}
-                height={150}
+                className="line-mark"
+                src="/media/marks/welcome.png"
+                alt=""
+                width={256}
+                height={256}
               />
               <h3 className="subhead">You are welcome</h3>
               <p>
@@ -420,33 +420,33 @@ export default function HomePage() {
             <ol className="garden-path">
               <li>
                 <img
-                  className="place-mark mark-room"
-                  src="/media/garden-room.jpg"
-                  alt="The timber garden room, with its green door and living roof"
-                  width={150}
-                  height={150}
+                  className="line-mark"
+                  src="/media/marks/room.png"
+                  alt=""
+                  width={256}
+                  height={256}
                 />
                 <span>The room</span>
                 In my garden, with views over fields and woods.
               </li>
               <li>
                 <img
-                  className="place-mark mark-outside"
-                  src="/media/woodland.jpg"
-                  alt="Two people sitting together in autumn woodland"
-                  width={150}
-                  height={150}
+                  className="line-mark"
+                  src="/media/marks/outside.png"
+                  alt=""
+                  width={256}
+                  height={256}
                 />
                 <span>Outside</span>
                 We can also have outdoor sessions in the countryside near my home.
               </li>
               <li>
                 <img
-                  className="place-mark mark-journey"
-                  src="/media/autumn-sky.jpg"
-                  alt="Looking up through orange and green autumn branches"
-                  width={150}
-                  height={150}
+                  className="line-mark"
+                  src="/media/marks/journey.png"
+                  alt=""
+                  width={256}
+                  height={256}
                 />
                 <span>The journey</span>
                 About 5 minutes by taxi from Great Missenden station on the Chiltern line, which is

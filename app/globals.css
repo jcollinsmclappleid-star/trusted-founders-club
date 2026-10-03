@@ -151,39 +151,14 @@ h4,
   letter-spacing: 0;
 }
 
-.place-mark {
+.line-mark {
   display: block;
-  width: 4.7rem;
-  height: 4.7rem;
-  object-fit: cover;
-  border-radius: 0.15rem;
-  box-shadow:
-    0.18rem 0.22rem 0 var(--color-ember),
-    0.38rem 0.44rem 0 var(--color-forest);
-}
-
-.mark-room {
-  object-position: 48% 42%;
-}
-
-.mark-door {
-  object-position: 34% 46%;
-}
-
-.mark-outside {
-  object-position: 50% 64%;
-}
-
-.mark-journey {
-  object-position: 50% 38%;
-}
-
-.mark-welcome {
-  object-position: 72% 22%;
-}
-
-.mark-portrait {
-  object-position: 50% 28%;
+  width: 3.55rem;
+  height: 3.55rem;
+  object-fit: contain;
+  background: var(--color-ivory);
+  border-radius: 0.4rem;
+  box-shadow: 0.14rem 0.16rem 0 var(--color-ember);
 }
 
 .font-nav,
@@ -687,7 +662,7 @@ footer {
 
 .garden-path li {
   display: grid;
-  grid-template-columns: 5.25rem minmax(0, 1fr);
+  grid-template-columns: 4.15rem minmax(0, 1fr);
   column-gap: 0.95rem;
   row-gap: 0.15rem;
   margin: 0;
@@ -696,8 +671,9 @@ footer {
   line-height: 1.65;
 }
 
-.garden-path .place-mark {
+.garden-path .line-mark {
   grid-row: 1 / span 2;
+  align-self: center;
 }
 
 .garden-path span {
@@ -1384,27 +1360,21 @@ footer {
 
 .process li {
   position: relative;
-  padding-left: 6.2rem;
+  padding-left: 4.85rem;
 }
 
 .process li::before {
-  content: "";
-  position: absolute;
-  left: 2.2rem;
-  top: 5.2rem;
-  bottom: -2.75rem;
-  width: 1px;
-  background: rgba(78, 93, 78, 0.35);
+  content: none;
 }
 
 .process li:last-child::before {
   display: none;
 }
 
-.process .place-mark {
+.process .line-mark {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 0.1rem;
 }
 
 .process p {
@@ -1829,17 +1799,12 @@ img.member-logo-ukcp {
   }
 
   .process li {
-    padding-top: 6.4rem;
+    padding-top: 4.7rem;
     padding-left: 0;
   }
 
   .process li::before {
-    top: 2.2rem;
-    bottom: auto;
-    left: 5.25rem;
-    right: -1.15rem;
-    width: auto;
-    height: 1px;
+    content: none;
   }
 
   .fee-list {
