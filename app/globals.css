@@ -309,9 +309,9 @@ h4,
 
 .wood-bank img {
   opacity: 1;
-  filter: saturate(1.45);
-  transform: scale(2.05);
-  transform-origin: center 12%;
+  filter: saturate(1.2);
+  transform: scale(1.08);
+  transform-origin: center center;
 }
 
 .wood-bank::after {
@@ -1901,7 +1901,7 @@ img.member-logo-ukcp {
   .tree-break {
     margin-left: 0;
     margin-right: 0;
-    padding: 2.6rem 0 0;
+    padding: 2.6rem 0 2.75rem;
   }
 
   .tree-line {

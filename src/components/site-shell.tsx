@@ -210,11 +210,11 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       </a>
       <div className="wood-bank" aria-hidden="true">
         <Image
-          src="/media/woodland.jpg"
+          src="/media/autumn-sky.jpg"
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-[center_12%]"
+          className="object-cover object-center"
         />
       </div>
       <header

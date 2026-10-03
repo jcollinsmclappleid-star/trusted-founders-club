@@ -19,10 +19,10 @@ function Alias({ id }: { id: string }) {
   return <div id={id} className="h-0 scroll-mt-28" />;
 }
 
-function TreeBreak() {
+function TreeBreak({ line }: { line: string }) {
   return (
     <figure className="tree-break">
-      <p className="tree-line">A time of real difficulty can still hold the beginning of growth.</p>
+      <p className="tree-line">{line}</p>
       <div className="tree-window">
         <Image
           src="/media/autumn-sky.jpg"
@@ -78,7 +78,7 @@ export default function HomePage() {
         </section>
       </div>
 
-      <TreeBreak />
+      <TreeBreak line="A time of real difficulty can still hold the beginning of growth." />
 
       <section aria-labelledby="individual-therapy" className="service-region wood-individual chapter">
         <div id="services" className="h-0 scroll-mt-28" />
@@ -249,7 +249,7 @@ export default function HomePage() {
           </p>
       </OnlineFold>
 
-      <TreeBreak />
+      <TreeBreak line="There is room here for what is difficult, and for what may grow from it." />
 
       <section aria-labelledby="about" className="about-chapter">
         <div className="about-layout">
