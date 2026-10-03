@@ -1001,12 +1001,13 @@ footer {
 
 .topic-canopy {
   display: grid;
-  gap: 0.25rem 2rem;
-  margin-top: 1rem;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
 }
 
 .topic-else {
-  margin-top: 1.15rem;
+  margin-top: 2.15rem;
 }
 
 .topic-else-label {
@@ -1021,70 +1022,28 @@ footer {
   color: var(--color-forest);
 }
 
-.topic-trunk {
-  position: relative;
-  padding-left: 0.15rem;
-}
-
-.topic-trunk::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 1.15rem;
-  bottom: 1.15rem;
-  width: 1px;
-  background: rgba(78, 93, 78, 0.4);
-}
-
-.topic-limb {
+.topic-branch {
   display: flex;
   align-items: center;
-}
-
-.topic-stem {
-  height: 1px;
-  background: rgba(78, 93, 78, 0.4);
-  flex: none;
-}
-
-.topic-limb:nth-child(4n + 1) .topic-stem {
-  width: 0.7rem;
-}
-
-.topic-limb:nth-child(4n + 2) .topic-stem {
-  width: 1.7rem;
-}
-
-.topic-limb:nth-child(4n + 3) .topic-stem {
-  width: 1.05rem;
-}
-
-.topic-limb:nth-child(4n) .topic-stem {
-  width: 2.15rem;
-}
-
-.topic-branch {
-  min-height: 44px;
-  margin: 0.3rem 0;
-  padding: 0.35rem 0.95rem;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  padding: 0.55rem 1.1rem;
   border: 1px solid transparent;
   border-radius: 999px;
   background: var(--color-forest);
   color: var(--color-ivory);
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: 1.28rem;
-  line-height: 1.2;
+  line-height: 1.25;
+  text-align: center;
   cursor: pointer;
 }
 
 .topic-branch[aria-expanded="true"] {
   background: #243028;
   box-shadow: inset 0 -2px 0 var(--color-ember);
-}
-
-.wood-couples .topic-trunk::before,
-.wood-couples .topic-stem {
-  background: rgba(255, 251, 245, 0.55);
 }
 
 .wood-couples .topic-branch {
@@ -1346,6 +1305,12 @@ footer {
 @media (min-width: 800px) {
   .topic-canopy {
     grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1.15rem;
+    align-items: stretch;
+  }
+
+  .topic-else .topic-branch {
+    width: calc((100% - 1.15rem) / 2);
   }
 
   .topic-dialog {

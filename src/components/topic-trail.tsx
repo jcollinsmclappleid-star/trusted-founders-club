@@ -54,8 +54,6 @@ export function TopicTrail({
   const dialogId = useId();
   const named = topics.filter((topic) => !topic.catchAll);
   const extras = topics.filter((topic) => topic.catchAll);
-  const midpoint = Math.ceil(named.length / 2);
-  const columns = [named.slice(0, midpoint), named.slice(midpoint)];
 
   useEffect(() => setMounted(true), []);
 
@@ -240,23 +238,17 @@ export function TopicTrail({
     <div className="topic-tree">
       <p className="topic-invite">If any of these resonate, open it.</p>
       <div className="topic-canopy">
-        {columns.map((column) => (
-          <div key={column[0]?.id} className="topic-trunk">
-            {column.map((topic) => (
-              <div key={topic.id} className="topic-limb">
-                <span className="topic-stem" aria-hidden="true" />
-                <TopicBranch
-                  topic={topic}
-                  open={open?.id === topic.id}
-                  dialogId={dialogId}
-                  onOpen={(button) => {
-                    openerRef.current = button;
-                    setOpen(topic);
-                  }}
-                />
-              </div>
-            ))}
-          </div>
+        {named.map((topic) => (
+          <TopicBranch
+            key={topic.id}
+            topic={topic}
+            open={open?.id === topic.id}
+            dialogId={dialogId}
+            onOpen={(button) => {
+              openerRef.current = button;
+              setOpen(topic);
+            }}
+          />
         ))}
       </div>
       {extras.length > 0 ? (
