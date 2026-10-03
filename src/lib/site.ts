@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Dermot Cox Counselling",
   url: "https://www.dermotcox.com",
   description:
-    "Dermot Cox offers psychotherapy and counselling for individuals and couples, in person in Little Hampden, near Great Missenden, and online.",
+    "Dermot Cox offers psychotherapy and counselling for individuals and couples, in person in Little Hampden, near Great Missenden in Buckinghamshire, and online.",
   email: "dermot@dermotcox.com",
   phoneDisplay: "07831 572050",
   phoneHref: "tel:+447831572050",
@@ -64,6 +64,7 @@ export const sectionIds = [
   "experience",
   "in-person",
   "fees",
+  "questions",
   "contact",
 ] as const;
 
@@ -97,6 +98,6 @@ export const chapterLabels: Record<string, string> = {
   "in-person": "Little Hampden",
   online: "Online",
   fees: "Fees",
-  questions: "Fees",
+  questions: "Before you get in touch",
   contact: "Get in touch",
 };

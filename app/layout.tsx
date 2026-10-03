@@ -86,6 +86,10 @@ const jsonLd = {
         addressCountry: "GB",
       },
       hasMap: siteConfig.mapHref,
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Buckinghamshire" },
+        { "@type": "Place", name: "The Chilterns" },
+      ],
       memberOf: [
         {
           "@type": "Organization",
@@ -102,7 +106,10 @@ const jsonLd = {
       name: "Individual therapy",
       serviceType: "Psychotherapy and counselling",
       provider: { "@id": `${siteConfig.url}/#dermot` },
-      areaServed: "Little Hampden, near Great Missenden, Buckinghamshire",
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Buckinghamshire" },
+        { "@type": "Place", name: "The Chilterns" },
+      ],
       offers: {
         "@type": "Offer",
         price: "75",
@@ -115,13 +122,53 @@ const jsonLd = {
       name: "Couples therapy",
       serviceType: "Relationship psychotherapy and counselling",
       provider: { "@id": `${siteConfig.url}/#dermot` },
-      areaServed: "Little Hampden, near Great Missenden, Buckinghamshire",
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Buckinghamshire" },
+        { "@type": "Place", name: "The Chilterns" },
+      ],
       offers: {
         "@type": "Offer",
         price: "120",
         priceCurrency: "GBP",
         description: "60 minutes, in person or online",
       },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Where do we meet?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "In the garden consulting room in Little Hampden, in the Chilterns, close to Great Missenden, or outdoors nearby. People come from across Buckinghamshire and from the surrounding area. The room is not in Great Missenden itself. If the journey is too far, we can meet online.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can we meet online?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. Online sessions are offered alongside meeting in person, for the same fees.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do we begin?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "With a free 30-minute conversation by phone or video, to meet and to talk about working together.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How often do we meet?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A regular weekly time usually supports individual therapy best. Couples work can be more flexible.",
+          },
+        },
+      ],
     },
   ],
 };

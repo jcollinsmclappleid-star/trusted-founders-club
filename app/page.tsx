@@ -424,6 +424,11 @@ export default function HomePage() {
               I work face-to-face with clients from my consulting room in Little Hampden, close to
               Great Missenden in Buckinghamshire.
             </p>
+            <p className="area-note">
+              The garden room is in Little Hampden, in the Chilterns, close to Great Missenden.
+              People come from across Buckinghamshire and from the surrounding area. If the journey
+              is too far, we can meet online.
+            </p>
             <div className="garden-safe">
               <h3 className="subhead">A safe space</h3>
               <p>
@@ -482,50 +487,56 @@ export default function HomePage() {
           <h2 id="fees" tabIndex={-1} className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl">
             Fees
           </h2>
-          <p className="mt-3 text-lg">Fees per session, in person or online.</p>
-          <dl className="fee-list">
-            <div>
-              <dt>Individual therapy</dt>
-              <dd>
-                <span className="fee-figure">£75</span>
-                <span className="fee-length">50 minutes</span>
-              </dd>
-            </div>
-            <div>
-              <dt>‘Couples’ therapy</dt>
-              <dd>
-                <span className="fee-figure">£120</span>
-                <span className="fee-length">60 minutes</span>
-              </dd>
-            </div>
-          </dl>
+          <p className="fee-same">The same fee in person or online.</p>
+          <div className="fee-cards">
+            <article className="fee-card">
+              <h3>Individual therapy</h3>
+              <p className="fee-figure">£75</p>
+              <p className="fee-length">50 minutes</p>
+            </article>
+            <article className="fee-card">
+              <h3>‘Couples’ therapy</h3>
+              <p className="fee-figure">£120</p>
+              <p className="fee-length">60 minutes</p>
+            </article>
+          </div>
+          <p className="fee-aside">
+            A free 30-minute conversation, by phone or video, if you would like to meet and talk
+            about working together.
+          </p>
+        </div>
+      </section>
 
-          <h3 id="questions" tabIndex={-1} className="subhead scroll-mt-28 mt-16 sm:mt-20">
+      <section aria-labelledby="questions" className="questions-chapter">
+        <div className="questions-sheet">
+          <h2 id="questions" tabIndex={-1} className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl">
             Before you get in touch
-          </h3>
-          <div className="question-grid">
+          </h2>
+          <div className="question-list">
             <div>
-              <h4>Where do we meet?</h4>
+              <h3>Where do we meet?</h3>
               <p>
-                In the garden consulting room in Little Hampden, near Great Missenden, or outdoors
-                nearby. The room is not in Great Missenden itself.
+                In the garden consulting room in Little Hampden, in the Chilterns, close to Great
+                Missenden, or outdoors nearby. People come from across Buckinghamshire and from the
+                surrounding area. The room is not in Great Missenden itself. If the journey is too
+                far, we can meet online.
               </p>
             </div>
             <div>
-              <h4>Can we meet online?</h4>
+              <h3>Can we meet online?</h3>
               <p>
                 Yes. Online sessions are offered alongside meeting in person, for the same fees.
               </p>
             </div>
             <div>
-              <h4>How do we begin?</h4>
+              <h3>How do we begin?</h3>
               <p>
                 With a free 30-minute conversation by phone or video, to meet and to talk about
                 working together.
               </p>
             </div>
             <div>
-              <h4>How often do we meet?</h4>
+              <h3>How often do we meet?</h3>
               <p>
                 A regular weekly time usually supports individual therapy best. Couples work can be
                 more flexible.
@@ -576,8 +587,9 @@ export default function HomePage() {
             Little Hampden
           </h2>
           <p className="mt-4 max-w-xl text-xl leading-relaxed">
-            The garden consulting room is in Little Hampden, close to Great Missenden,
-            Buckinghamshire. The postcode is HP16 9PS.
+            The garden consulting room is in Little Hampden, in the Chilterns, close to Great
+            Missenden, Buckinghamshire. People come from across the county and the surrounding
+            area. The postcode is HP16 9PS.
           </p>
           <div className="map-frame">
             <iframe
