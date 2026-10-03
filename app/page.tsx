@@ -2,8 +2,16 @@ import Image from "next/image";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { HeroSlider } from "@/components/hero-slider";
 import { IntroVideo } from "@/components/intro-video";
+import { PhoneLinks } from "@/components/phone-links";
 import { TopicTrail } from "@/components/topic-trail";
 import { siteConfig } from "@/lib/site";
+import {
+  couplesPromise,
+  couplesSupport,
+  couplesTopics,
+  individualSupport,
+  individualTopics,
+} from "@/lib/topics";
 
 function Alias({ id }: { id: string }) {
   return <div id={id} className="h-0 scroll-mt-28" />;
@@ -108,66 +116,7 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <TopicTrail
-            support="I’ll listen attentively, without judging. We look at what is causing difficulty now, and, if it belongs, whether an earlier experience is still part of it. You don’t have to arrive with it already named."
-            topics={[
-              {
-                id: "grief",
-                label: "Grief and loss",
-                detail:
-                  "I trained as a bereavement volunteer with Cruse and work with people experiencing intense grief and loss. If that is what you are carrying, it can be the centre of the work. It does not have to be set aside so that we can talk about something else.",
-              },
-              {
-                id: "work-and-life",
-                label: "Work and a personal life",
-                detail:
-                  "Before becoming a therapist, I worked as a marketing consultant in professional and financial services. I’m familiar with the tension this world creates between business success and personal life, and the pressure it puts on building and sustaining personal relationships. If that pressure is familiar, we can look at it directly.",
-              },
-              {
-                id: "topic-anxiety",
-                label: "Anxiety",
-                detail:
-                  "Anxiety is one of the most common reasons people look for a place to talk. It can be part of what is difficult now, and, if it belongs, part of an earlier experience.",
-              },
-              {
-                id: "topic-mood",
-                label: "Low mood",
-                detail:
-                  "Low mood is a common reason to begin. The conversation can stay with how it feels now, and with whether something earlier is still part of it.",
-              },
-              {
-                id: "topic-stress",
-                label: "Stress",
-                detail:
-                  "Stress is often what brings someone to individual therapy. There is time to look at the pressure itself, rather than to be moved past it.",
-              },
-              {
-                id: "topic-relationships",
-                label: "Relationships",
-                detail:
-                  "Difficulties in relationships are often part of individual therapy. We can look at what is happening now, and at whether it has roots further back.",
-              },
-              {
-                id: "topic-esteem",
-                label: "Self-esteem",
-                detail:
-                  "How you see yourself can be part of the same conversation: what is difficult now, and what may have shaped it.",
-              },
-              {
-                id: "topic-change",
-                label: "A change in life",
-                detail:
-                  "A change in life is a common reason to begin. There is time here to see what it has stirred, rather than to be hurried on.",
-              },
-              {
-                id: "topic-else-individual",
-                label: "Something else",
-                catchAll: true,
-                detail:
-                  "You don’t have to match a heading. Tell me what is actually going on, even if it does not have a name yet. The first conversation is a place to find out whether working together feels right.",
-              },
-            ]}
-          />
+          <TopicTrail support={individualSupport} topics={individualTopics} />
         </div>
       </section>
 
@@ -226,52 +175,9 @@ export default function HomePage() {
             </div>
           </div>
           <TopicTrail
-            support="I offer a neutral and contained space, and each person’s perspective is given equal value. You don’t have to arrive as an exclusive couple, or with the difficulty already named."
-            topics={[
-              {
-                id: "topic-communication",
-                label: "Communication",
-                detail:
-                  "How you speak, and how you hear each other, is often where this work begins.",
-              },
-              {
-                id: "topic-conflict",
-                label: "Conflict",
-                detail:
-                  "Repetitive patterns of conflict can be looked at here, with each person’s perspective given equal value.",
-              },
-              {
-                id: "topic-intimacy",
-                label: "Intimacy",
-                detail:
-                  "If intimacy has faded, or become difficult to speak about, that can be the centre of the work.",
-              },
-              {
-                id: "topic-trust",
-                label: "Trust",
-                detail:
-                  "Trust is a common reason people look for couples therapy. It can be spoken about in the same contained space.",
-              },
-              {
-                id: "topic-apart",
-                label: "Growing apart",
-                detail:
-                  "A sense of growing apart is a common reason to begin. The work is a place to understand the dynamics of the relationship, and what scope there is for change.",
-              },
-              {
-                id: "relating",
-                label: "Sexual identity and open relating",
-                detail:
-                  "I’m comfortable in the world of conscious sexuality and work with clients exploring their experiences and feelings around sexual identity and open relating/polyamory. This sits inside the ‘couples’ work. It is not a separate service, and it will be met without judgement.",
-              },
-              {
-                id: "topic-else-couples",
-                label: "Something else",
-                catchAll: true,
-                detail:
-                  "If what you are carrying doesn’t sit under one of these names, bring that. You don’t have to have the right words before we speak. A first conversation is a place to find out whether working together feels right.",
-              },
-            ]}
+            support={couplesSupport}
+            promise={couplesPromise}
+            topics={couplesTopics}
           />
           <p className="mt-8 text-lg">
             <a className="text-link" href="#contact">
@@ -571,9 +477,7 @@ export default function HomePage() {
               and discuss working together.
             </p>
             <p className="mt-8 text-2xl">
-              <a className="contact-link" href={siteConfig.phoneHref}>
-                {siteConfig.phoneDisplay}
-              </a>
+              <PhoneLinks phoneClassName="contact-link" />
             </p>
             <p className="mt-2 text-xl">
               <a className="contact-link" href={`mailto:${siteConfig.email}`}>
@@ -590,6 +494,35 @@ export default function HomePage() {
               Your message is sent by email. It is not stored in a database on this site.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="finding-us" className="map-chapter">
+        <div className="map-sheet">
+          <h2
+            id="finding-us"
+            tabIndex={-1}
+            className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl"
+          >
+            Little Hampden
+          </h2>
+          <p className="mt-4 max-w-xl text-xl leading-relaxed">
+            The garden consulting room is in Little Hampden, close to Great Missenden,
+            Buckinghamshire. The postcode is HP16 9PS.
+          </p>
+          <div className="map-frame">
+            <iframe
+              title="Map of Little Hampden, near Great Missenden"
+              src={siteConfig.mapEmbed}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <p className="mt-4 text-lg">
+            <a className="text-link" href={siteConfig.mapHref} target="_blank" rel="noopener noreferrer">
+              Open this place in Google Maps
+            </a>
+          </p>
         </div>
       </section>
     </main>

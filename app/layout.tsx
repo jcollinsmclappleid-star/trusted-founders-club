@@ -85,6 +85,7 @@ const jsonLd = {
         postalCode: "HP16 9PS",
         addressCountry: "GB",
       },
+      hasMap: siteConfig.mapHref,
       memberOf: [
         {
           "@type": "Organization",

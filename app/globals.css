@@ -593,7 +593,8 @@ footer {
 .approach-chapter,
 .place-chapter,
 .fees-chapter,
-.contact-chapter {
+.contact-chapter,
+.map-chapter {
   margin: 1.15rem 0.85rem;
 }
 
@@ -958,7 +959,8 @@ footer {
   display: flex;
   flex-direction: column;
   width: min(100%, 36rem);
-  max-height: min(78vh, 40rem);
+  max-height: min(92svh, 44rem);
+  overflow: hidden;
   background: var(--color-ivory);
   color: var(--color-ink);
   box-shadow:
@@ -1004,9 +1006,87 @@ footer {
   cursor: pointer;
 }
 
+.topic-scroll {
+  position: relative;
+  min-height: 0;
+}
+
 .topic-dialog-body {
+  max-height: min(16rem, 32svh);
   overflow-y: auto;
-  padding: 0.15rem 1.35rem 1.25rem;
+  padding: 0.15rem 1.35rem 1.35rem;
+  outline: none;
+}
+
+.topic-scroll-fade {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2.6rem;
+  background: linear-gradient(to bottom, rgba(255, 251, 245, 0), var(--color-ivory));
+  opacity: 0;
+  pointer-events: none;
+}
+
+.topic-scroll.can-scroll .topic-scroll-fade {
+  opacity: 1;
+}
+
+.topic-scroll-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.15rem 1.35rem 0.35rem;
+  color: var(--color-forest);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.topic-scroll-hint svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.topic-promise {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  align-items: center;
+  margin: 0.35rem 1.15rem 0;
+  padding: 0.85rem 0.95rem;
+  background: #f6ecdf;
+  border-left: 3px solid var(--color-ember);
+}
+
+.promise-mark {
+  width: 3.1rem;
+  height: 3.1rem;
+  color: var(--color-forest);
+}
+
+.topic-promise-title {
+  margin: 0;
+  color: var(--color-forest);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.topic-promise p {
+  margin: 0.28rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.topic-support {
+  margin: 0.8rem 1.35rem 0.95rem;
+  font-size: 1.08rem;
+  line-height: 1.55;
 }
 
 .topic-dialog-title {
@@ -1331,6 +1411,48 @@ img.member-logo-ukcp {
   padding: 2.5rem 1.5rem 4.5rem;
 }
 
+.map-sheet {
+  background: var(--color-ivory);
+  padding: 2.5rem 1.5rem 2.75rem;
+}
+
+.map-frame {
+  height: min(28rem, 70vw);
+  min-height: 16rem;
+  margin-top: 1.35rem;
+  background: var(--color-ivory-deep);
+}
+
+.map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.phone-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.95rem;
+}
+
+.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  font-size: 0.72em;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.whatsapp-link svg {
+  width: 1.25em;
+  height: 1.25em;
+  flex: none;
+}
+
 @media (min-width: 640px) {
   .hero-copy,
   .opening-sheet,
@@ -1461,7 +1583,8 @@ img.member-logo-ukcp {
   .approach-chapter,
   .place-chapter,
   .fees-chapter,
-  .contact-chapter {
+  .contact-chapter,
+  .map-chapter {
     margin-left: 3.5rem;
     margin-right: 3.5rem;
   }
@@ -1473,7 +1596,8 @@ img.member-logo-ukcp {
   .approach-chapter,
   .place-chapter,
   .fees-chapter,
-  .contact-chapter {
+  .contact-chapter,
+  .map-chapter {
     margin-top: 2rem;
     margin-bottom: 2rem;
   }

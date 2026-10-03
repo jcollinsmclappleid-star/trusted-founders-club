@@ -38,14 +38,18 @@ function TopicBranch({
 export function TopicTrail({
   topics,
   support,
+  promise,
 }: {
   topics: Topic[];
   support: string;
+  promise?: string;
 }) {
   const [open, setOpen] = useState<Topic | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [moreBelow, setMoreBelow] = useState(false);
   const openerRef = useRef<HTMLButtonElement | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
   const dialogId = useId();
   const named = topics.filter((topic) => !topic.catchAll);
@@ -78,6 +82,31 @@ export function TopicTrail({
 
   useEffect(() => {
     if (!open) return;
+    const el = bodyRef.current;
+    if (!el) return;
+    const scroller = el;
+    scroller.scrollTop = 0;
+
+    function measure() {
+      const overflow = scroller.scrollHeight - scroller.clientHeight > 12;
+      setMoreBelow(
+        overflow && scroller.scrollTop + scroller.clientHeight < scroller.scrollHeight - 12,
+      );
+    }
+
+    measure();
+    const frame = requestAnimationFrame(measure);
+    scroller.addEventListener("scroll", measure, { passive: true });
+    window.addEventListener("resize", measure);
+    return () => {
+      cancelAnimationFrame(frame);
+      scroller.removeEventListener("scroll", measure);
+      window.removeEventListener("resize", measure);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
     const dialog = dialogRef.current;
     const header = document.getElementById("site-header");
     const content = document.getElementById("page-content");
@@ -87,7 +116,9 @@ export function TopicTrail({
 
     const focusable = () =>
       Array.from(
-        dialog?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])") ?? [],
+        dialog?.querySelectorAll<HTMLElement>(
+          "a[href], button:not([disabled]), .topic-dialog-body",
+        ) ?? [],
       );
 
     dialog?.querySelector<HTMLElement>(".topic-dialog-title")?.focus();
@@ -145,13 +176,50 @@ export function TopicTrail({
                   Close
                 </button>
               </div>
-              <div className="topic-dialog-body">
-                <h2 id={titleId} tabIndex={-1} className="topic-dialog-title">
-                  {open.label}
-                </h2>
-                <p>{open.detail}</p>
-                <p>{support}</p>
+              <div className={`topic-scroll${moreBelow ? " can-scroll" : ""}`}>
+                <div
+                  ref={bodyRef}
+                  className="topic-dialog-body"
+                  tabIndex={0}
+                  aria-label={`${open.label}. Scroll to read more.`}
+                >
+                  <h2 id={titleId} tabIndex={-1} className="topic-dialog-title">
+                    {open.label}
+                  </h2>
+                  {open.detail.split(/\n\n+/).map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                <div className="topic-scroll-fade" aria-hidden="true" />
               </div>
+              {moreBelow ? (
+                <p className="topic-scroll-hint" aria-hidden="true">
+                  Scroll to read more
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.4" />
+                  </svg>
+                </p>
+              ) : null}
+              {promise ? (
+                <div className="topic-promise">
+                  <svg className="promise-mark" viewBox="0 0 64 64" aria-hidden="true">
+                    <path
+                      d="M10 42V30c0-12 9.4-22 22-22s22 10 22 22v12"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                    />
+                    <path d="M8 42h48" stroke="currentColor" strokeWidth="1.6" />
+                    <circle cx="32" cy="34" r="7.5" fill="#c65c28" />
+                    <circle cx="32" cy="34" r="12" fill="none" stroke="#c65c28" strokeWidth="1" />
+                  </svg>
+                  <div>
+                    <p className="topic-promise-title">My promise</p>
+                    <p>{promise}</p>
+                  </div>
+                </div>
+              ) : null}
+              <p className="topic-support">{support}</p>
               <div className="topic-dialog-foot">
                 <a className="submit-button topic-dialog-cta" href="#contact" onClick={close}>
                   Arrange a free conversation

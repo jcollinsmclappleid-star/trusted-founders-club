@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
+import { PhoneLinks } from "@/components/phone-links";
 import {
   chapterLabels,
   desktopNav,
@@ -333,9 +334,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
               Psychotherapy and counselling in person in {siteConfig.place}.
             </p>
             <p className="mt-4">
-              <a className="footer-link" href={siteConfig.phoneHref}>
-                {siteConfig.phoneDisplay}
-              </a>
+              <PhoneLinks phoneClassName="footer-link" />
               <span className="px-2 text-forest/50" aria-hidden="true">
                 ·
               </span>
