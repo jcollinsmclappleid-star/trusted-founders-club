@@ -5,8 +5,9 @@ import { HeroSlider } from "@/components/hero-slider";
 import { IntroVideo } from "@/components/intro-video";
 import { OnlineFold } from "@/components/online-fold";
 import { PhoneLinks, WhatsAppInvite } from "@/components/phone-links";
+import { ServicePaths } from "@/components/service-paths";
 import { TopicTrail } from "@/components/topic-trail";
-import { buckinghamshireAnswer } from "@/lib/areas";
+import { buckinghamshireAnswer, surroundingAreaSentence } from "@/lib/areas";
 import { siteConfig } from "@/lib/site";
 import {
   couplesPromise,
@@ -40,7 +41,7 @@ const journey = [
     src: "/media/garden-room.jpg",
     alt: "The timber garden consulting room, with a green roof, among the trees",
     line: "The garden room",
-    note: "The timber room in the garden.",
+    note: "A timber room in the garden, quiet among the trees.",
     position: "object-[center_45%]",
   },
 ] as const;
@@ -55,7 +56,7 @@ function TreeBreak({ line }: { line: string }) {
       </p>
       <div className="tree-journey">
         {journey.map((stop) => (
-          <figure key={stop.line} className="tree-stop">
+          <figure key={stop.line} className="tree-stop reveal">
             <div className="tree-frame">
               <Image
                 src={stop.src}
@@ -105,16 +106,12 @@ export default function HomePage() {
         </section>
 
         <section aria-label="Opening" className="opening-sheet">
-          <p className="opening-line">
+          <p className="opening-line reveal">
             You may need support because there are no people in your life you feel able to share
             deeply with. You may feel pain that won’t go away. Attempts to distract yourself may no
             longer be working. It may be time to look inside and try and see what’s going on.
           </p>
-          <nav className="service-paths" aria-label="Choose a service">
-            <a href="#individual-therapy">Individual therapy</a>
-            <a href="#couples-therapy">Couples therapy</a>
-            <a href="#online">Online</a>
-          </nav>
+          <ServicePaths />
         </section>
       </div>
 
@@ -125,11 +122,11 @@ export default function HomePage() {
           <h2
             id="individual-therapy"
             tabIndex={-1}
-            className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl"
+            className="scroll-mt-28 font-display text-5xl sm:text-6xl"
           >
             Individual therapy
           </h2>
-          <div className="service-spread">
+          <div className="service-spread reveal">
             <div className="service-copy">
               <div className="service-note">
                 <h3 className="subhead">Who it is for</h3>
@@ -159,7 +156,7 @@ export default function HomePage() {
               />
             </figure>
           </div>
-          <div className="service-questions">
+          <div className="service-questions reveal">
             <h3 className="subhead">Questions you may have</h3>
             <div>
               <h4>Do I need to know what is wrong?</h4>
@@ -199,7 +196,7 @@ export default function HomePage() {
           >
             ‘Couples’ therapy
           </h2>
-          <div className="service-spread">
+          <div className="service-spread reveal">
             <div className="service-copy">
               <div className="service-note">
                 <h3 className="subhead">Who it is for</h3>
@@ -232,7 +229,7 @@ export default function HomePage() {
               />
             </figure>
           </div>
-          <div className="service-questions">
+          <div className="service-questions reveal">
             <h3 className="subhead">Questions you may have</h3>
             <div>
               <h4>What if we don’t call ourselves a couple?</h4>
@@ -296,9 +293,9 @@ export default function HomePage() {
           <div className="service-note">
             <h3 className="subhead">If you can travel</h3>
             <p>
-              If the journey is possible, I would encourage you to come in person. The garden room
-              in Little Hampden is a timber room in the garden, with views over fields and woods,
-              and we can also meet outside.
+              If the journey is possible, I would encourage you to come in person. The timber room
+              in the garden at Little Hampden is a quiet place of its own, set among the trees,
+              with the fields and woods beyond, and we can also meet outside.
             </p>
             <p>
               <a className="text-link" href="#in-person">
@@ -317,13 +314,13 @@ export default function HomePage() {
 
       <section aria-labelledby="about" className="about-chapter">
         <div className="about-layout">
-          <div className="about-intro">
+          <div className="about-intro reveal">
             <Alias id="aboutme2" />
             <h2 id="about" tabIndex={-1} className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl">
               About me
             </h2>
           </div>
-          <figure className="about-portrait">
+          <figure className="about-portrait reveal">
             <Image
               src="/media/portrait.jpg"
               alt="Dermot Cox, photographed outdoors with autumn leaves behind him"
@@ -333,7 +330,7 @@ export default function HomePage() {
               className="h-auto w-full"
             />
           </figure>
-          <div className="about-copy">
+          <div className="about-copy reveal">
             <div className="prose-copy text-xl leading-relaxed">
               <p>
                 I trained as a psychotherapist at Re-Vision, which describes its approach as
@@ -357,7 +354,7 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div className="about-rest">
+          <div className="about-rest reveal">
             <aside className="accreditation" aria-labelledby="experience">
               <p className="path-label">Registration</p>
               <h3 id="experience" tabIndex={-1} className="subhead scroll-mt-28">
@@ -468,7 +465,7 @@ export default function HomePage() {
       <section aria-labelledby="in-person" className="place-chapter">
         <div className="garden-arrival">
           <div className="garden-window-wrap">
-            <figure className="garden-window">
+            <figure className="garden-window reveal">
               <Image
                 src="/media/garden-room.jpg"
                 alt="The timber garden consulting room, with a green roof, among trees and fallen leaves"
@@ -479,7 +476,7 @@ export default function HomePage() {
               <figcaption>Little Hampden</figcaption>
             </figure>
           </div>
-          <div className="garden-copy">
+          <div className="garden-copy reveal">
             <p className="path-label">In person</p>
             <h2
               id="in-person"
@@ -490,7 +487,8 @@ export default function HomePage() {
             </h2>
             <p className="mt-5 text-xl leading-relaxed">
               I work face-to-face with clients from my consulting room in Little Hampden, close to
-              Great Missenden in Buckinghamshire.
+              Great Missenden in Buckinghamshire. The timber room sits in the garden, a quiet place
+              among the trees, with the fields and woods beyond the glass.
             </p>
             <p className="area-note">
               The garden room is in Little Hampden, in the Chilterns, close to Great Missenden.
@@ -514,7 +512,7 @@ export default function HomePage() {
                   height={256}
                 />
                 <span>The room</span>
-                In my garden, with views over fields and woods.
+                A timber room in the garden, with a green roof, looking out over fields and woods.
               </li>
               <li>
                 <img
@@ -557,12 +555,12 @@ export default function HomePage() {
           </h2>
           <p className="fee-same">The same fee in person or online.</p>
           <div className="fee-cards">
-            <article className="fee-card">
+            <article className="fee-card reveal">
               <h3>Individual therapy</h3>
               <p className="fee-figure">£75</p>
               <p className="fee-length">50 minutes</p>
             </article>
-            <article className="fee-card">
+            <article className="fee-card reveal">
               <h3>‘Couples’ therapy</h3>
               <p className="fee-figure">£120</p>
               <p className="fee-length">60 minutes</p>
@@ -581,7 +579,7 @@ export default function HomePage() {
             Before you get in touch
           </h2>
           <div className="question-list">
-            <div>
+            <div className="reveal">
               <h3>Where do we meet?</h3>
               <p>
                 In the garden consulting room in Little Hampden, in the Chilterns, close to Great
@@ -590,31 +588,31 @@ export default function HomePage() {
                 far, we can meet online.
               </p>
             </div>
-            <div>
+            <div className="reveal">
               <h3>Can we meet online?</h3>
               <p>
                 Yes. Online sessions are offered alongside meeting in person, for the same fees.
               </p>
             </div>
-            <div>
+            <div className="reveal">
               <h3>How do we begin?</h3>
               <p>
                 With a free 30-minute conversation by phone or video, to meet and to talk about
                 working together.
               </p>
             </div>
-            <div>
+            <div className="reveal">
               <h3>How often do we meet?</h3>
               <p>
                 A regular weekly time usually supports individual therapy best. Couples work can be
                 more flexible.
               </p>
             </div>
-            <div>
+            <div className="reveal">
               <h3>Do you see people from across Buckinghamshire?</h3>
               <p>{buckinghamshireAnswer}</p>
             </div>
-            <div>
+            <div className="reveal">
               <h3>What are the fees?</h3>
               <p>
                 Individual therapy is £75 for 50 minutes. ‘Couples’ therapy is £120 for 60 minutes.
@@ -682,10 +680,7 @@ export default function HomePage() {
             <div>
               <dt>The surrounding area</dt>
               <dd>
-                <p>
-                  People come from across Buckinghamshire and from the surrounding shires:
-                  Oxfordshire, Hertfordshire, Berkshire, Bedfordshire and Northamptonshire.
-                </p>
+                <p>{surroundingAreaSentence}</p>
                 <AreaDialog />
               </dd>
             </div>

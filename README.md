@@ -31,7 +31,7 @@ Validation rejects a missing name, a bad email, a malformed phone number, and a 
 
 ## Indexing
 
-`robots` disallows the whole site unless `NEXT_PUBLIC_SITE_URL` is `https://www.dermotcox.com`. The canonical URL is always the production domain.
+The preview is not indexed. Every host other than `dermotcox.com` and `www.dermotcox.com` sends `noindex, nofollow, noarchive, nosnippet, noimageindex` in the page and in the `X-Robots-Tag` header. `robots.txt` allows the crawl so Google can see that tag, and it does not publish a sitemap. Setting `NEXT_PUBLIC_SITE_URL` does not turn indexing on.
 
 ## Notes for the requirements call
 

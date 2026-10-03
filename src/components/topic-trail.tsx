@@ -235,7 +235,7 @@ export function TopicTrail({
       : null;
 
   return (
-    <div className="topic-tree">
+    <div className="topic-tree reveal">
       <p className="topic-invite">If any of these resonate, open it.</p>
       <div className="topic-canopy">
         {named.map((topic) => (

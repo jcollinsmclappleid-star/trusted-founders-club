@@ -41,7 +41,7 @@ export function AreaDialog() {
   return (
     <>
       <button ref={buttonRef} type="button" className="area-open" onClick={open}>
-        See the shires and towns
+        See the areas and towns
       </button>
       <dialog
         ref={dialogRef}
@@ -57,12 +57,12 @@ export function AreaDialog() {
         </div>
         <div className="area-dialog-body">
           <h2 id={titleId} tabIndex={-1} className="area-dialog-title">
-            Shires and towns
+            Shires, London and towns
           </h2>
           <p>
-            People come from across Buckinghamshire and from the surrounding shires. The major towns
-            in each are listed here. The consulting room is in Little Hampden. It is not in Great
-            Missenden.
+            People come from across Buckinghamshire, from Greater London, and from the surrounding
+            shires. The major towns in each shire are listed here, and so are the areas of Greater
+            London. The consulting room is in Little Hampden. It is not in Great Missenden.
           </p>
           {serviceAreas.map((area) => (
             <section key={area.shire} aria-labelledby={`${titleId}-${area.shire}`}>
