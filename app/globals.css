@@ -301,7 +301,7 @@ footer {
 }
 
 footer {
-  background: rgba(243, 238, 228, 0.55);
+  background: var(--color-ivory-deep);
 }
 
 .bank-block {
@@ -437,10 +437,17 @@ footer {
   color: rgba(255, 251, 245, 0.92);
 }
 
+.hero-frame {
+  display: flex;
+  flex-direction: column;
+  height: calc(100svh - var(--header-offset, 4.75rem));
+}
+
 .hero-slider {
   position: relative;
-  height: min(70vh, 40rem);
-  min-height: 20rem;
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 8rem;
   overflow: hidden;
   background: #2a362c;
 }
@@ -514,11 +521,12 @@ footer {
 .hero-copy {
   position: relative;
   z-index: 1;
+  flex: 0 0 auto;
   isolation: isolate;
   overflow: hidden;
-  margin: 1rem 0.85rem 0;
-  padding: 2.75rem 1.5rem 1.25rem;
-  background: none;
+  margin: 0;
+  padding: 0.9rem 1.25rem 1.05rem;
+  background: var(--color-ivory);
 }
 
 .hero-cta {
@@ -600,7 +608,18 @@ footer {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: none;
+  background: var(--color-ivory);
+}
+
+.opening-sheet,
+.approach-chapter,
+.fees-sheet {
+  background: var(--color-ivory-deep);
+}
+
+.wood-couples,
+.contact-aside {
+  background: var(--color-forest);
 }
 
 .hero-copy::before,
@@ -710,6 +729,29 @@ footer {
     rgba(78, 93, 78, 0.58) 88%,
     rgba(42, 54, 44, 0.22)
   );
+}
+
+.hero-copy::before,
+.opening-sheet::before,
+.wood-individual::before,
+.wood-couples::before,
+.about-chapter::before,
+.approach-chapter::before,
+.place-copy::before,
+.fees-sheet::before,
+.contact-aside::before,
+.contact-form::before,
+.hero-copy::after,
+.opening-sheet::after,
+.wood-individual::after,
+.about-chapter::after,
+.approach-chapter::after,
+.place-copy::after,
+.fees-sheet::after,
+.contact-form::after,
+.wood-couples::after,
+.contact-aside::after {
+  content: none;
 }
 
 .wood-couples .text-link,
@@ -1066,11 +1108,12 @@ img.member-logo-ukcp {
   }
 
   .hero-frame {
-    display: block;
+    display: flex;
   }
 
   .hero-slider {
-    height: min(68vh, 38rem);
+    height: auto;
+    min-height: 12rem;
   }
 
   .hero-copy,
@@ -1161,7 +1204,6 @@ img.member-logo-ukcp {
     padding: 5rem max(2.5rem, calc((100% - 68rem) / 2)) 6rem;
   }
 
-  .hero-copy,
   .opening-sheet,
   .wood-individual,
   .wood-couples,
@@ -1239,7 +1281,7 @@ img.member-logo-ukcp {
 }
 
 .approach-chapter {
-  background: none;
+  background: var(--color-ivory-deep);
 }
 
 .forest-spread {
@@ -1341,15 +1383,13 @@ img.member-logo-ukcp {
   .hero-frame {
     position: relative;
     top: auto;
-    display: block;
-    min-height: 0;
-    height: auto;
+    display: flex;
   }
 
   .hero-slider {
     position: relative;
-    height: min(68vh, 34rem);
-    min-height: 18rem;
+    height: auto;
+    min-height: 8rem;
   }
 
   .hero-track {
@@ -1363,7 +1403,7 @@ img.member-logo-ukcp {
     bottom: auto;
     width: auto;
     height: auto;
-    margin-top: 0.85rem;
+    margin-top: 0;
   }
 }
 

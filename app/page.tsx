@@ -29,17 +29,17 @@ export default function HomePage() {
             <Alias id="psychotherapy" />
             <Alias id="counselling" />
             <h1 id="top" tabIndex={-1} className="scroll-mt-28 font-display text-forest">
-              <span className="block text-[3.25rem] leading-none sm:text-6xl lg:text-7xl">Dermot Cox</span>
-              <span className="mt-4 block text-[1.65rem] leading-snug font-normal text-ink sm:text-3xl lg:text-[2.15rem]">
+              <span className="block text-[2.55rem] leading-none sm:text-5xl lg:text-6xl">Dermot Cox</span>
+              <span className="mt-2 block text-lg leading-snug font-normal text-ink sm:text-2xl">
                 Psychotherapy and counselling for individuals and couples, in person in Little
                 Hampden, near Great Missenden, and online.
               </span>
             </h1>
-            <p className="mt-5 max-w-xl text-xl leading-relaxed">
+            <p className="mt-2 max-w-xl text-base leading-snug sm:text-lg">
               A quiet place to talk, in the garden consulting room, in the countryside around the
               village, or online.
             </p>
-            <a href="#contact" className="submit-button hero-cta mt-8 inline-flex items-center no-underline">
+            <a href="#contact" className="submit-button hero-cta mt-3 inline-flex items-center no-underline">
               Arrange a first conversation
             </a>
           </div>
