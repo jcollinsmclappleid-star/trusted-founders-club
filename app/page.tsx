@@ -273,6 +273,40 @@ export default function HomePage() {
                 present and mindful.
               </p>
             </div>
+            <aside className="accreditation" aria-labelledby="experience">
+              <div>
+                <p className="path-label">Registration</p>
+                <h3 id="experience" tabIndex={-1} className="subhead scroll-mt-28">
+                  Training and membership
+                </h3>
+                <p>
+                  I have Diplomas in Integrative Transpersonal Counselling and Psychotherapy from
+                  Re-Vision. I’m a Registered Member of BACP (British Association for Counselling and
+                  Psychotherapy) and UKCP (UK Council for Psychotherapy). I abide by the codes of
+                  ethics of both organisations.
+                </p>
+              </div>
+              <ul className="member-marks">
+                <li>
+                  <img
+                    src="/media/bacp-logo.jpg"
+                    alt="BACP, British Association for Counselling and Psychotherapy"
+                    width={752}
+                    height={171}
+                    className="member-logo"
+                  />
+                </li>
+                <li>
+                  <img
+                    src="/media/ukcp-logo.svg"
+                    alt="UKCP, UK Council for Psychotherapy"
+                    width={420}
+                    height={228}
+                    className="member-logo member-logo-ukcp"
+                  />
+                </li>
+              </ul>
+            </aside>
             <p className="mt-8 text-lg">
               <a className="text-link" href="#contact">
                 Get in touch about working together
@@ -286,9 +320,6 @@ export default function HomePage() {
               <div className="mt-6 max-w-[40rem]">
                 <IntroVideo />
               </div>
-              <p className="mt-3 max-w-xl text-base text-ink/80">
-                Captions are not available for this film yet.
-              </p>
             </div>
           </div>
         </div>
@@ -348,45 +379,6 @@ export default function HomePage() {
               </p>
             </li>
           </ol>
-          <div className="training-note">
-            <h2
-              id="experience"
-              tabIndex={-1}
-              className="scroll-mt-28 font-display text-4xl text-forest sm:text-[2.6rem]"
-            >
-              A safe space
-            </h2>
-            <p className="mt-6 max-w-2xl text-xl leading-relaxed">
-              The work needs a safe space: somewhere you can discover how you really feel, without
-              being judged, and where each person’s perspective can be held with equal care.
-            </p>
-            <p className="mt-4 max-w-2xl text-xl leading-relaxed">
-              I have Diplomas in Integrative Transpersonal Counselling and Psychotherapy from
-              Re-Vision. I’m a Registered Member of BACP (British Association for Counselling and
-              Psychotherapy) and UKCP (UK Council for Psychotherapy). I abide by the codes of ethics
-              of both organisations.
-            </p>
-            <ul className="member-marks">
-              <li>
-                <img
-                  src="/media/bacp-logo.jpg"
-                  alt="BACP, British Association for Counselling and Psychotherapy"
-                  width={752}
-                  height={171}
-                  className="member-logo"
-                />
-              </li>
-              <li>
-                <img
-                  src="/media/ukcp-logo.svg"
-                  alt="UKCP, UK Council for Psychotherapy"
-                  width={420}
-                  height={228}
-                  className="member-logo member-logo-ukcp"
-                />
-              </li>
-            </ul>
-          </div>
         </div>
       </section>
 
@@ -417,6 +409,13 @@ export default function HomePage() {
               I work face-to-face with clients from my consulting room in Little Hampden, close to
               Great Missenden in Buckinghamshire.
             </p>
+            <div className="garden-safe">
+              <h3 className="subhead">A safe space</h3>
+              <p>
+                The work needs a safe space: somewhere you can discover how you really feel, without
+                being judged, and where each person’s perspective can be held with equal care.
+              </p>
+            </div>
             <ol className="garden-path">
               <li>
                 <img

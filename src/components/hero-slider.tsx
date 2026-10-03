@@ -22,7 +22,6 @@ const INTERVAL_MS = 7000;
 
 export function HeroSlider() {
   const [index, setIndex] = useState(0);
-  const [userPaused, setUserPaused] = useState(false);
   const [hoverPaused, setHoverPaused] = useState(false);
   const [reduced, setReduced] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -47,12 +46,12 @@ export function HeroSlider() {
   }, []);
 
   useEffect(() => {
-    if (userPaused || hoverPaused || reduced || hidden) return;
+    if (hoverPaused || reduced || hidden) return;
     const id = window.setInterval(() => {
       setIndex((current) => (current + 1) % slides.length);
     }, INTERVAL_MS);
     return () => window.clearInterval(id);
-  }, [userPaused, hoverPaused, reduced, hidden, index]);
+  }, [hoverPaused, reduced, hidden, index]);
 
   return (
     <div
@@ -118,14 +117,6 @@ export function HeroSlider() {
         </div>
         <button type="button" onClick={() => go(1)} aria-label="Next photograph">
           <span aria-hidden="true">›</span>
-        </button>
-        <button
-          type="button"
-          className="hero-pause"
-          aria-pressed={userPaused}
-          onClick={() => setUserPaused((paused) => !paused)}
-        >
-          {userPaused ? "Play" : "Pause"}
         </button>
       </div>
     </div>

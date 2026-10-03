@@ -546,10 +546,6 @@ footer {
   background: var(--color-ember);
 }
 
-.hero-pause {
-  padding: 0 0.85rem;
-}
-
 .hero-copy {
   position: relative;
   z-index: 1;
@@ -1395,17 +1391,20 @@ footer {
 .member-marks li {
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-height: 4.6rem;
+  min-width: 8.75rem;
   background: #fff;
-  padding: 0.7rem 0.9rem;
+  padding: 0.65rem 0.85rem;
 }
 
 img.member-logo {
   width: auto;
-  height: 3.1rem;
+  height: 2.55rem;
 }
 
 img.member-logo-ukcp {
-  height: 4.4rem;
+  height: 3.35rem;
 }
 
 .place-grid {
@@ -1453,6 +1452,38 @@ img.member-logo-ukcp {
   margin-top: 3.5rem;
 }
 
+.accreditation {
+  display: grid;
+  gap: 1.35rem;
+  margin-top: 2.4rem;
+  padding: 1.35rem 1.25rem 1.2rem;
+  background: var(--color-ivory-deep);
+}
+
+.accreditation p:not(.path-label) {
+  margin: 0.75rem 0 0;
+  max-width: 38rem;
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+.accreditation .member-marks {
+  margin: 0;
+  align-content: center;
+}
+
+.garden-safe {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(78, 93, 78, 0.18);
+}
+
+.garden-safe p {
+  margin: 0.65rem 0 0;
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
 .forest-spread {
   background: var(--color-forest);
   color: var(--color-ivory);
@@ -1469,10 +1500,6 @@ img.member-logo-ukcp {
 
 .forest-spread .text-link {
   color: inherit;
-}
-
-.training-note {
-  margin-top: 2.75rem;
 }
 
 .visit-chapter {
@@ -1688,14 +1715,13 @@ img.member-logo-ukcp {
     grid-column: 2;
   }
 
+  .accreditation {
+    padding: 1.5rem 1.5rem 1.35rem;
+  }
+
   .spread-companion {
     padding-top: 0;
     padding-left: 3rem;
-  }
-
-  .training-note {
-    margin-top: 4.5rem;
-    padding: 0;
   }
 
   .visit-layout {

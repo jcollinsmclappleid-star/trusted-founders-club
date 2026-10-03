@@ -93,7 +93,7 @@ export const chapterLabels: Record<string, string> = {
   relating: "Sexual identity",
   about: "About",
   approach: "Working together",
-  experience: "A safe space",
+  experience: "Training and membership",
   "in-person": "Little Hampden",
   online: "Online",
   fees: "Fees",
