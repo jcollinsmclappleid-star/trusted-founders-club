@@ -1500,16 +1500,37 @@ img.member-logo-ukcp {
   background: var(--color-ivory-deep);
 }
 
-.accreditation p:not(.path-label) {
-  margin: 0.75rem 0 0;
-  max-width: 38rem;
-  font-size: 1.15rem;
-  line-height: 1.75;
+.credential-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.accreditation .member-marks {
+.credential-pills li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  max-width: 100%;
+  min-height: 48px;
   margin: 0;
-  align-content: center;
+  padding: 0.45rem 1.05rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-forest);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.28rem;
+  line-height: 1.25;
+}
+
+.credential-pills .member-logo {
+  height: 1.65rem;
+}
+
+.credential-pills .member-logo-ukcp {
+  height: 2.15rem;
 }
 
 .garden-safe {

@@ -23,11 +23,11 @@ function TreeBreak() {
   return (
     <figure className="tree-break">
       <Image
-        src="/media/woodland.jpg"
-        alt="Two people sitting together on a fallen tree in autumn woodland"
+        src="/media/autumn-sky.jpg"
+        alt="Looking up through burnt orange and green autumn leaves"
         fill
         sizes="100vw"
-        className="object-cover object-[center_58%]"
+        className="object-cover object-center"
       />
     </figure>
   );
@@ -290,19 +290,12 @@ export default function HomePage() {
               </p>
             </div>
             <aside className="accreditation" aria-labelledby="experience">
-              <div>
-                <p className="path-label">Registration</p>
-                <h3 id="experience" tabIndex={-1} className="subhead scroll-mt-28">
-                  Training and membership
-                </h3>
-                <p>
-                  I have Diplomas in Integrative Transpersonal Counselling and Psychotherapy from
-                  Re-Vision. I’m a Registered Member of BACP (British Association for Counselling and
-                  Psychotherapy) and UKCP (UK Council for Psychotherapy). I abide by the codes of
-                  ethics of both organisations.
-                </p>
-              </div>
-              <ul className="member-marks">
+              <p className="path-label">Registration</p>
+              <h3 id="experience" tabIndex={-1} className="subhead scroll-mt-28">
+                Training and membership
+              </h3>
+              <ul className="credential-pills">
+                <li>Diplomas in Integrative Transpersonal Counselling and Psychotherapy, Re-Vision</li>
                 <li>
                   <img
                     src="/media/bacp-logo.jpg"
@@ -311,6 +304,7 @@ export default function HomePage() {
                     height={171}
                     className="member-logo"
                   />
+                  Registered Member
                 </li>
                 <li>
                   <img
@@ -320,7 +314,9 @@ export default function HomePage() {
                     height={228}
                     className="member-logo member-logo-ukcp"
                   />
+                  Registered Member
                 </li>
+                <li>Codes of ethics of both organisations</li>
               </ul>
             </aside>
             <p className="mt-8 text-lg">
