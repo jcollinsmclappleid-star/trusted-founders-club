@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Crimson_Text, Julius_Sans_One } from "next/font/google";
 import { SiteShell } from "@/components/site-shell";
+import { areaServed, buckinghamshireAnswer } from "@/lib/areas";
 import { isProductionHost, siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -86,10 +87,7 @@ const jsonLd = {
         addressCountry: "GB",
       },
       hasMap: siteConfig.mapHref,
-      areaServed: [
-        { "@type": "AdministrativeArea", name: "Buckinghamshire" },
-        { "@type": "Place", name: "The Chilterns" },
-      ],
+      areaServed,
       memberOf: [
         {
           "@type": "Organization",
@@ -106,10 +104,7 @@ const jsonLd = {
       name: "Individual therapy",
       serviceType: "Psychotherapy and counselling",
       provider: { "@id": `${siteConfig.url}/#dermot` },
-      areaServed: [
-        { "@type": "AdministrativeArea", name: "Buckinghamshire" },
-        { "@type": "Place", name: "The Chilterns" },
-      ],
+      areaServed,
       offers: {
         "@type": "Offer",
         price: "75",
@@ -122,10 +117,7 @@ const jsonLd = {
       name: "Couples therapy",
       serviceType: "Relationship psychotherapy and counselling",
       provider: { "@id": `${siteConfig.url}/#dermot` },
-      areaServed: [
-        { "@type": "AdministrativeArea", name: "Buckinghamshire" },
-        { "@type": "Place", name: "The Chilterns" },
-      ],
+      areaServed,
       offers: {
         "@type": "Offer",
         price: "120",
@@ -151,10 +143,7 @@ const jsonLd = {
         addressCountry: "GB",
       },
       hasMap: siteConfig.mapHref,
-      areaServed: [
-        { "@type": "AdministrativeArea", name: "Buckinghamshire" },
-        { "@type": "Place", name: "The Chilterns" },
-      ],
+      areaServed,
       founder: { "@id": `${siteConfig.url}/#dermot` },
     },
     {
@@ -197,7 +186,7 @@ const jsonLd = {
           name: "Do you see people from across Buckinghamshire?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes. People come from across Buckinghamshire and from the surrounding area, to the garden room in Little Hampden or to meet outdoors nearby. If the journey is too far, we can meet online.",
+            text: buckinghamshireAnswer,
           },
         },
         {

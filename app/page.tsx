@@ -1,10 +1,12 @@
 import Image from "next/image";
+import { AreaDialog } from "@/components/area-dialog";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { HeroSlider } from "@/components/hero-slider";
 import { IntroVideo } from "@/components/intro-video";
 import { OnlineFold } from "@/components/online-fold";
 import { PhoneLinks, WhatsAppInvite } from "@/components/phone-links";
 import { TopicTrail } from "@/components/topic-trail";
+import { buckinghamshireAnswer } from "@/lib/areas";
 import { siteConfig } from "@/lib/site";
 import {
   couplesPromise,
@@ -610,11 +612,7 @@ export default function HomePage() {
             </div>
             <div>
               <h3>Do you see people from across Buckinghamshire?</h3>
-              <p>
-                Yes. People come from across Buckinghamshire and from the surrounding area, to the
-                garden room in Little Hampden or to meet outdoors nearby. If the journey is too far,
-                we can meet online.
-              </p>
+              <p>{buckinghamshireAnswer}</p>
             </div>
             <div>
               <h3>What are the fees?</h3>
@@ -684,7 +682,11 @@ export default function HomePage() {
             <div>
               <dt>The surrounding area</dt>
               <dd>
-                People come from across Buckinghamshire and from the surrounding area.
+                <p>
+                  People come from across Buckinghamshire and from the surrounding shires:
+                  Oxfordshire, Hertfordshire, Berkshire, Bedfordshire and Northamptonshire.
+                </p>
+                <AreaDialog />
               </dd>
             </div>
             <div>
