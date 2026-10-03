@@ -7,7 +7,7 @@ export const siteConfig = {
   phoneDisplay: "07831 572050",
   phoneHref: "tel:+447831572050",
   whatsappHref:
-    "https://wa.me/447831572050?text=Hello%2C%20I%20would%20like%20to%20ask%20about%20a%20first%20conversation.",
+    "https://wa.me/447831572050?text=Hello%20Dermot%2C%20I%20would%20like%20to%20ask%20about%20a%20first%20conversation.",
   mapHref: "https://www.google.com/maps/search/?api=1&query=Little+Hampden+HP16+9PS",
   mapEmbed: "https://maps.google.com/maps?q=Little%20Hampden%2C%20HP16%209PS&z=14&output=embed",
   place: "Little Hampden, near Great Missenden, Buckinghamshire",

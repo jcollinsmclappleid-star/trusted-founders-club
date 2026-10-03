@@ -668,10 +668,33 @@ footer {
   color: #6d4328;
 }
 
-.tree-window {
+.tree-journey {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.tree-stop {
+  margin: 0;
+}
+
+.tree-frame {
   position: relative;
-  height: 12.5rem;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
+  background: #243028;
+}
+
+.tree-caption {
+  margin: 0.45rem 0 0;
+  text-align: center;
+  text-wrap: balance;
+  font-family: var(--font-crimson), Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  color: #6d4328;
 }
 
 .garden-arrival {
@@ -1737,6 +1760,43 @@ img.member-logo-ukcp {
   flex: none;
 }
 
+.whatsapp-invite {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  max-width: 24rem;
+  margin-top: 1.15rem;
+  padding: 0.7rem 1.15rem 0.75rem;
+  border-radius: 999px;
+  background: var(--color-ivory);
+  color: var(--color-forest);
+  text-decoration: none;
+}
+
+.whatsapp-invite svg {
+  width: 1.7rem;
+  height: 1.7rem;
+  flex: none;
+}
+
+.whatsapp-invite-title {
+  display: block;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+
+.whatsapp-invite-note {
+  display: block;
+  margin-top: 0.1rem;
+  font-family: var(--font-crimson), Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.3;
+  color: #6d4328;
+}
+
 @media (min-width: 640px) {
   .hero-copy,
   .opening-sheet,
@@ -1946,7 +2006,7 @@ img.member-logo-ukcp {
   .tree-break {
     margin-left: 0;
     margin-right: 0;
-    padding: 2.6rem 0 2.75rem;
+    padding: 2.4rem 4.75rem 2.6rem;
   }
 
   .tree-line {
@@ -1961,9 +2021,15 @@ img.member-logo-ukcp {
     margin-top: 2.25rem;
   }
 
-  .tree-window {
-    height: min(48vh, 32rem);
-    min-height: 22rem;
+  .tree-journey {
+    gap: 2.35rem;
+    max-width: 76rem;
+    margin-inline: auto;
+  }
+
+  .tree-caption {
+    margin-top: 0.7rem;
+    font-size: 1.28rem;
   }
 
   .tree-break,

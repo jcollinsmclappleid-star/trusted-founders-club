@@ -97,7 +97,7 @@ export function EnquiryForm() {
           Message
         </label>
         <p id="message-hint" className="mt-1 text-base text-ink/75">
-          A short note is enough. Please don’t include a detailed history.
+          A short note is enough for a first step.
         </p>
         <textarea
           id="message"

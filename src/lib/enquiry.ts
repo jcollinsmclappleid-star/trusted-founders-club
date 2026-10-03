@@ -32,7 +32,7 @@ export function validateEnquiry(input: EnquiryInput) {
   }
 
   if (message.length < 8 || message.length > 1000) {
-    errors.message = "Please write a short message, without a detailed history.";
+    errors.message = "A short note is enough for a first step.";
   }
 
   return {

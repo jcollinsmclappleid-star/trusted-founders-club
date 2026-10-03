@@ -3,7 +3,7 @@ import { EnquiryForm } from "@/components/enquiry-form";
 import { HeroSlider } from "@/components/hero-slider";
 import { IntroVideo } from "@/components/intro-video";
 import { OnlineFold } from "@/components/online-fold";
-import { PhoneLinks } from "@/components/phone-links";
+import { PhoneLinks, WhatsAppInvite } from "@/components/phone-links";
 import { TopicTrail } from "@/components/topic-trail";
 import { siteConfig } from "@/lib/site";
 import {
@@ -19,18 +19,46 @@ function Alias({ id }: { id: string }) {
   return <div id={id} className="h-0 scroll-mt-28" />;
 }
 
+const journey = [
+  {
+    src: "/media/woodland.jpg",
+    alt: "Autumn trees, with two people sitting together on a fallen trunk",
+    line: "Go for a walk",
+    position: "object-[center_58%]",
+  },
+  {
+    src: "/media/autumn-sky.jpg",
+    alt: "Looking up through burnt orange and green autumn leaves",
+    line: "Sit down in nature",
+    position: "object-center",
+  },
+  {
+    src: "/media/garden-room.jpg",
+    alt: "The timber garden consulting room, with a green roof, among the trees",
+    line: "The garden room",
+    position: "object-[center_45%]",
+  },
+] as const;
+
 function TreeBreak({ line }: { line: string }) {
   return (
     <figure className="tree-break">
       <p className="tree-line">{line}</p>
-      <div className="tree-window">
-        <Image
-          src="/media/autumn-sky.jpg"
-          alt="Looking up through burnt orange and green autumn leaves"
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+      <div className="tree-journey">
+        {journey.map((stop) => (
+          <figure key={stop.line} className="tree-stop">
+            <div className="tree-frame">
+              <Image
+                src={stop.src}
+                alt={stop.alt}
+                fill
+                sizes="(min-width: 1024px) 26vw, 30vw"
+                className={`object-cover ${stop.position}`}
+              />
+            </div>
+            <figcaption className="tree-caption">{stop.line}</figcaption>
+          </figure>
+        ))}
       </div>
     </figure>
   );
@@ -585,8 +613,9 @@ export default function HomePage() {
               and discuss working together.
             </p>
             <p className="mt-8 text-2xl">
-              <PhoneLinks phoneClassName="contact-link" />
+              <PhoneLinks phoneClassName="contact-link" whatsapp={false} />
             </p>
+            <WhatsAppInvite />
             <p className="mt-2 text-xl">
               <a className="contact-link" href={`mailto:${siteConfig.email}`}>
                 {siteConfig.email}
