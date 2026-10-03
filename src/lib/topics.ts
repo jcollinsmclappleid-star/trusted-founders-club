@@ -87,13 +87,13 @@ Counselling at a time of change gives the stir a place to be spoken. We look at 
   },
   {
     id: "topic-else-individual",
-    label: "Something else",
+    label: "Let’s discuss",
     catchAll: true,
-    detail: `You don’t have to match a heading. Tell me what is actually going on, even if it does not have a name yet. The first conversation is a place to find out whether working together feels right.
+    detail: `Sometimes what you are carrying doesn’t have a label. Let’s discuss it. You don’t have to match a heading. Tell me what is actually going on, even if it does not have a name yet. The first conversation is a place to find out whether working together feels right.
 
 Many people arrive without a neat problem. There is a restlessness, a sadness that will not explain itself, a relationship that feels wrong, or a life that looks fine and does not feel fine. Waiting until you can describe it perfectly is often what keeps the conversation from starting.
 
-If none of the other names fit, this is the place to begin. You can say it badly. You can say you do not know. I will listen, and we will see together whether what you are carrying belongs here. A detailed history is not required before that first conversation.`,
+If it doesn’t sit under a name, this is still a place to begin. You can say it badly. You can say you do not know. I will listen, and we will see together whether what you are carrying belongs here. A detailed history is not required before that first conversation.`,
   },
 ];
 
@@ -154,12 +154,12 @@ Those experiences can be spoken about here. The quotation marks around ‘couple
   },
   {
     id: "topic-else-couples",
-    label: "Something else",
+    label: "Let’s discuss",
     catchAll: true,
-    detail: `If what you are carrying doesn’t sit under one of these names, bring that. You don’t have to have the right words before we speak. A first conversation is a place to find out whether working together feels right.
+    detail: `Sometimes what is happening between you doesn’t have a label. Let’s discuss it. You don’t have to have the right words before we speak. A first conversation is a place to find out whether working together feels right.
 
 Relationships rarely arrive as a single topic. It may be family pressure, a child, a faith, a move, an illness, or a feeling that something is wrong and neither of you can yet say what. You do not have to agree on the problem. You do not have to call yourselves a couple.
 
-Bring the thing that does not fit the list. I will listen to both of you, without deciding in advance what the work should be about. The first conversation is enough to find out whether this is the right place.`,
+Bring what doesn’t yet have a name. I will listen to both of you, without deciding in advance what the work should be about. The first conversation is enough to find out whether this is the right place.`,
   },
 ];

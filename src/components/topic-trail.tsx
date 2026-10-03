@@ -35,39 +35,14 @@ function TopicBranch({
   );
 }
 
-function PromiseSeal({ seal }: { seal: "one" | "two" }) {
-  return (
-    <svg className="promise-mark" viewBox="0 0 80 80" aria-hidden="true">
-      <circle cx="40" cy="40" r="37" fill="#fffbf5" />
-      <circle cx="40" cy="40" r="35.5" fill="none" stroke="#4e5d4e" strokeWidth="1.25" />
-      <circle cx="40" cy="40" r="29.5" fill="none" stroke="#c65c28" strokeWidth="0.7" />
-      {seal === "one" ? (
-        <>
-          <circle cx="40" cy="40" r="7.2" fill="#c65c28" />
-          <circle cx="40" cy="40" r="12" fill="none" stroke="#c65c28" strokeWidth="0.9" />
-        </>
-      ) : (
-        <>
-          <circle cx="30" cy="40" r="5.6" fill="#c65c28" />
-          <circle cx="50" cy="40" r="5.6" fill="#c65c28" />
-          <circle cx="30" cy="40" r="9.2" fill="none" stroke="#c65c28" strokeWidth="0.8" />
-          <circle cx="50" cy="40" r="9.2" fill="none" stroke="#c65c28" strokeWidth="0.8" />
-        </>
-      )}
-    </svg>
-  );
-}
-
 export function TopicTrail({
   topics,
   support,
   promise,
-  seal = "one",
 }: {
   topics: Topic[];
   support: string;
   promise?: string;
-  seal?: "one" | "two";
 }) {
   const [open, setOpen] = useState<Topic | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -223,7 +198,13 @@ export function TopicTrail({
                   {promise ? (
                     <div className="topic-end">
                       <div className="topic-promise">
-                        <PromiseSeal seal={seal} />
+                        <img
+                          className="promise-mark"
+                          src="/media/garden-room.jpg"
+                          alt="The timber garden consulting room, with a green roof, among the trees"
+                          width={188}
+                          height={188}
+                        />
                         <p className="topic-promise-title">My promise</p>
                         <p>{promise}</p>
                       </div>
@@ -280,7 +261,7 @@ export function TopicTrail({
       </div>
       {extras.length > 0 ? (
         <div className="topic-else">
-          <p className="topic-else-label">If none of these fit</p>
+          <p className="topic-else-label">If it doesn’t have a label yet</p>
           {extras.map((topic) => (
             <TopicBranch
               key={topic.id}

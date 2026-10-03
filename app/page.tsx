@@ -31,12 +31,12 @@ export default function HomePage() {
             <Alias id="counselling" />
             <h1 id="top" tabIndex={-1} className="scroll-mt-28 font-display text-forest">
               <span className="block text-[2.55rem] leading-none sm:text-5xl lg:text-6xl">Dermot Cox</span>
-              <span className="mt-2 block text-lg leading-snug font-normal text-ink sm:text-2xl">
+              <span className="hero-lede mt-3 block text-ink">
                 Psychotherapy and counselling for individuals and couples, in person in Little
                 Hampden, near Great Missenden, and online.
               </span>
             </h1>
-            <p className="mt-2 max-w-xl text-base leading-snug sm:text-lg">
+            <p className="mt-3 max-w-xl">
               A quiet place to talk, in the garden consulting room, in the countryside around the
               village, or online.
             </p>
@@ -72,7 +72,7 @@ export default function HomePage() {
             Individual therapy
           </h2>
           <div className="service-note">
-            <h3 className="font-display text-4xl text-forest">Who it is for</h3>
+            <h3 className="subhead">Who it is for</h3>
             <p>
               I’m someone you can talk to who will listen attentively. This is for you if you want a
               place to discover how you really feel, and to look at what is causing you difficulty
@@ -80,7 +80,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="service-note">
-            <h3 className="font-display text-4xl text-forest">How it can help</h3>
+            <h3 className="subhead">How it can help</h3>
             <p>
               I’ll learn what matters to you and concerns you – without judging. We might also
               explore whether what is difficult now links to experiences in your earlier life. The
@@ -89,7 +89,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="service-questions">
-            <h3 className="font-display text-4xl text-forest">Questions you may have</h3>
+            <h3 className="subhead">Questions you may have</h3>
             <div>
               <h4>Do I need to know what is wrong?</h4>
               <p>You don’t have to arrive with the difficulty already named.</p>
@@ -102,17 +102,17 @@ export default function HomePage() {
               </p>
             </div>
             <div>
-              <h4>What if none of the names fit?</h4>
+              <h4>What if it doesn’t have a name?</h4>
               <p>
-                Then choose Something else. A first conversation is enough. You don’t need a full
-                account of your history.
+                Sometimes what you are carrying doesn’t have a label. If that is where you are,
+                choose Let’s discuss. We can talk about it. A first conversation is enough, and you
+                don’t need a full account of your history.
               </p>
             </div>
           </div>
           <TopicTrail
             support={individualSupport}
             promise={individualPromise}
-            seal="one"
             topics={individualTopics}
           />
         </div>
@@ -129,7 +129,7 @@ export default function HomePage() {
             ‘Couples’ therapy
           </h2>
           <div className="service-note">
-            <h3 className="font-display text-4xl">Who it is for</h3>
+            <h3 className="subhead">Who it is for</h3>
             <p>
               I also offer ‘couples’ therapy – I use quotation marks because some people wishing to
               work on their intimate relationships don’t see themselves as being in an exclusive
@@ -139,7 +139,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="service-note">
-            <h3 className="font-display text-4xl">How it can help</h3>
+            <h3 className="subhead">How it can help</h3>
             <p>
               As therapist, I offer a neutral and contained space where you can look at repetitive
               patterns of conflict or dissatisfaction in safety, knowing each person’s perspective
@@ -149,7 +149,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="service-questions">
-            <h3 className="font-display text-4xl">Questions you may have</h3>
+            <h3 className="subhead">Questions you may have</h3>
             <div>
               <h4>What if we don’t call ourselves a couple?</h4>
               <p>
@@ -175,7 +175,6 @@ export default function HomePage() {
           <TopicTrail
             support={couplesSupport}
             promise={couplesPromise}
-            seal="two"
             topics={couplesTopics}
           />
           <p className="mt-8 text-lg">
@@ -197,7 +196,7 @@ export default function HomePage() {
             Online sessions
           </h2>
           <div className="service-note">
-            <h3 className="font-display text-4xl text-forest">If you are somewhere else</h3>
+            <h3 className="subhead">If you are somewhere else</h3>
             <p>
               I offer online sessions for clients who prefer this, or who live in a different area.
               Individual therapy and ‘couples’ therapy can both be held this way. The same fees
@@ -205,15 +204,15 @@ export default function HomePage() {
             </p>
           </div>
           <div className="service-note">
-            <h3 className="font-display text-4xl text-forest">A quiet corner is enough</h3>
+            <h3 className="subhead">A quiet corner is enough</h3>
             <p>
               We meet by video. You will need a place where you will not be interrupted. It does
-              not have to be a perfect room. A corner, and a door you can close, is enough.               I will
+              not have to be a perfect room. A corner, and a door you can close, is enough. I will
               listen in the same way, and the time is still yours.
             </p>
           </div>
           <div className="service-note">
-            <h3 className="font-display text-4xl text-forest">If you can travel</h3>
+            <h3 className="subhead">If you can travel</h3>
             <p>
               If the journey is possible, I would encourage you to come in person. The garden room
               in Little Hampden is a timber room in the garden, with views over fields and woods,
@@ -304,15 +303,14 @@ export default function HomePage() {
           </h2>
           <ol className="process">
             <li>
-              <span className="process-icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <path d="M18 46V28c0-6 4-10 8-10h0" stroke="currentColor" strokeWidth="1.4" />
-                  <path d="M46 46V28c0-6-4-10-8-10h0" stroke="currentColor" strokeWidth="1.4" />
-                  <path d="M14 46h36" stroke="currentColor" strokeWidth="1.4" />
-                  <circle cx="32" cy="22" r="3" stroke="currentColor" strokeWidth="1.4" />
-                </svg>
-              </span>
-              <h3 className="font-display text-3xl text-forest">A first conversation</h3>
+              <img
+                className="place-mark mark-portrait"
+                src="/media/portrait.jpg"
+                alt="Dermot Cox"
+                width={150}
+                height={150}
+              />
+              <h3 className="subhead">A first conversation</h3>
               <p>
                 A free 30-minute conversation, by phone or video, is a chance to meet and to see
                 whether working together feels right. It is not a session, and you don’t need to
@@ -320,13 +318,14 @@ export default function HomePage() {
               </p>
             </li>
             <li>
-              <span className="process-icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <circle cx="32" cy="32" r="16" stroke="currentColor" strokeWidth="1.4" />
-                  <path d="M32 20v12l8 5" stroke="currentColor" strokeWidth="1.4" />
-                </svg>
-              </span>
-              <h3 className="font-display text-3xl text-forest">A time to meet</h3>
+              <img
+                className="place-mark mark-door"
+                src="/media/garden-room.jpg"
+                alt="The garden room, where the weekly meetings are held"
+                width={150}
+                height={150}
+              />
+              <h3 className="subhead">A time to meet</h3>
               <p>
                 Meeting at a regular time each week is generally the most supportive arrangement for
                 individual therapy. ‘Couples’ therapy may benefit from greater flexibility in the
@@ -334,14 +333,14 @@ export default function HomePage() {
               </p>
             </li>
             <li>
-              <span className="process-icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <path d="M12 46c8-14 14-22 20-22s12 8 20 22" stroke="currentColor" strokeWidth="1.4" />
-                  <path d="M32 24v-8" stroke="currentColor" strokeWidth="1.4" />
-                  <circle cx="32" cy="14" r="2" fill="currentColor" />
-                </svg>
-              </span>
-              <h3 className="font-display text-3xl text-forest">You are welcome</h3>
+              <img
+                className="place-mark mark-welcome"
+                src="/media/woodland.jpg"
+                alt="Autumn woodland, with light between the trunks"
+                width={150}
+                height={150}
+              />
+              <h3 className="subhead">You are welcome</h3>
               <p>
                 I recognise and welcome diversity among my clients in all its forms, including
                 cultural diversity, Gender Relationship and Sexual Diversity (GRSD and LGBTQIA+) and
@@ -353,7 +352,7 @@ export default function HomePage() {
             <h2
               id="experience"
               tabIndex={-1}
-              className="scroll-mt-28 font-display text-4xl text-forest sm:text-5xl"
+              className="scroll-mt-28 font-display text-4xl text-forest sm:text-[2.6rem]"
             >
               A safe space
             </h2>
@@ -420,14 +419,35 @@ export default function HomePage() {
             </p>
             <ol className="garden-path">
               <li>
+                <img
+                  className="place-mark mark-room"
+                  src="/media/garden-room.jpg"
+                  alt="The timber garden room, with its green door and living roof"
+                  width={150}
+                  height={150}
+                />
                 <span>The room</span>
                 In my garden, with views over fields and woods.
               </li>
               <li>
+                <img
+                  className="place-mark mark-outside"
+                  src="/media/woodland.jpg"
+                  alt="Two people sitting together in autumn woodland"
+                  width={150}
+                  height={150}
+                />
                 <span>Outside</span>
                 We can also have outdoor sessions in the countryside near my home.
               </li>
               <li>
+                <img
+                  className="place-mark mark-journey"
+                  src="/media/autumn-sky.jpg"
+                  alt="Looking up through orange and green autumn branches"
+                  width={150}
+                  height={150}
+                />
                 <span>The journey</span>
                 About 5 minutes by taxi from Great Missenden station on the Chiltern line, which is
                 about 50 minutes from Marylebone. The postcode is HP16 9PS.
@@ -466,32 +486,32 @@ export default function HomePage() {
             </div>
           </dl>
 
-          <h3 id="questions" tabIndex={-1} className="scroll-mt-28 mt-16 font-display text-4xl text-forest sm:mt-20 sm:text-5xl">
+          <h3 id="questions" tabIndex={-1} className="subhead scroll-mt-28 mt-16 sm:mt-20">
             Before you get in touch
           </h3>
           <div className="question-grid">
             <div>
-              <h4 className="font-display text-2xl text-forest">Where do we meet?</h4>
+              <h4>Where do we meet?</h4>
               <p>
                 In the garden consulting room in Little Hampden, near Great Missenden, or outdoors
                 nearby. The room is not in Great Missenden itself.
               </p>
             </div>
             <div>
-              <h4 className="font-display text-2xl text-forest">Can we meet online?</h4>
+              <h4>Can we meet online?</h4>
               <p>
                 Yes. Online sessions are offered alongside meeting in person, for the same fees.
               </p>
             </div>
             <div>
-              <h4 className="font-display text-2xl text-forest">How do we begin?</h4>
+              <h4>How do we begin?</h4>
               <p>
                 With a free 30-minute conversation by phone or video, to meet and to talk about
                 working together.
               </p>
             </div>
             <div>
-              <h4 className="font-display text-2xl text-forest">How often do we meet?</h4>
+              <h4>How often do we meet?</h4>
               <p>
                 A regular weekly time usually supports individual therapy best. Couples work can be
                 more flexible.
