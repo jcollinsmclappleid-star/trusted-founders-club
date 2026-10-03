@@ -798,6 +798,67 @@ footer {
   color: inherit;
 }
 
+.topic-trail {
+  margin-top: 1.75rem;
+  max-width: 40rem;
+}
+
+.topic-sentence {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+.topic-sentence a {
+  color: inherit;
+  text-underline-offset: 0.16em;
+  scroll-margin-top: 6.75rem;
+}
+
+.topic-panel {
+  scroll-margin-top: 6.75rem;
+}
+
+.topic-panel {
+  margin-top: 0.9rem;
+  padding: 1.15rem 1.25rem 1.2rem;
+  background: var(--color-ivory-deep);
+}
+
+.wood-couples .topic-panel {
+  background: rgba(26, 36, 28, 0.35);
+}
+
+.topic-panel-title {
+  margin: 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.85rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.topic-panel p {
+  margin: 0.75rem 0 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.topic-back {
+  margin-top: 0.35rem;
+}
+
+.topic-back button {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+  cursor: pointer;
+}
+
 .further {
   margin-top: 1.15rem;
   max-width: 40rem;
@@ -948,7 +1009,7 @@ img.member-logo-ukcp {
 }
 
 .about-chapter {
-  background: none;
+  background: var(--color-ivory);
 }
 
 .about-layout,
@@ -1130,6 +1191,11 @@ img.member-logo-ukcp {
 
   .opening-line {
     max-width: 16em;
+  }
+
+  .topic-sentence a,
+  .topic-panel {
+    scroll-margin-top: 9rem;
   }
 
   .about-layout {

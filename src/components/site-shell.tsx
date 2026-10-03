@@ -115,7 +115,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       const id = window.location.hash.replace("#", "");
       const element = id ? document.getElementById(id) : null;
       if (!element) return;
-      if (/^H[1-3]$/.test(element.tagName)) {
+      if (/^H[1-3]$/.test(element.tagName) || element.tagName === "A" || element.tagName === "BUTTON") {
         element.focus({ preventScroll: true });
       }
     }

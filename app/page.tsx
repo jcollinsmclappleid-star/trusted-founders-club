@@ -2,6 +2,7 @@ import Image from "next/image";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { HeroSlider } from "@/components/hero-slider";
 import { IntroVideo } from "@/components/intro-video";
+import { TopicTrail } from "@/components/topic-trail";
 import { siteConfig } from "@/lib/site";
 
 function Alias({ id }: { id: string }) {
@@ -96,6 +97,62 @@ export default function HomePage() {
               it, and to see it, rather than to be moved on.
             </p>
           </Further>
+          <TopicTrail
+            pieces={[
+              "The work can begin with ",
+              { kind: "jump", id: "from-grief", label: "grief and loss", href: "#grief" },
+              ", or with the tension between ",
+              {
+                kind: "jump",
+                id: "from-work",
+                label: "work and a personal life",
+                href: "#work-and-life",
+              },
+              ". It can also begin with ",
+              {
+                kind: "note",
+                id: "topic-anxiety",
+                label: "anxiety",
+                body: "Anxiety is one of the most common reasons people look for a place to talk. It can be part of what is causing difficulty now, and, if it belongs, part of an earlier experience.",
+              },
+              ", ",
+              {
+                kind: "note",
+                id: "topic-mood",
+                label: "low mood",
+                body: "Low mood is a common reason to begin. The conversation can stay with how it feels now, and with whether something earlier is still part of it.",
+              },
+              ", ",
+              {
+                kind: "note",
+                id: "topic-stress",
+                label: "stress",
+                body: "Stress is often what brings someone to individual therapy. There is time to look at the pressure itself, rather than to be moved past it.",
+              },
+              ", a ",
+              {
+                kind: "note",
+                id: "topic-relationships",
+                label: "relationship",
+                body: "Difficulties in relationships are often part of individual therapy. We can look at what is happening now, and at whether it has roots further back, which is already how this work is described.",
+              },
+              ", ",
+              {
+                kind: "note",
+                id: "topic-esteem",
+                label: "self-esteem",
+                body: "How you see yourself can be part of the same conversation: what is difficult now, and what may have shaped it.",
+              },
+              ", or a ",
+              {
+                kind: "note",
+                id: "topic-change",
+                label: "change in life",
+                body: "A change in life is a common reason to begin. There is time here to see what it has stirred, rather than to be hurried on.",
+              },
+              " — whatever is causing difficulty now.",
+            ]}
+          />
           <div className="region-split">
             <article>
               <h3 id="grief" tabIndex={-1} className="scroll-mt-28 font-display text-4xl text-forest">
@@ -112,6 +169,11 @@ export default function HomePage() {
                   There is room for how the loss actually feels.
                 </p>
               </Further>
+              <p className="mt-4 text-lg">
+                <a className="text-link" href="#from-grief">
+                  Back to individual therapy
+                </a>
+              </p>
             </article>
             <article>
               <h3
@@ -135,29 +197,13 @@ export default function HomePage() {
                   directly.
                 </p>
               </Further>
+              <p className="mt-4 text-lg">
+                <a className="text-link" href="#from-work">
+                  Back to individual therapy
+                </a>
+              </p>
             </article>
           </div>
-          <details className="topic-list">
-            <summary>Topics people often bring</summary>
-            <p>
-              These are among the most common reasons people look for individual therapy. Grief and
-              loss, and work and a personal life, are written out above.
-            </p>
-            <ul>
-              <li>
-                <a href="#grief">Grief and loss</a>
-              </li>
-              <li>
-                <a href="#work-and-life">Work and a personal life</a>
-              </li>
-              <li>Anxiety</li>
-              <li>Depression and low mood</li>
-              <li>Stress</li>
-              <li>Relationship difficulties</li>
-              <li>Self-esteem</li>
-              <li>Life changes</li>
-            </ul>
-          </details>
         </div>
       </section>
 
@@ -191,6 +237,53 @@ export default function HomePage() {
               relationship and what scope there is for change.
             </p>
           </Further>
+          <TopicTrail
+            pieces={[
+              "From there, people often want to look at ",
+              {
+                kind: "note",
+                id: "topic-communication",
+                label: "communication",
+                body: "How you speak, and how you hear each other, is often where this work begins. It can be looked at in the contained space, with equal attention to each person.",
+              },
+              ", ",
+              {
+                kind: "note",
+                id: "topic-conflict",
+                label: "conflict",
+                body: "Repetitive patterns of conflict are already part of how this work is described: a neutral place to look at them, with each person’s perspective given equal value.",
+              },
+              ", ",
+              {
+                kind: "note",
+                id: "topic-intimacy",
+                label: "intimacy",
+                body: "Intimacy is already in the writing above: the possibility of new ways of relating, and of understanding what scope there is for change.",
+              },
+              ", ",
+              {
+                kind: "note",
+                id: "topic-trust",
+                label: "trust",
+                body: "Trust is a common reason people look for couples therapy. It can be spoken about here, in the same contained space, with equal attention to each person.",
+              },
+              ", or ",
+              {
+                kind: "note",
+                id: "topic-apart",
+                label: "growing apart",
+                body: "A sense of growing apart is a common reason to begin. The work is a place to understand the dynamics of the relationship, and what scope there is for change, which is already how this is described.",
+              },
+              ". ",
+              {
+                kind: "jump",
+                id: "from-relating",
+                label: "Sexual identity and open relating",
+                href: "#relating",
+              },
+              " is part of this same work.",
+            ]}
+          />
           <article className="relating-note">
             <h3 id="relating" tabIndex={-1} className="scroll-mt-28 font-display text-4xl">
               Sexual identity and open relating
@@ -205,24 +298,12 @@ export default function HomePage() {
                 and feelings can be spoken about here, and they will be met without judgement.
               </p>
             </Further>
-          </article>
-          <details className="topic-list">
-            <summary>Topics people often bring</summary>
-            <p>
-              These are among the most common reasons people look for couples therapy. Conflict,
-              intimacy, and sexual identity are already in the writing above.
+            <p className="mt-4 text-lg">
+              <a className="text-link" href="#from-relating">
+                Back to couples therapy
+              </a>
             </p>
-            <ul>
-              <li>Communication</li>
-              <li>Conflict</li>
-              <li>Intimacy</li>
-              <li>Trust</li>
-              <li>Growing apart</li>
-              <li>
-                <a href="#relating">Sexual identity and open relating</a>
-              </li>
-            </ul>
-          </details>
+          </article>
           <p className="mt-8 text-lg">
             <a className="text-link" href="#contact">
               Ask about couples work
