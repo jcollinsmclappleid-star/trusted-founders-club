@@ -199,6 +199,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     });
     const nextUrl = `${window.location.pathname}${window.location.search}#${id}`;
     window.history.pushState(null, "", nextUrl);
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
   }
 
   return (

@@ -9,15 +9,6 @@ function Alias({ id }: { id: string }) {
   return <div id={id} className="h-0 scroll-mt-28" />;
 }
 
-function Further({ summary, children }: { summary: string; children: React.ReactNode }) {
-  return (
-    <details className="further" open>
-      <summary>{summary}</summary>
-      <div className="further-body prose-copy text-xl leading-relaxed">{children}</div>
-    </details>
-  );
-}
-
 export default function HomePage() {
   return (
     <main>
@@ -79,38 +70,58 @@ export default function HomePage() {
           >
             Individual therapy
           </h2>
-          <p className="mt-6 max-w-2xl text-xl leading-relaxed">
-            I’m someone you can talk to who will listen attentively.
-          </p>
-          <Further summary="What this space is for">
+          <div className="service-note">
+            <h3 className="font-display text-4xl text-forest">Who it is for</h3>
             <p>
-              I’ll learn what matters to you and concerns you – without judging. I provide a space
-              where you can discover how you really feel.
+              I’m someone you can talk to who will listen attentively. This is for you if you want a
+              place to discover how you really feel, and to look at what is causing you difficulty
+              or distress now.
             </p>
+          </div>
+          <div className="service-note">
+            <h3 className="font-display text-4xl text-forest">How it can help</h3>
             <p>
-              We’ll look at what’s causing you difficulty or distress now. We might also explore
-              whether that links to experiences in your earlier life. The problems we have with
-              relationships or self-destructive behaviour often have roots in the past.
+              I’ll learn what matters to you and concerns you – without judging. We might also
+              explore whether what is difficult now links to experiences in your earlier life. The
+              problems we have with relationships or self-destructive behaviour often have roots in
+              the past. There is time to stay with it, and to see it, rather than to be moved on.
             </p>
-            <p>
-              You don’t have to arrive with the difficulty already named. There is time to stay with
-              it, and to see it, rather than to be moved on.
-            </p>
-          </Further>
+          </div>
+          <div className="service-questions">
+            <h3 className="font-display text-4xl text-forest">Questions you may have</h3>
+            <div>
+              <h4>Do I need to know what is wrong?</h4>
+              <p>You don’t have to arrive with the difficulty already named.</p>
+            </div>
+            <div>
+              <h4>Will we only talk about the present?</h4>
+              <p>
+                We start with what is difficult now. If it belongs, we can look at whether an
+                earlier experience is still part of it.
+              </p>
+            </div>
+            <div>
+              <h4>What if none of the names fit?</h4>
+              <p>
+                Then choose Something else. A first conversation is enough. You don’t need a full
+                account of your history.
+              </p>
+            </div>
+          </div>
           <TopicTrail
             support="I’ll listen attentively, without judging. We look at what is causing difficulty now, and, if it belongs, whether an earlier experience is still part of it. You don’t have to arrive with it already named."
             topics={[
               {
-                id: "topic-grief",
+                id: "grief",
                 label: "Grief and loss",
                 detail:
-                  "I trained as a bereavement volunteer with Cruse and work with people experiencing intense grief and loss. If that is what you are carrying, it can be the centre of the work.",
+                  "I trained as a bereavement volunteer with Cruse and work with people experiencing intense grief and loss. If that is what you are carrying, it can be the centre of the work. It does not have to be set aside so that we can talk about something else.",
               },
               {
-                id: "topic-work",
+                id: "work-and-life",
                 label: "Work and a personal life",
                 detail:
-                  "Before this work I was a marketing consultant in professional and financial services. I know the tension between business success and a personal life, and the pressure that puts on relationships.",
+                  "Before becoming a therapist, I worked as a marketing consultant in professional and financial services. I’m familiar with the tension this world creates between business success and personal life, and the pressure it puts on building and sustaining personal relationships. If that pressure is familiar, we can look at it directly.",
               },
               {
                 id: "topic-anxiety",
@@ -148,49 +159,15 @@ export default function HomePage() {
                 detail:
                   "A change in life is a common reason to begin. There is time here to see what it has stirred, rather than to be hurried on.",
               },
+              {
+                id: "topic-else-individual",
+                label: "Something else",
+                catchAll: true,
+                detail:
+                  "You don’t have to match a heading. Tell me what is actually going on, even if it does not have a name yet. The first conversation is a place to find out whether working together feels right.",
+              },
             ]}
           />
-          <div className="region-split">
-            <article>
-              <h3 id="grief" tabIndex={-1} className="scroll-mt-28 font-display text-4xl text-forest">
-                Grief and loss
-              </h3>
-              <p className="mt-4 text-xl leading-relaxed">
-                I also trained as a bereavement volunteer with Cruse and work with people
-                experiencing intense grief and loss.
-              </p>
-              <Further summary="If this is what you are carrying">
-                <p>
-                  If intense grief or another loss is what brings you, that can be the centre of the
-                  work. It does not have to be set aside so that we can talk about something else.
-                  There is room for how the loss actually feels.
-                </p>
-              </Further>
-            </article>
-            <article>
-              <h3
-                id="work-and-life"
-                tabIndex={-1}
-                className="scroll-mt-28 font-display text-4xl text-forest"
-              >
-                Work and a personal life
-              </h3>
-              <p className="mt-4 text-xl leading-relaxed">
-                Before becoming a therapist, I worked as a marketing consultant in professional and
-                financial services. I’m familiar with the tension this world creates between business
-                success and personal life. I know the pressures it puts on building and sustaining
-                personal relationships.
-              </p>
-              <Further summary="The world I knew before this work">
-                <p>
-                  I know that tension from the inside. Business success in professional and financial
-                  services can pull against a personal life, and it can make it harder to build a
-                  relationship and to sustain one. If that pressure is familiar, we can look at it
-                  directly.
-                </p>
-              </Further>
-            </article>
-          </div>
         </div>
       </section>
 
@@ -204,26 +181,50 @@ export default function HomePage() {
           >
             ‘Couples’ therapy
           </h2>
-          <p className="mt-6 max-w-2xl text-xl leading-relaxed">
-            I also offer ‘couples’ therapy – I use quotation marks because some people wishing to
-            work on their intimate relationships don’t see themselves as being in an exclusive
-            ‘couple’.
-          </p>
-          <Further summary="A contained place for both of you">
+          <div className="service-note">
+            <h3 className="font-display text-4xl">Who it is for</h3>
             <p>
-              Relationships are where we have some of the most intense experiences in our lives.
-              They are also where we have the greatest scope to learn and grow, particularly by
-              examining the painful experiences they can give rise to. As therapist, I offer a
-              neutral and contained space where you can look at repetitive patterns of conflict or
-              dissatisfaction in safety, knowing each person’s perspective will be given equal
-              value.
+              I also offer ‘couples’ therapy – I use quotation marks because some people wishing to
+              work on their intimate relationships don’t see themselves as being in an exclusive
+              ‘couple’. Relationships are where we have some of the most intense experiences in our
+              lives. They are also where we have the greatest scope to learn and grow, particularly
+              by examining the painful experiences they can give rise to.
             </p>
+          </div>
+          <div className="service-note">
+            <h3 className="font-display text-4xl">How it can help</h3>
             <p>
-              Together, you may find new ways of relating that rekindle the intimacy you originally
-              sought. You will certainly reach a deeper understanding of the dynamics of your
-              relationship and what scope there is for change.
+              As therapist, I offer a neutral and contained space where you can look at repetitive
+              patterns of conflict or dissatisfaction in safety, knowing each person’s perspective
+              will be given equal value. Together, you may find new ways of relating that rekindle
+              the intimacy you originally sought. You will certainly reach a deeper understanding of
+              the dynamics of your relationship and what scope there is for change.
             </p>
-          </Further>
+          </div>
+          <div className="service-questions">
+            <h3 className="font-display text-4xl">Questions you may have</h3>
+            <div>
+              <h4>What if we don’t call ourselves a couple?</h4>
+              <p>
+                The quotation marks are there for that reason. If you want to work on an intimate
+                relationship, you are welcome, whether or not you see yourselves as exclusive.
+              </p>
+            </div>
+            <div>
+              <h4>Will one of us be blamed?</h4>
+              <p>
+                Each person’s perspective is given equal value. The space is neutral, so the work is
+                not about deciding who is at fault.
+              </p>
+            </div>
+            <div>
+              <h4>What if we don’t agree about what needs to change?</h4>
+              <p>
+                You don’t have to arrive agreeing. The work is a place to understand the dynamics,
+                and what scope there is for change.
+              </p>
+            </div>
+          </div>
           <TopicTrail
             support="I offer a neutral and contained space, and each person’s perspective is given equal value. You don’t have to arrive as an exclusive couple, or with the difficulty already named."
             topics={[
@@ -243,7 +244,7 @@ export default function HomePage() {
                 id: "topic-intimacy",
                 label: "Intimacy",
                 detail:
-                  "Together, you may find new ways of relating that rekindle the intimacy you originally sought, and a clearer sense of what can change.",
+                  "If intimacy has faded, or become difficult to speak about, that can be the centre of the work.",
               },
               {
                 id: "topic-trust",
@@ -258,28 +259,20 @@ export default function HomePage() {
                   "A sense of growing apart is a common reason to begin. The work is a place to understand the dynamics of the relationship, and what scope there is for change.",
               },
               {
-                id: "topic-relating",
+                id: "relating",
                 label: "Sexual identity and open relating",
                 detail:
-                  "I’m comfortable in the world of conscious sexuality and work with clients exploring sexual identity and open relating, including polyamory. This sits inside the couples work. It is not a separate service.",
+                  "I’m comfortable in the world of conscious sexuality and work with clients exploring their experiences and feelings around sexual identity and open relating/polyamory. This sits inside the ‘couples’ work. It is not a separate service, and it will be met without judgement.",
+              },
+              {
+                id: "topic-else-couples",
+                label: "Something else",
+                catchAll: true,
+                detail:
+                  "If what you are carrying doesn’t sit under one of these names, bring that. You don’t have to have the right words before we speak. A first conversation is a place to find out whether working together feels right.",
               },
             ]}
           />
-          <article className="relating-note">
-            <h3 id="relating" tabIndex={-1} className="scroll-mt-28 font-display text-4xl">
-              Sexual identity and open relating
-            </h3>
-            <p className="mt-4 max-w-2xl text-xl leading-relaxed">
-              I’m comfortable in the world of conscious sexuality and work with clients exploring
-              their experiences and feelings around sexual identity and open relating/polyamory.
-            </p>
-            <Further summary="Speaking about this here">
-              <p>
-                This sits inside the ‘couples’ work. It is not a separate service. Those experiences
-                and feelings can be spoken about here, and they will be met without judgement.
-              </p>
-            </Further>
-          </article>
           <p className="mt-8 text-lg">
             <a className="text-link" href="#contact">
               Ask about couples work

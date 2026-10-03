@@ -7,7 +7,33 @@ export type Topic = {
   id: string;
   label: string;
   detail: string;
+  catchAll?: boolean;
 };
+
+function TopicBranch({
+  topic,
+  open,
+  dialogId,
+  onOpen,
+}: {
+  topic: Topic;
+  open: boolean;
+  dialogId: string;
+  onOpen: (button: HTMLButtonElement) => void;
+}) {
+  return (
+    <button
+      id={topic.id}
+      type="button"
+      className="topic-branch scroll-mt-28"
+      aria-expanded={open}
+      aria-controls={open ? dialogId : undefined}
+      onClick={(event) => onOpen(event.currentTarget)}
+    >
+      {topic.label}
+    </button>
+  );
+}
 
 export function TopicTrail({
   topics,
@@ -21,10 +47,34 @@ export function TopicTrail({
   const openerRef = useRef<HTMLButtonElement | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
-  const midpoint = Math.ceil(topics.length / 2);
-  const columns = [topics.slice(0, midpoint), topics.slice(midpoint)];
+  const dialogId = useId();
+  const named = topics.filter((topic) => !topic.catchAll);
+  const extras = topics.filter((topic) => topic.catchAll);
+  const midpoint = Math.ceil(named.length / 2);
+  const columns = [named.slice(0, midpoint), named.slice(midpoint)];
 
   useEffect(() => setMounted(true), []);
+
+  const topicsRef = useRef(topics);
+
+  useEffect(() => {
+    topicsRef.current = topics;
+  }, [topics]);
+
+  useEffect(() => {
+    function openFromHash() {
+      const id = decodeURIComponent(window.location.hash.replace("#", ""));
+      const match = topicsRef.current.find((topic) => topic.id === id);
+      if (match) {
+        openerRef.current = document.getElementById(match.id) as HTMLButtonElement | null;
+        setOpen(match);
+      }
+    }
+
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -83,6 +133,7 @@ export function TopicTrail({
             <div className="topic-scrim" onClick={close} />
             <div
               ref={dialogRef}
+              id={dialogId}
               className="topic-dialog-panel"
               role="dialog"
               aria-modal="true"
@@ -122,22 +173,37 @@ export function TopicTrail({
             {column.map((topic) => (
               <div key={topic.id} className="topic-limb">
                 <span className="topic-stem" aria-hidden="true" />
-                <button
-                  type="button"
-                  className="topic-branch"
-                  aria-expanded={open?.id === topic.id}
-                  onClick={(event) => {
-                    openerRef.current = event.currentTarget;
+                <TopicBranch
+                  topic={topic}
+                  open={open?.id === topic.id}
+                  dialogId={dialogId}
+                  onOpen={(button) => {
+                    openerRef.current = button;
                     setOpen(topic);
                   }}
-                >
-                  {topic.label}
-                </button>
+                />
               </div>
             ))}
           </div>
         ))}
       </div>
+      {extras.length > 0 ? (
+        <div className="topic-else">
+          <p className="topic-else-label">If none of these fit</p>
+          {extras.map((topic) => (
+            <TopicBranch
+              key={topic.id}
+              topic={topic}
+              open={open?.id === topic.id}
+              dialogId={dialogId}
+              onOpen={(button) => {
+                openerRef.current = button;
+                setOpen(topic);
+              }}
+            />
+          ))}
+        </div>
+      ) : null}
       <div className="sr-only">
         {topics.map((topic) => (
           <p key={topic.id}>
