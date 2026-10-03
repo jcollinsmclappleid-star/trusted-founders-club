@@ -22,28 +22,35 @@ function Alias({ id }: { id: string }) {
 const journey = [
   {
     src: "/media/woodland.jpg",
-    alt: "Autumn trees, with two people sitting together on a fallen trunk",
-    line: "Go for a walk",
+    alt: "Two people sitting together among autumn trees",
+    line: "Sit down in nature",
+    note: "A place to be still, among the trees.",
     position: "object-[center_58%]",
   },
   {
     src: "/media/autumn-sky.jpg",
     alt: "Looking up through burnt orange and green autumn leaves",
-    line: "Sit down in nature",
+    line: "Go for a walk",
+    note: "In the countryside near the room.",
     position: "object-center",
   },
   {
     src: "/media/garden-room.jpg",
     alt: "The timber garden consulting room, with a green roof, among the trees",
     line: "The garden room",
+    note: "The timber room in the garden.",
     position: "object-[center_45%]",
   },
 ] as const;
 
 function TreeBreak({ line }: { line: string }) {
   return (
-    <figure className="tree-break">
+    <section className="tree-break" aria-label="Places we can meet">
       <p className="tree-line">{line}</p>
+      <p className="tree-context">
+        There is more than one place to meet. We can sit outside, go for a walk, or use the garden
+        room.
+      </p>
       <div className="tree-journey">
         {journey.map((stop) => (
           <figure key={stop.line} className="tree-stop">
@@ -56,11 +63,14 @@ function TreeBreak({ line }: { line: string }) {
                 className={`object-cover ${stop.position}`}
               />
             </div>
-            <figcaption className="tree-caption">{stop.line}</figcaption>
+            <figcaption className="tree-caption">
+              {stop.line}
+              <span className="tree-note">{stop.note}</span>
+            </figcaption>
           </figure>
         ))}
       </div>
-    </figure>
+    </section>
   );
 }
 
@@ -105,8 +115,6 @@ export default function HomePage() {
           </nav>
         </section>
       </div>
-
-      <TreeBreak line="A time of real difficulty can still hold the beginning of growth." />
 
       <section aria-labelledby="individual-therapy" className="service-region wood-individual chapter">
         <div id="services" className="h-0 scroll-mt-28" />
@@ -303,7 +311,7 @@ export default function HomePage() {
           </p>
       </OnlineFold>
 
-      <TreeBreak line="There is room here for what is difficult, and for what may grow from it." />
+      <TreeBreak line="A time of real difficulty can still hold the beginning of growth." />
 
       <section aria-labelledby="about" className="about-chapter">
         <div className="about-layout">
@@ -384,11 +392,13 @@ export default function HomePage() {
               </a>
             </p>
             <div className="about-film">
-              <p className="max-w-xl text-xl leading-relaxed">
-                I recorded the short video below in my home consulting room so you can get a better
-                sense of me and my approach to therapy.
-              </p>
-              <div className="mt-6 max-w-[40rem] lg:max-w-none">
+              <blockquote className="film-quote">
+                <p>
+                  “I recorded the short video below in my home consulting room so you can get a
+                  better sense of me and my approach to therapy.”
+                </p>
+              </blockquote>
+              <div className="film-stage">
                 <IntroVideo />
               </div>
             </div>
@@ -598,6 +608,22 @@ export default function HomePage() {
                 more flexible.
               </p>
             </div>
+            <div>
+              <h3>Do you see people from across Buckinghamshire?</h3>
+              <p>
+                Yes. People come from across Buckinghamshire and from the surrounding area, to the
+                garden room in Little Hampden or to meet outdoors nearby. If the journey is too far,
+                we can meet online.
+              </p>
+            </div>
+            <div>
+              <h3>What are the fees?</h3>
+              <p>
+                Individual therapy is £75 for 50 minutes. ‘Couples’ therapy is £120 for 60 minutes.
+                The fee is the same in person or online. A first conversation, 30 minutes by phone
+                or video, is free.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -643,11 +669,29 @@ export default function HomePage() {
           >
             Little Hampden
           </h2>
-          <p className="mt-4 max-w-xl text-xl leading-relaxed">
-            The garden consulting room is in Little Hampden, in the Chilterns, close to Great
-            Missenden, Buckinghamshire. People come from across the county and the surrounding
-            area. The postcode is HP16 9PS.
+          <p className="mt-4 max-w-3xl text-xl leading-relaxed">
+            Psychotherapy and counselling in Little Hampden, Buckinghamshire. The postcode is HP16
+            9PS.
           </p>
+          <dl className="map-facts">
+            <div>
+              <dt>In person</dt>
+              <dd>
+                The garden consulting room is in Little Hampden, in the Chilterns, close to Great
+                Missenden. The room is not in Great Missenden itself.
+              </dd>
+            </div>
+            <div>
+              <dt>The surrounding area</dt>
+              <dd>
+                People come from across Buckinghamshire and from the surrounding area.
+              </dd>
+            </div>
+            <div>
+              <dt>Online</dt>
+              <dd>When the journey is too far, sessions can be online, for the same fees.</dd>
+            </div>
+          </dl>
           <div className="map-frame">
             <iframe
               title="Map of Little Hampden, near Great Missenden"

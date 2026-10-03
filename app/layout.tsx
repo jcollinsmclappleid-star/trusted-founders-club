@@ -134,6 +134,30 @@ const jsonLd = {
       },
     },
     {
+      "@type": "ProfessionalService",
+      "@id": `${siteConfig.url}/#practice`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      image: `${siteConfig.url}/media/garden-room.jpg`,
+      telephone: "+447831572050",
+      email: siteConfig.email,
+      priceRange: "£75–£120",
+      currenciesAccepted: "GBP",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Little Hampden",
+        addressRegion: "Buckinghamshire",
+        postalCode: "HP16 9PS",
+        addressCountry: "GB",
+      },
+      hasMap: siteConfig.mapHref,
+      areaServed: [
+        { "@type": "AdministrativeArea", name: "Buckinghamshire" },
+        { "@type": "Place", name: "The Chilterns" },
+      ],
+      founder: { "@id": `${siteConfig.url}/#dermot` },
+    },
+    {
       "@type": "FAQPage",
       mainEntity: [
         {
@@ -166,6 +190,22 @@ const jsonLd = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "A regular weekly time usually supports individual therapy best. Couples work can be more flexible.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you see people from across Buckinghamshire?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. People come from across Buckinghamshire and from the surrounding area, to the garden room in Little Hampden or to meet outdoors nearby. If the journey is too far, we can meet online.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What are the fees?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Individual therapy is £75 for 50 minutes. Couples therapy is £120 for 60 minutes. The fee is the same in person or online. A first conversation, 30 minutes by phone or video, is free.",
           },
         },
       ],

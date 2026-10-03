@@ -670,31 +670,53 @@ footer {
 
 .tree-journey {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.7rem;
+  gap: 1rem;
 }
 
 .tree-stop {
+  display: grid;
+  grid-template-columns: 6.75rem minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: center;
   margin: 0;
 }
 
 .tree-frame {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1;
   overflow: hidden;
   background: #243028;
 }
 
-.tree-caption {
-  margin: 0.45rem 0 0;
+.tree-context {
+  max-width: 22rem;
+  margin: 0 auto 1.25rem;
   text-align: center;
+  text-wrap: balance;
+  font-size: 1.12rem;
+  line-height: 1.6;
+}
+
+.tree-caption {
+  margin: 0;
+  text-align: left;
   text-wrap: balance;
   font-family: var(--font-crimson), Georgia, "Times New Roman", serif;
   font-style: italic;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   line-height: 1.25;
   color: #6d4328;
+}
+
+.tree-note {
+  display: block;
+  margin-top: 0.2rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--color-ink);
 }
 
 .garden-arrival {
@@ -1510,6 +1532,25 @@ img.member-logo-ukcp {
   margin-top: 3.5rem;
 }
 
+.film-quote {
+  margin: 0 0 1.35rem;
+}
+
+.film-quote p {
+  margin: 0;
+  max-width: 22rem;
+  font-family: var(--font-crimson), Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.4;
+  color: #6d4328;
+}
+
+.film-stage {
+  background: #243028;
+}
+
 .accreditation {
   display: grid;
   gap: 1.35rem;
@@ -1737,6 +1778,32 @@ img.member-logo-ukcp {
   border: 0;
 }
 
+.map-facts {
+  display: grid;
+  gap: 1.15rem;
+  max-width: 40rem;
+  margin: 1.5rem 0 0;
+}
+
+.map-facts div {
+  margin: 0;
+}
+
+.map-facts dt {
+  margin: 0 0 0.2rem;
+  font-family: var(--font-julius), "Gill Sans", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--color-forest);
+}
+
+.map-facts dd {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.55;
+}
+
 .phone-line {
   display: inline-flex;
   flex-wrap: wrap;
@@ -1933,7 +2000,27 @@ img.member-logo-ukcp {
   }
 
   .about-film {
-    margin-top: 2.15rem;
+    display: grid;
+    grid-template-columns: minmax(16rem, 0.78fr) minmax(22rem, 1.35fr);
+    gap: 2.5rem 3.5rem;
+    align-items: center;
+    margin-top: 2.75rem;
+  }
+
+  .film-quote {
+    margin: 0;
+  }
+
+  .film-quote p {
+    max-width: none;
+    font-size: 2.35rem;
+    line-height: 1.28;
+  }
+
+  .film-stage {
+    box-shadow:
+      0.45rem 0.5rem 0 var(--color-ember),
+      0.95rem 1.05rem 0 var(--color-forest);
   }
 
   .about-intro,
@@ -2010,11 +2097,18 @@ img.member-logo-ukcp {
   }
 
   .tree-line {
-    max-width: 54rem;
-    margin-bottom: 1.7rem;
+    max-width: 46rem;
+    margin-bottom: 0.85rem;
     padding-inline: 2.5rem;
     font-size: 1.9rem;
     line-height: 1.3;
+  }
+
+  .tree-context {
+    max-width: 40rem;
+    margin-bottom: 2.15rem;
+    font-size: 1.28rem;
+    line-height: 1.6;
   }
 
   .online-chapter + .tree-break {
@@ -2022,14 +2116,30 @@ img.member-logo-ukcp {
   }
 
   .tree-journey {
-    gap: 2.35rem;
-    max-width: 76rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.15rem;
+    max-width: 72rem;
     margin-inline: auto;
   }
 
+  .tree-stop {
+    display: block;
+  }
+
+  .tree-frame {
+    aspect-ratio: 3 / 4;
+  }
+
   .tree-caption {
-    margin-top: 0.7rem;
-    font-size: 1.28rem;
+    margin-top: 0.85rem;
+    text-align: center;
+    font-size: 1.35rem;
+  }
+
+  .tree-note {
+    max-width: 16rem;
+    margin-inline: auto;
+    font-size: 1.05rem;
   }
 
   .tree-break,
@@ -2123,6 +2233,13 @@ img.member-logo-ukcp {
     grid-template-columns: 1fr 1fr;
     column-gap: 3.25rem;
     margin-top: 0.85rem;
+  }
+
+  .map-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+    max-width: none;
+    margin-top: 1.75rem;
   }
 
   .contact-layout {
