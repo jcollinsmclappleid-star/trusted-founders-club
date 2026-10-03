@@ -33,6 +33,44 @@ export const serviceAreas = [
     ],
   },
   {
+    shire: "Greater London",
+    towns: [
+      "Barking and Dagenham",
+      "Barnet",
+      "Bexley",
+      "Brent",
+      "Bromley",
+      "Camden",
+      "City of London",
+      "Croydon",
+      "Ealing",
+      "Enfield",
+      "Greenwich",
+      "Hackney",
+      "Hammersmith and Fulham",
+      "Haringey",
+      "Harrow",
+      "Havering",
+      "Hillingdon",
+      "Hounslow",
+      "Islington",
+      "Kensington and Chelsea",
+      "Kingston upon Thames",
+      "Lambeth",
+      "Lewisham",
+      "Merton",
+      "Newham",
+      "Redbridge",
+      "Richmond upon Thames",
+      "Southwark",
+      "Sutton",
+      "Tower Hamlets",
+      "Waltham Forest",
+      "Wandsworth",
+      "Westminster",
+    ],
+  },
+  {
     shire: "Oxfordshire",
     towns: [
       "Abingdon-on-Thames",
@@ -154,7 +192,9 @@ export const serviceAreas = [
 export const surroundingShires =
   "Oxfordshire, Hertfordshire, Berkshire, Bedfordshire and Northamptonshire";
 
-export const buckinghamshireAnswer = `Yes. People come from across Buckinghamshire and from the surrounding shires: ${surroundingShires}. They come to the garden room in Little Hampden or meet outdoors nearby. If the journey is too far, we can meet online.`;
+export const surroundingAreaSentence = `People come from across Buckinghamshire, from Greater London, and from the surrounding shires: ${surroundingShires}.`;
+
+export const buckinghamshireAnswer = `Yes. ${surroundingAreaSentence} They come to the garden room in Little Hampden or meet outdoors nearby. If the journey is too far, we can meet online.`;
 
 export const areaServed = [
   { "@type": "Place" as const, name: "The Chilterns" },

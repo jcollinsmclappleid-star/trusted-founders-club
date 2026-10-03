@@ -6,7 +6,7 @@ import { IntroVideo } from "@/components/intro-video";
 import { OnlineFold } from "@/components/online-fold";
 import { PhoneLinks, WhatsAppInvite } from "@/components/phone-links";
 import { TopicTrail } from "@/components/topic-trail";
-import { buckinghamshireAnswer } from "@/lib/areas";
+import { buckinghamshireAnswer, surroundingAreaSentence } from "@/lib/areas";
 import { siteConfig } from "@/lib/site";
 import {
   couplesPromise,
@@ -682,10 +682,7 @@ export default function HomePage() {
             <div>
               <dt>The surrounding area</dt>
               <dd>
-                <p>
-                  People come from across Buckinghamshire and from the surrounding shires:
-                  Oxfordshire, Hertfordshire, Berkshire, Bedfordshire and Northamptonshire.
-                </p>
+                <p>{surroundingAreaSentence}</p>
                 <AreaDialog />
               </dd>
             </div>
