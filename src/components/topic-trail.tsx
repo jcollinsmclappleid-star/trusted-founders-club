@@ -43,34 +43,15 @@ function PromiseSeal({ seal }: { seal: "one" | "two" }) {
       <circle cx="40" cy="40" r="29.5" fill="none" stroke="#c65c28" strokeWidth="0.7" />
       {seal === "one" ? (
         <>
-          <path
-            d="M24 54V40c0-10.5 7-18 16-18s16 7.5 16 18v14"
-            fill="none"
-            stroke="#4e5d4e"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-          <path d="M22 54h36" stroke="#4e5d4e" strokeWidth="1.6" strokeLinecap="round" />
-          <circle cx="40" cy="40" r="5.2" fill="#c65c28" />
+          <circle cx="40" cy="40" r="7.2" fill="#c65c28" />
+          <circle cx="40" cy="40" r="12" fill="none" stroke="#c65c28" strokeWidth="0.9" />
         </>
       ) : (
         <>
-          <path
-            d="M18 54V42c0-9 5.2-15 11-15"
-            fill="none"
-            stroke="#4e5d4e"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-          <path
-            d="M62 54V42c0-9-5.2-15-11-15"
-            fill="none"
-            stroke="#4e5d4e"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-          <path d="M18 54h44" stroke="#4e5d4e" strokeWidth="1.6" strokeLinecap="round" />
-          <circle cx="40" cy="42" r="5" fill="#c65c28" />
+          <circle cx="30" cy="40" r="5.6" fill="#c65c28" />
+          <circle cx="50" cy="40" r="5.6" fill="#c65c28" />
+          <circle cx="30" cy="40" r="9.2" fill="none" stroke="#c65c28" strokeWidth="0.8" />
+          <circle cx="50" cy="40" r="9.2" fill="none" stroke="#c65c28" strokeWidth="0.8" />
         </>
       )}
     </svg>
@@ -132,19 +113,25 @@ export function TopicTrail({
     scroller.scrollTop = 0;
 
     function measure() {
-      const overflow = scroller.scrollHeight - scroller.clientHeight > 12;
-      setMoreBelow(
-        overflow && scroller.scrollTop + scroller.clientHeight < scroller.scrollHeight - 12,
-      );
+      const end = scroller.querySelector(".topic-end");
+      if (!end) {
+        setMoreBelow(false);
+        return;
+      }
+      const limit = scroller.getBoundingClientRect().bottom - 12;
+      setMoreBelow(end.getBoundingClientRect().bottom > limit);
     }
 
     measure();
     const frame = requestAnimationFrame(measure);
     scroller.addEventListener("scroll", measure, { passive: true });
+    const observer = new ResizeObserver(measure);
+    observer.observe(scroller);
     window.addEventListener("resize", measure);
     return () => {
       cancelAnimationFrame(frame);
       scroller.removeEventListener("scroll", measure);
+      observer.disconnect();
       window.removeEventListener("resize", measure);
     };
   }, [open]);

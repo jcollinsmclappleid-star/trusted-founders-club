@@ -1155,8 +1155,8 @@ footer {
 
 .topic-end {
   position: relative;
-  margin: 3.15rem 0 0.2rem;
-  padding: 2.7rem 1rem 1.05rem;
+  margin: 3.7rem 0 0.2rem;
+  padding: 3.15rem 1rem 1.05rem;
   background: #f6ecdf;
   text-align: center;
 }
@@ -1178,9 +1178,9 @@ footer {
 
 .promise-mark {
   display: block;
-  width: 4.85rem;
-  height: 4.85rem;
-  margin: -5.15rem auto 0.55rem;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: -5.9rem auto 0.7rem;
   filter: drop-shadow(0 8px 12px rgba(26, 36, 28, 0.14));
 }
 
