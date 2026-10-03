@@ -588,24 +588,56 @@ footer {
 
 .service-paths a {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
+  gap: 0.2rem;
   width: 100%;
-  min-height: 48px;
+  min-height: 5.6rem;
   margin: 0;
-  padding: 0.55rem 1rem;
-  border: 0;
-  border-radius: 999px;
-  background: var(--color-forest);
-  color: var(--color-ivory);
+  padding: 0.95rem 1.2rem 1.05rem;
+  border: 1px solid rgba(78, 93, 78, 0.38);
+  border-radius: 1.15rem;
+  background: var(--color-ivory);
+  color: var(--color-forest);
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 1.45rem;
-  line-height: 1.2;
+  font-size: 1.7rem;
+  line-height: 1.05;
+  text-align: left;
   text-decoration: none;
+  box-shadow: 0.28rem 0.32rem 0 rgba(78, 93, 78, 0.18);
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
-.service-paths a:hover {
-  background: #243028;
+.service-paths a span {
+  font-family: var(--font-julius), "Gill Sans", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  line-height: 1.2;
+  color: var(--color-ember);
+}
+
+.service-paths a:hover,
+.service-paths a:focus-visible,
+.service-paths a[aria-current="true"] {
+  background: var(--color-forest);
+  border-color: var(--color-forest);
+  color: var(--color-ivory);
+  transform: translateY(-3px);
+  box-shadow: 0.35rem 0.42rem 0 var(--color-ember);
+}
+
+.service-paths a:hover span,
+.service-paths a:focus-visible span,
+.service-paths a[aria-current="true"] span {
+  color: #f4d7b0;
 }
 
 .online-chapter {
@@ -634,11 +666,20 @@ footer {
   font-size: 1.45rem;
   line-height: 1.2;
   cursor: pointer;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
+.online-open:hover,
+.online-open:focus-visible,
 .online-open[aria-expanded="true"] {
   background: #243028;
-  box-shadow: inset 0 -2px 0 var(--color-ember);
+  color: var(--color-ivory);
+  transform: translateY(-2px);
+  box-shadow: inset 0 -3px 0 var(--color-ember);
 }
 
 .online-panel {
@@ -840,6 +881,7 @@ footer {
   background: var(--color-ivory-deep);
 }
 
+.wood-individual,
 .wood-couples,
 .contact-aside {
   background: var(--color-forest);
@@ -933,6 +975,7 @@ footer {
   );
 }
 
+.wood-individual,
 .wood-couples {
   color: var(--color-ivory);
 }
@@ -972,23 +1015,32 @@ footer {
 .place-copy::after,
 .fees-sheet::after,
 .contact-form::after,
+.wood-individual::after,
 .wood-couples::after,
 .contact-aside::after {
   content: none;
 }
 
+.wood-individual .text-link,
 .wood-couples .text-link,
+.wood-individual .path-label,
 .wood-couples .path-label {
   color: inherit;
 }
 
+.wood-individual .subhead,
 .wood-couples .subhead,
+.wood-individual .topic-invite,
 .wood-couples .topic-invite,
+.wood-individual .topic-else-label,
 .wood-couples .topic-else-label,
+.wood-individual .service-questions h4,
 .wood-couples .service-questions h4 {
   color: #f4d7b0;
 }
 
+.wood-individual :focus,
+.wood-individual :focus-visible,
 .wood-couples :focus,
 .wood-couples :focus-visible {
   outline-color: var(--color-ivory);
@@ -1085,6 +1137,18 @@ footer {
   line-height: 1.25;
   text-align: center;
   cursor: pointer;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.topic-branch:hover,
+.topic-branch:focus-visible {
+  background: #243028;
+  transform: translateY(-2px);
+  box-shadow: inset 0 -3px 0 var(--color-ember);
 }
 
 .topic-branch[aria-expanded="true"] {
@@ -1092,15 +1156,22 @@ footer {
   box-shadow: inset 0 -2px 0 var(--color-ember);
 }
 
+.wood-individual .topic-branch,
 .wood-couples .topic-branch {
   border-color: transparent;
   background: var(--color-ivory);
   color: var(--color-forest);
 }
 
+.wood-individual .topic-branch:hover,
+.wood-individual .topic-branch:focus-visible,
+.wood-couples .topic-branch:hover,
+.wood-couples .topic-branch:focus-visible,
+.wood-individual .topic-branch[aria-expanded="true"],
 .wood-couples .topic-branch[aria-expanded="true"] {
-  background: var(--color-ivory-deep);
-  box-shadow: inset 0 -2px 0 var(--color-ember);
+  background: #f4d7b0;
+  color: #243028;
+  box-shadow: inset 0 -3px 0 var(--color-ember);
 }
 
 .service-figure {
@@ -2395,6 +2466,7 @@ img.member-logo-ukcp {
       0.95rem 1.05rem 0 var(--color-forest);
   }
 
+  .wood-individual .service-figure,
   .wood-couples .service-figure {
     box-shadow:
       0.45rem 0.5rem 0 #e08a55,
@@ -2422,10 +2494,7 @@ img.member-logo-ukcp {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .wood-individual .service-questions {
-    border-top: 1px solid rgba(78, 93, 78, 0.16);
-  }
-
+  .wood-individual .service-questions,
   .wood-couples .service-questions {
     border-top: 1px solid rgba(255, 251, 245, 0.28);
   }
@@ -2451,10 +2520,7 @@ img.member-logo-ukcp {
     padding-right: 0;
   }
 
-  .wood-individual .service-questions > div + div {
-    border-left: 1px solid rgba(78, 93, 78, 0.16);
-  }
-
+  .wood-individual .service-questions > div + div,
   .wood-couples .service-questions > div + div {
     border-left: 1px solid rgba(255, 251, 245, 0.28);
   }
@@ -2555,13 +2621,41 @@ img.member-logo-ukcp {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  html.motion .chapter {
-    transform: translateY(1.25rem);
-    transition: transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+  html.motion .chapter,
+  html.motion .reveal {
+    opacity: 0;
+    transform: translateY(1.6rem);
+    transition:
+      opacity 700ms ease,
+      transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  html.motion .chapter.is-in {
+  html.motion .chapter.is-in,
+  html.motion .reveal.is-in {
+    opacity: 1;
     transform: none;
+  }
+
+  html.motion .service-paths a:nth-child(2) {
+    transition-delay: 90ms;
+  }
+
+  html.motion .service-paths a:nth-child(3) {
+    transition-delay: 170ms;
+  }
+
+  html.motion .tree-journey .tree-stop:nth-child(2) {
+    transition-delay: 90ms;
+  }
+
+  html.motion .tree-journey .tree-stop:nth-child(3) {
+    transition-delay: 170ms;
+  }
+
+  html.motion .service-paths a.reveal.is-in:hover,
+  html.motion .service-paths a.reveal.is-in:focus-visible,
+  html.motion .service-paths a.reveal.is-in[aria-current="true"] {
+    transform: translateY(-3px);
   }
 
   .chapter-label {
