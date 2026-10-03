@@ -212,7 +212,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-[center_22%]"
+          className="object-cover object-top"
         />
       </div>
       <header
