@@ -2,6 +2,7 @@ import Image from "next/image";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { HeroSlider } from "@/components/hero-slider";
 import { IntroVideo } from "@/components/intro-video";
+import { OnlineFold } from "@/components/online-fold";
 import { PhoneLinks } from "@/components/phone-links";
 import { TopicTrail } from "@/components/topic-trail";
 import { siteConfig } from "@/lib/site";
@@ -16,6 +17,20 @@ import {
 
 function Alias({ id }: { id: string }) {
   return <div id={id} className="h-0 scroll-mt-28" />;
+}
+
+function TreeBreak() {
+  return (
+    <figure className="tree-break">
+      <Image
+        src="/media/woodland.jpg"
+        alt="Two people sitting together on a fallen tree in autumn woodland"
+        fill
+        sizes="100vw"
+        className="object-cover object-[center_58%]"
+      />
+    </figure>
+  );
 }
 
 export default function HomePage() {
@@ -55,10 +70,12 @@ export default function HomePage() {
           <nav className="service-paths" aria-label="Choose a service">
             <a href="#individual-therapy">Individual therapy</a>
             <a href="#couples-therapy">Couples therapy</a>
-            <a href="#online">Online</a>
+            <a href="#online">Prefer online? Select here</a>
           </nav>
         </section>
       </div>
+
+      <TreeBreak />
 
       <section aria-labelledby="individual-therapy" className="service-region wood-individual chapter">
         <div id="services" className="h-0 scroll-mt-28" />
@@ -185,11 +202,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="online" className="service-region online-chapter chapter">
-        <div className="region-inner">
+      <OnlineFold>
           <p className="path-label">Online</p>
           <h2
-            id="online"
             tabIndex={-1}
             className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl"
           >
@@ -229,8 +244,9 @@ export default function HomePage() {
               Ask about online sessions
             </a>
           </p>
-        </div>
-      </section>
+      </OnlineFold>
+
+      <TreeBreak />
 
       <section aria-labelledby="about" className="about-chapter">
         <div className="about-layout">

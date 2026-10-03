@@ -612,6 +612,46 @@ footer {
   background: var(--color-ivory-deep);
 }
 
+.online-chapter:not(.is-open) .region-inner {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.online-switch {
+  display: flex;
+  justify-content: center;
+}
+
+.online-open {
+  min-height: 48px;
+  margin: 0;
+  padding: 0.7rem 1.35rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-forest);
+  color: var(--color-ivory);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.online-open[aria-expanded="true"] {
+  background: #243028;
+  box-shadow: inset 0 -2px 0 var(--color-ember);
+}
+
+.online-panel {
+  margin-top: 1.75rem;
+}
+
+.tree-break {
+  position: relative;
+  height: 15rem;
+  margin: 1.15rem 0.85rem;
+  overflow: hidden;
+}
+
 .garden-arrival {
   display: grid;
   background: var(--color-ivory);
@@ -1765,6 +1805,7 @@ img.member-logo-ukcp {
   .opening-sheet,
   .wood-individual,
   .wood-couples,
+  .tree-break,
   .online-chapter,
   .about-chapter,
   .approach-chapter,
@@ -1776,6 +1817,11 @@ img.member-logo-ukcp {
     margin-right: 3.5rem;
   }
 
+  .tree-break {
+    height: 22rem;
+  }
+
+  .tree-break,
   .opening-sheet,
   .wood-individual,
   .wood-couples,
