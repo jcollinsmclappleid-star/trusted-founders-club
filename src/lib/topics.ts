@@ -14,22 +14,13 @@ export const couplesPromise =
 
 export const individualTopics: Topic[] = [
   {
-    id: "grief",
-    label: "Grief and loss",
-    detail: `I trained as a bereavement volunteer with Cruse and work with people experiencing intense grief and loss. If that is what you are carrying, it can be the centre of the work. It does not have to be set aside so that we can talk about something else.
+    id: "topic-addictions",
+    label: "Addictions",
+    detail: `Addictions can be brought here. This is talking therapy, not a treatment programme, and you do not have to arrive already ready to stop.
 
-Grief does not keep to a tidy order, and it does not finish when other people hope it will. It may be the death of someone you love. It may be another loss: a relationship, a home, your health, work, or a future you had counted on. Some days it is sharp. Some days it is only a flatness, or the sense that ordinary life is happening somewhere else.
+It may be drink, drugs, or another habit that has taken more of your life than you meant to give it. You may be managing it, hiding it, or tired of the promise that this time will be different. Shame often arrives with it.
 
-People come for grief counselling when they are still carrying it, and when there is nowhere left to put it down. We can stay with how the bereavement actually feels, and with what it has done to your sleep, your days, and the people around you. If an earlier loss is stirred, we can look at that when it belongs. I will not ask you to be done with it.`,
-  },
-  {
-    id: "work-and-life",
-    label: "Work and a personal life",
-    detail: `Before becoming a therapist, I worked as a marketing consultant in professional and financial services. I’m familiar with the tension this world creates between business success and personal life, and the pressure it puts on building and sustaining personal relationships. If that pressure is familiar, we can look at it directly.
-
-That world can ask for long hours, a steady public face, and very little room to say that you are tired or unsure. A personal life starts to feel like something you will get to later. The person waiting at home meets someone who is still, in some way, at work.
-
-People look for counselling here when success and a personal life will no longer sit quietly together. We can look at what the pressure is doing now, and at what it costs to keep performing. We might also look at where that drive began. The aim is not to tell you to want less. It is to see the life you are actually living, and what you want to be able to sustain.`,
+We can look at what it is doing now, and at what it has been holding for you. I will listen without judgement. You do not have to name a plan before we begin.`,
   },
   {
     id: "topic-anxiety",
@@ -41,22 +32,49 @@ It may be a mind that will not settle, a body that stays braced, or a habit of s
 In anxiety counselling we begin with what is happening now: what you fear, what you do to get through it, and what that is costing you. There is time to stay with the feeling, rather than to be talked out of it. If something earlier is still feeding it, we can look there when it belongs.`,
   },
   {
+    id: "grief",
+    label: "Bereavement",
+    detail: `I trained as a bereavement volunteer with Cruse and work with people experiencing intense grief and loss. If a death is what you are carrying, it can be the centre of the work. It does not have to be set aside so that we can talk about something else.
+
+Grief does not keep to a tidy order, and it does not finish when other people hope it will. It may be recent, or it may be a death you have been living with for years. Some days it is sharp. Some days it is only a flatness, or the sense that ordinary life is happening somewhere else.
+
+People come when they are still carrying it, and when there is nowhere left to put it down. We can stay with how the bereavement actually feels, and with what it has done to your sleep, your days, and the people around you. I will not ask you to be done with it.`,
+  },
+  {
     id: "topic-mood",
-    label: "Low mood",
-    detail: `Low mood is a common reason to begin. The conversation can stay with how it feels now, and with whether something earlier is still part of it.
+    label: "Depression",
+    detail: `Depression is a common reason to begin. The conversation can stay with how it feels now, and with whether something earlier is still part of it.
 
 It can feel like heaviness, a smaller life, or a morning that is hard to enter. Pleasure thins. Ordinary tasks ask for more effort than they used to. You may be functioning in front of other people and feel very far away once you are alone.
 
-Low mood counselling is a place to say how it actually is, without having to brighten it for anyone. We look at what has closed in, and at what the days have become. If an earlier experience is still weighing on it, there is room for that too. You do not have to call it by a clinical name before we begin.`,
+This is a place to say how it actually is, without having to brighten it for anyone. We look at what has closed in, and at what the days have become. If an earlier experience is still weighing on it, there is room for that too. You do not have to arrive with a diagnosis before we begin.`,
   },
   {
-    id: "topic-stress",
-    label: "Stress",
-    detail: `Stress is often what brings someone to individual therapy. There is time to look at the pressure itself, rather than to be moved past it.
+    id: "topic-eating",
+    label: "Eating disorders",
+    detail: `An eating disorder, or a painful relationship with food and the body, can be spoken about here. This is not a specialist clinic, and I will not hand you a plan for what to eat.
 
-It may be work, care for other people, money, or the feeling that there is no pause in which you can think. The body keeps the score of it: poor sleep, a short temper, a mind that will not switch off. What began as a busy season can become the way life is lived.
+It may be secret, or it may be the thing everyone else has an opinion about. You may be tired of being watched, or of watching yourself. Shame often arrives before the words do.
 
-Stress counselling can stay with the pressure, instead of offering a list of ways to cope and then moving on. We look at what is being asked of you, what you have stopped, and what happens if the pace does not change. If the strain has a longer history, we can look at that when it belongs.`,
+There is time to say how it actually is. I will listen without judgement, and I will not hurry you toward looking well. If you also need medical care, that remains important. The therapy is a place for what the struggle is doing to your life.`,
+  },
+  {
+    id: "topic-loss",
+    label: "Loss",
+    detail: `Loss is not only a death. I work with people experiencing intense grief and loss, and that includes what else has gone: a relationship, a home, your health, work, or a future you had counted on.
+
+Other people may not see it as grief. It can still take the centre of a life. You may be expected to be grateful for what remains, or to be over it because nothing, as they see it, has died.
+
+The same attention is here for this. We can stay with what has gone, and with what the days are like now. You do not have to make it smaller so that it will fit someone else’s idea of a proper loss.`,
+  },
+  {
+    id: "topic-ptsd",
+    label: "Post-traumatic stress",
+    detail: `Post-traumatic stress can be part of what you bring. This is not a treatment programme, and I do not offer a technique that promises to clear it.
+
+Something may have happened that the body has not finished with. Sleep, a startle, numbness, or a life organised around not being taken back there. You may have been told to move on. You may not yet have words for it.
+
+We begin with what is happening now, and only go as far as you choose. I will not hurry you into the memory. If you are in immediate danger, contact the emergency services. When you are safe enough to talk, there is time here.`,
   },
   {
     id: "topic-relationships",
@@ -66,6 +84,69 @@ Stress counselling can stay with the pressure, instead of offering a list of way
 You may be caught in the same argument, the same withdrawal, or the same hope that this time it will be different. It may be a partner, a parent, a friend, or the ache of not having the relationship you want. The problem we have with other people often has roots in the past, and it is still happening in the present.
 
 Relationship counselling for one person is a place to see your part of the pattern without being blamed for it. We can look at what you long for, what you protect yourself from, and what you do when you are hurt. The other person does not have to be in the room for that seeing to begin.`,
+  },
+  {
+    id: "topic-self-harm",
+    label: "Self-harm",
+    detail: `Self-harm can be spoken about here, without judgement, and without having to explain it to someone who is frightened of it.
+
+You do not have to describe how. What matters in this room is what it has been doing for you, and what life is like around it. Shame often keeps it unspoken. Here it can be named.
+
+This is talking therapy, not a crisis service. If you are in immediate danger, contact the emergency services. When you are safe enough to talk, there is time to look at what you are carrying, and I will not hurry you past it.`,
+  },
+  {
+    id: "topic-sexual-identity",
+    label: "Sexual identity",
+    detail: `I’m comfortable in the world of conscious sexuality and work with clients exploring their experiences and feelings around sexual identity and open relating/polyamory. That can be the centre of individual therapy. It will be met without judgement.
+
+You may be questioning a name for yourself, or living with a name that other people will not use. You may be unsure whether to tell anyone, or tired of explaining. Nothing here asks you to arrive already certain.
+
+We can look at what is true for you now, and at what it costs to keep it unspoken. You do not have to translate it into someone else’s language before it can be heard.`,
+  },
+  {
+    id: "topic-sexuality",
+    label: "Sexuality",
+    detail: `I’m comfortable in the world of conscious sexuality, and sexuality itself can be what you bring. This is not a separate clinic, and it is not a demand that you perform a more open life.
+
+Desire, shame, a body you have learned to distrust, or a sexual life that no longer matches the story you were given: these can be spoken about here. You may never have had a place to say them without being hurried, or corrected.
+
+I will listen without judgement. You choose how much to say. The aim is not to prescribe a way of being sexual. It is to give what you actually feel a place to be heard.`,
+  },
+  {
+    id: "topic-spirituality",
+    label: "Spirituality",
+    detail: `I trained at Re-Vision, which describes its approach as ‘therapy with a soulful perspective’. The strongest influence is Jung. Spirituality can be part of what you bring: a faith, a loss of faith, or a search for meaning that will not sit inside ordinary language.
+
+You may be in a tradition, leaving one, or unsure whether any of this belongs in a consulting room. With the help of a teacher, I’m exploring non-duality through practising being present and mindful. That sits in how I listen. It is not a teaching I will ask you to take up.
+
+We can stay with what is sacred to you, or with the emptiness where that used to be. I will not recruit you to a belief. A time of real difficulty can still hold a question about what a life is for, and that question can be spoken here.`,
+  },
+  {
+    id: "topic-trauma",
+    label: "Trauma",
+    detail: `Trauma can be brought to this work. This is talking therapy. It is not a specialist trauma service, and I do not offer a technique that promises to clear what happened.
+
+It may be one event, or a longer history of not being safe. It may show up as numbness, fear, or a life arranged so that the past cannot get in. You may have words for it. You may only know that something is still happening.
+
+We go at your pace. I will not hurry you into the memory, and I will not ask you to tell it all before you are ready. If what you need is medical care or the emergency services, that sits outside this hour. Here, the work is to be heard, without judgement.`,
+  },
+  {
+    id: "work-and-life",
+    label: "Work related issues",
+    detail: `Before becoming a therapist, I worked as a marketing consultant in professional and financial services. I’m familiar with the tension this world creates between business success and personal life, and the pressure it puts on building and sustaining personal relationships. If that pressure is familiar, we can look at it directly.
+
+That world can ask for long hours, a steady public face, and very little room to say that you are tired or unsure. A personal life starts to feel like something you will get to later. The person waiting at home meets someone who is still, in some way, at work.
+
+People look for counselling here when work and a personal life will no longer sit quietly together. We can look at what the pressure is doing now, and at what it costs to keep performing. We might also look at where that drive began. The aim is not to tell you to want less. It is to see the life you are actually living, and what you want to be able to sustain.`,
+  },
+  {
+    id: "topic-stress",
+    label: "Stress",
+    detail: `Stress is often what brings someone to individual therapy. There is time to look at the pressure itself, rather than to be moved past it.
+
+It may be work, care for other people, money, or the feeling that there is no pause in which you can think. The body keeps the score of it: poor sleep, a short temper, a mind that will not switch off. What began as a busy season can become the way life is lived.
+
+Stress counselling can stay with the pressure, instead of offering a list of ways to cope and then moving on. We look at what is being asked of you, what you have stopped, and what happens if the pace does not change. If the strain has a longer history, we can look at that when it belongs.`,
   },
   {
     id: "topic-esteem",

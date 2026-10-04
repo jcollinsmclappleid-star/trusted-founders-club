@@ -750,6 +750,23 @@ footer {
   color: #6d4328;
 }
 
+.tree-speech {
+  max-width: 40rem;
+  margin: 1.35rem auto 0.15rem;
+}
+
+.tree-speech p {
+  margin: 0;
+  text-align: center;
+  text-wrap: balance;
+  font-family: var(--font-crimson), Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.28rem;
+  line-height: 1.45;
+  color: #6d4328;
+}
+
 .tree-note {
   display: block;
   margin-top: 0.2rem;
@@ -1655,6 +1672,28 @@ img.member-logo-ukcp {
   line-height: 1.25;
 }
 
+.credential-pills li.member-link-item {
+  padding: 0.45rem 0.75rem;
+}
+
+.member-badge-link {
+  display: block;
+  line-height: 0;
+  border-radius: 0.35rem;
+}
+
+.member-badge-link:hover,
+.member-badge-link:focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 3px;
+}
+
+.member-badge {
+  display: block;
+  width: min(20rem, 100%);
+  height: auto;
+}
+
 .credential-pills .member-logo {
   height: 1.65rem;
 }
@@ -2289,6 +2328,16 @@ img.member-logo-ukcp {
     margin-bottom: 2.15rem;
     font-size: 1.28rem;
     line-height: 1.6;
+  }
+
+  .tree-speech {
+    max-width: 46rem;
+    margin-top: 2.15rem;
+  }
+
+  .tree-speech p {
+    font-size: 1.7rem;
+    line-height: 1.4;
   }
 
   .online-chapter + .tree-break {

@@ -73,6 +73,13 @@ function TreeBreak({ line }: { line: string }) {
           </figure>
         ))}
       </div>
+      <blockquote className="tree-speech">
+        <p>
+          “Being connected to nature is important to me. I live in the Chiltern Hills in
+          Buckinghamshire. My home consulting room is in my garden, with views over fields and
+          woods. I can work with clients outdoors in nature.”
+        </p>
+      </blockquote>
     </section>
   );
 }
@@ -362,15 +369,21 @@ export default function HomePage() {
               </h3>
               <ul className="credential-pills">
                 <li>Diplomas in Integrative Transpersonal Counselling and Psychotherapy, Re-Vision</li>
-                <li>
-                  <img
-                    src="/media/bacp-logo.jpg"
-                    alt="BACP, British Association for Counselling and Psychotherapy"
-                    width={752}
-                    height={171}
-                    className="member-logo"
-                  />
-                  Registered Member
+                <li className="member-link-item">
+                  <a
+                    className="member-badge-link"
+                    href="https://www.bacp.co.uk/therapists/384871/dermot-cox/great-missenden-hp16?search=Dermot%20cox"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="/media/bacp-member-384871.png"
+                      alt="BACP Registered Member 384871, MBACP. View Dermot Cox on the BACP register."
+                      width={1087}
+                      height={200}
+                      className="member-badge"
+                    />
+                  </a>
                 </li>
                 <li>
                   <img
