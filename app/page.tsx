@@ -522,7 +522,7 @@ export default function HomePage() {
             </p>
             <p className="area-note">
               The garden room is in Little Hampden, in the Chilterns, close to Great Missenden.
-              People come from across Buckinghamshire and from the surrounding area. If the journey
+              People can come from across Buckinghamshire and from the surrounding area. If the journey
               is too far, we can meet online.
             </p>
             <div className="garden-safe">
@@ -613,9 +613,8 @@ export default function HomePage() {
               <h3>Where do we meet?</h3>
               <p>
                 In the garden consulting room in Little Hampden, in the Chilterns, close to Great
-                Missenden, or outdoors nearby. People come from across Buckinghamshire and from the
-                surrounding area. The room is not in Great Missenden itself. If the journey is too
-                far, we can meet online.
+                Missenden, or outdoors nearby. People can come from across Buckinghamshire and from the
+                surrounding area. If the journey is too far, we can meet online.
               </p>
             </div>
             <div className="reveal">
@@ -704,7 +703,7 @@ export default function HomePage() {
               <dt>In person</dt>
               <dd>
                 The garden consulting room is in Little Hampden, in the Chilterns, close to Great
-                Missenden. The room is not in Great Missenden itself.
+                Missenden.
               </dd>
             </div>
             <div>

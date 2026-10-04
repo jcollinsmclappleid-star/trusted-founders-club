@@ -237,7 +237,7 @@ export const serviceAreas = [
 export const surroundingShires =
   "Oxfordshire, Hertfordshire, Berkshire, Bedfordshire and Northamptonshire";
 
-export const surroundingAreaSentence = `People come from across Buckinghamshire, from Greater London, and from the surrounding shires: ${surroundingShires}.`;
+export const surroundingAreaSentence = `People can come from across Buckinghamshire, from Greater London, and from the surrounding shires: ${surroundingShires}.`;
 
 export const buckinghamshireAnswer = `Yes. ${surroundingAreaSentence} They come to the garden room in Little Hampden or meet outdoors nearby. If the journey is too far, we can meet online.`;
 

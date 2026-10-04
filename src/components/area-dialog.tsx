@@ -60,9 +60,9 @@ export function AreaDialog() {
             Shires, London and towns
           </h2>
           <p>
-            People come from across Buckinghamshire, from Greater London, and from the surrounding
+            People can come from across Buckinghamshire, from Greater London, and from the surrounding
             shires. The major towns in each shire are listed here, and so are the areas of Greater
-            London. The consulting room is in Little Hampden. It is not in Great Missenden.
+            London. The consulting room is in Little Hampden.
           </p>
           {serviceAreas.map((area) => (
             <section key={area.shire} aria-labelledby={`${titleId}-${area.shire}`}>
