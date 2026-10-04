@@ -1647,59 +1647,105 @@ img.member-logo-ukcp {
   background: var(--color-ivory-deep);
 }
 
-.credential-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin: 0.9rem 0 0;
+.register-links {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.15rem 0 0;
   padding: 0;
   list-style: none;
 }
 
-.credential-pills li {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  max-width: 100%;
-  min-height: 48px;
-  margin: 0;
-  padding: 0.45rem 1.05rem;
-  border-radius: 999px;
+.register-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.9rem;
+  height: 100%;
+  min-height: 8.5rem;
+  padding: 0.95rem 1rem 0.85rem;
+  border-radius: 0.9rem;
   background: #fff;
   color: var(--color-forest);
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 1.28rem;
-  line-height: 1.25;
+  text-decoration: none;
 }
 
-.credential-pills li.member-link-item {
-  padding: 0.45rem 0.75rem;
-}
-
-.member-badge-link {
-  display: block;
-  line-height: 0;
-  border-radius: 0.35rem;
-}
-
-.member-badge-link:hover,
-.member-badge-link:focus-visible {
+.register-card:hover,
+.register-card:focus-visible {
   outline: 2px solid var(--color-ember);
   outline-offset: 3px;
 }
 
-.member-badge {
+.register-card:hover .register-go,
+.register-card:focus-visible .register-go {
+  color: var(--color-ember);
+}
+
+.register-mark-bacp {
   display: block;
-  width: min(20rem, 100%);
+  width: min(17.5rem, 100%);
   height: auto;
 }
 
-.credential-pills .member-logo {
-  height: 1.65rem;
+.register-ukcp {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
 }
 
-.credential-pills .member-logo-ukcp {
-  height: 2.15rem;
+.register-mark-ukcp {
+  display: block;
+  width: auto;
+  height: 3.35rem;
+}
+
+.register-status {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.28rem;
+  line-height: 1.2;
+}
+
+.register-go {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.3;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.training-extra {
+  margin-top: 0.15rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(78, 93, 78, 0.18);
+}
+
+.training-list {
+  margin: 0.15rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.training-list li {
+  display: grid;
+  gap: 0.05rem;
+  padding: 0.7rem 0;
+}
+
+.training-list li + li {
+  border-top: 1px solid rgba(78, 93, 78, 0.12);
+}
+
+.training-name {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.28rem;
+  line-height: 1.3;
+  color: var(--color-forest);
+}
+
+.training-school {
+  font-size: 1.02rem;
+  line-height: 1.4;
+  color: var(--color-ink);
 }
 
 .garden-safe {
@@ -2212,6 +2258,14 @@ img.member-logo-ukcp {
 
   .about-rest .accreditation {
     margin-top: 0.35rem;
+  }
+
+  .register-links {
+    grid-template-columns: repeat(2, minmax(0, 22rem));
+  }
+
+  .training-extra {
+    max-width: 44rem;
   }
 
   .about-copy .prose-copy {

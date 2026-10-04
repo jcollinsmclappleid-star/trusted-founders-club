@@ -367,36 +367,58 @@ export default function HomePage() {
               <h3 id="experience" tabIndex={-1} className="subhead scroll-mt-28">
                 Training and membership
               </h3>
-              <ul className="credential-pills">
-                <li>Diplomas in Integrative Transpersonal Counselling and Psychotherapy, Re-Vision</li>
-                <li className="member-link-item">
+              <ul className="register-links">
+                <li>
                   <a
-                    className="member-badge-link"
+                    className="register-card"
                     href="https://www.bacp.co.uk/therapists/384871/dermot-cox/great-missenden-hp16?search=Dermot%20cox"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <img
                       src="/media/bacp-member-384871.png"
-                      alt="BACP Registered Member 384871, MBACP. View Dermot Cox on the BACP register."
+                      alt="BACP Registered Member 384871, MBACP"
                       width={1087}
                       height={200}
-                      className="member-badge"
+                      className="register-mark register-mark-bacp"
                     />
+                    <span className="register-go">View the BACP register</span>
                   </a>
                 </li>
                 <li>
-                  <img
-                    src="/media/ukcp-logo.svg"
-                    alt="UKCP, UK Council for Psychotherapy"
-                    width={420}
-                    height={228}
-                    className="member-logo member-logo-ukcp"
-                  />
-                  Registered Member
+                  <a
+                    className="register-card"
+                    href="https://www.psychotherapy.org.uk/therapist/Dermot-Cox-IZuHmAAL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="register-ukcp">
+                      <img
+                        src="/media/ukcp-logo.svg"
+                        alt="UKCP, UK Council for Psychotherapy"
+                        width={420}
+                        height={228}
+                        className="register-mark register-mark-ukcp"
+                      />
+                      <span className="register-status">Registered Member</span>
+                    </span>
+                    <span className="register-go">View the UKCP register</span>
+                  </a>
                 </li>
-                <li>Codes of ethics of both organisations</li>
               </ul>
+              <div className="training-extra">
+                <p className="path-label">Training</p>
+                <ul className="training-list">
+                  <li>
+                    <span className="training-name">Diploma in Integrative Transpersonal Counselling</span>
+                    <span className="training-school">Re-Vision</span>
+                  </li>
+                  <li>
+                    <span className="training-name">Diploma in Integrative Transpersonal Psychotherapy</span>
+                    <span className="training-school">Re-Vision</span>
+                  </li>
+                </ul>
+              </div>
             </aside>
             <p className="mt-8 text-lg">
               <a className="text-link" href="#contact">
