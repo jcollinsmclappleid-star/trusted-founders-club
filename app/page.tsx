@@ -406,19 +406,14 @@ export default function HomePage() {
                   </a>
                 </li>
               </ul>
-              <div className="training-extra">
-                <p className="path-label">Training</p>
-                <ul className="training-list">
-                  <li>
-                    <span className="training-name">Diploma in Integrative Transpersonal Counselling</span>
-                    <span className="training-school">Re-Vision</span>
-                  </li>
-                  <li>
-                    <span className="training-name">Diploma in Integrative Transpersonal Psychotherapy</span>
-                    <span className="training-school">Re-Vision</span>
-                  </li>
-                </ul>
-              </div>
+              <ul className="training-list">
+                <li>
+                  <span className="training-name">
+                    Diplomas in Integrative Transpersonal Counselling and Psychotherapy
+                  </span>
+                  <span className="training-school">Re-Vision</span>
+                </li>
+              </ul>
             </aside>
             <p className="mt-8 text-lg">
               <a className="text-link" href="#contact">
