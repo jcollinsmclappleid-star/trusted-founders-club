@@ -180,8 +180,9 @@ export default function HomePage() {
                 src="/media/garden-room.jpg"
                 alt="The timber garden consulting room, with a green roof, among trees and fallen leaves"
                 fill
-                sizes="(min-width: 900px) 56vw, 100vw"
-                className="object-cover object-center"
+                sizes="(min-width: 1024px) 800px, 100vw"
+                className="object-cover object-[center_42%]"
+                quality={90}
               />
               <figcaption>Little Hampden</figcaption>
             </figure>
@@ -204,54 +205,15 @@ export default function HomePage() {
               </a>
               .
             </p>
+            <p className="mt-4 text-lg leading-relaxed">
+              About 5 minutes by taxi from Great Missenden station on the Chiltern line, which is
+              about 50 minutes from Marylebone. The postcode is HP16 9PS.
+            </p>
             <ul className="area-towns" aria-label="Places nearby">
               {localPlaces.map((place) => (
                 <li key={place}>{place}</li>
               ))}
             </ul>
-            <div className="garden-safe">
-              <h3 className="subhead">A safe space</h3>
-              <p>
-                The work needs a safe space: somewhere you can discover how you really feel, without
-                being judged, and where each person’s perspective can be held with equal care.
-              </p>
-            </div>
-            <ol className="garden-path">
-              <li>
-                <img
-                  className="line-mark"
-                  src="/media/marks/room.png"
-                  alt=""
-                  width={256}
-                  height={256}
-                />
-                <span>The room</span>
-                A timber room in the garden, with a green roof, looking out over fields and woods.
-              </li>
-              <li>
-                <img
-                  className="line-mark"
-                  src="/media/marks/outside.png"
-                  alt=""
-                  width={256}
-                  height={256}
-                />
-                <span>Outside</span>
-                We can also have outdoor sessions in the countryside near my home.
-              </li>
-              <li>
-                <img
-                  className="line-mark"
-                  src="/media/marks/journey.png"
-                  alt=""
-                  width={256}
-                  height={256}
-                />
-                <span>The journey</span>
-                About 5 minutes by taxi from Great Missenden station on the Chiltern line, which is
-                about 50 minutes from Marylebone. The postcode is HP16 9PS.
-              </li>
-            </ol>
             <p className="mt-6 text-lg">
               <a className="text-link" href="#contact" data-enquiry="general">
                 Arrange a free first conversation

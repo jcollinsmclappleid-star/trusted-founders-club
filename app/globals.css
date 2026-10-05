@@ -2534,7 +2534,7 @@ select.field-input {
 
   .garden-arrival {
     grid-template-columns: minmax(18rem, 34rem) minmax(16rem, 1fr);
-    align-items: stretch;
+    align-items: start;
   }
 
   .garden-copy {
@@ -2545,14 +2545,15 @@ select.field-input {
   .garden-window-wrap {
     order: 2;
     display: flex;
+    align-self: start;
     padding: 1.5rem 1.5rem 1.5rem 0.35rem;
   }
 
   .garden-window {
-    flex: 1 1 auto;
+    flex: none;
     width: 100%;
-    aspect-ratio: auto;
-    min-height: 22rem;
+    aspect-ratio: 3 / 2;
+    min-height: 0;
   }
 
   .area-note {
