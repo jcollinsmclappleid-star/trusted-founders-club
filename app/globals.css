@@ -17,7 +17,7 @@
 
 html {
   background: #e7efe4;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -477,14 +477,13 @@ footer {
 .hero-frame {
   display: flex;
   flex-direction: column;
-  height: calc(100svh - var(--header-offset, 4.75rem));
 }
 
 .hero-slider {
   position: relative;
-  flex: 1 1 auto;
-  height: auto;
-  min-height: 8rem;
+  flex: none;
+  width: 100%;
+  height: clamp(15rem, 58vw, 24rem);
   overflow: hidden;
   background: #2a362c;
 }
@@ -492,7 +491,6 @@ footer {
 .hero-track {
   display: flex;
   height: 100%;
-  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-slide {
@@ -2237,21 +2235,12 @@ select.field-input {
 }
 
 @media (min-width: 1024px) {
-  .chapter-slot {
-    display: block;
-  }
-
   #site-header > div {
     max-width: none;
-    padding: 0.85rem 3.5rem 0.7rem;
+    padding: 0.45rem 3.5rem;
   }
 
   img.header-logo {
-    height: 4.35rem;
-  }
-
-  #site-header[data-compact="true"] img.header-logo,
-  #site-header[data-compact="true"] .header-logo {
     height: 3.05rem;
   }
 
@@ -2284,21 +2273,16 @@ select.field-input {
   h3,
   h4,
   .scroll-mt-28 {
-    scroll-margin-top: 11rem;
+    scroll-margin-top: 5.75rem;
   }
 
   .path-label + h2,
   .path-label + h3 {
-    scroll-margin-top: calc(11rem + 2.25rem);
-  }
-
-  .hero-frame {
-    display: flex;
+    scroll-margin-top: calc(5.75rem + 2.25rem);
   }
 
   .hero-slider {
-    height: auto;
-    min-height: 12rem;
+    height: clamp(18rem, 46vh, 34rem);
   }
 
   .hero-copy,
@@ -2809,60 +2793,13 @@ select.field-input {
 }
 
 @media (min-width: 1024px) and (max-width: 1199px) {
-  img.header-logo {
-    height: 3.65rem;
-  }
-
   #site-header nav {
     gap: 1.15rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html.motion .chapter,
-  html.motion .reveal {
-    opacity: 0;
-    transform: translateY(1.6rem);
-    transition:
-      opacity 700ms ease,
-      transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  html.motion .chapter.is-in,
-  html.motion .reveal.is-in {
-    opacity: 1;
-    transform: none;
-  }
-
-  html.motion .service-paths a:nth-child(2) {
-    transition-delay: 90ms;
-  }
-
-  html.motion .service-paths a:nth-child(3) {
-    transition-delay: 170ms;
-  }
-
-  html.motion .tree-journey .tree-stop:nth-child(2) {
-    transition-delay: 90ms;
-  }
-
-  html.motion .tree-journey .tree-stop:nth-child(3) {
-    transition-delay: 170ms;
-  }
-
-  html.motion .service-paths a.reveal.is-in:hover,
-  html.motion .service-paths a.reveal.is-in:focus-visible,
-  html.motion .service-paths a.reveal.is-in[aria-current="true"] {
-    transform: translateY(-3px);
-  }
-
-  .chapter-label {
-    animation: chapter-in 520ms ease;
-  }
-
-  .menu-panel {
-    animation: menu-in 560ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
+.menu-panel {
+  animation: menu-in 560ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes menu-in {
@@ -2920,12 +2857,6 @@ select.field-input {
     position: relative;
     top: auto;
     display: flex;
-  }
-
-  .hero-slider {
-    position: relative;
-    height: auto;
-    min-height: 8rem;
   }
 
   .hero-track {

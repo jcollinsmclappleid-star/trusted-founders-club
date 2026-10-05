@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 const slides = [
   {
@@ -18,40 +18,13 @@ const slides = [
   },
 ] as const;
 
-const INTERVAL_MS = 7000;
-
 export function HeroSlider() {
   const [index, setIndex] = useState(0);
-  const [hoverPaused, setHoverPaused] = useState(false);
-  const [reduced, setReduced] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const startX = useRef<number | null>(null);
 
   const go = useCallback((direction: number) => {
     setIndex((current) => (current + direction + slides.length) % slides.length);
   }, []);
-
-  useEffect(() => {
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const apply = () => setReduced(motion.matches);
-    apply();
-    motion.addEventListener("change", apply);
-    return () => motion.removeEventListener("change", apply);
-  }, []);
-
-  useEffect(() => {
-    const onVisibility = () => setHidden(document.hidden);
-    document.addEventListener("visibilitychange", onVisibility);
-    return () => document.removeEventListener("visibilitychange", onVisibility);
-  }, []);
-
-  useEffect(() => {
-    if (hoverPaused || reduced || hidden) return;
-    const id = window.setInterval(() => {
-      setIndex((current) => (current + 1) % slides.length);
-    }, INTERVAL_MS);
-    return () => window.clearInterval(id);
-  }, [hoverPaused, reduced, hidden, index]);
 
   return (
     <div
@@ -59,14 +32,6 @@ export function HeroSlider() {
       role="region"
       aria-roledescription="carousel"
       aria-label="The woodland and the garden room"
-      onMouseEnter={() => setHoverPaused(true)}
-      onMouseLeave={() => setHoverPaused(false)}
-      onFocus={() => setHoverPaused(true)}
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-          setHoverPaused(false);
-        }
-      }}
     >
       <div
         className="hero-track"

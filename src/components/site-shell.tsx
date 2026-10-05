@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import { PhoneLinks } from "@/components/phone-links";
 import {
-  chapterLabels,
   desktopNav,
   menuItems,
   navIsCurrent,
@@ -13,14 +12,9 @@ import {
   type MenuItem,
 } from "@/lib/site";
 
-function prefersReducedMotion() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [compact, setCompact] = useState(false);
   const [active, setActive] = useState("top");
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -31,7 +25,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   const servicesPanelId = useId();
 
   useEffect(() => {
-    const reduce = prefersReducedMotion();
     let frame = 0;
 
     function markActive() {
@@ -64,10 +57,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       frame = window.requestAnimationFrame(() => {
         frame = 0;
         measure();
-        if (!reduce) {
-          const y = window.scrollY;
-          setCompact((current) => (current ? y > 24 : y > 96));
-        }
         markActive();
       });
     }
@@ -80,34 +69,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (prefersReducedMotion()) return;
-    const nodes = [...document.querySelectorAll<HTMLElement>(".chapter, .reveal")];
-    for (const node of nodes) {
-      const rect = node.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
-        node.classList.add("is-in");
-      }
-    }
-    document.documentElement.classList.add("motion");
-    const pending = nodes.filter((node) => !node.classList.contains("is-in"));
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          entry.target.classList.add("is-in");
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
-    );
-    pending.forEach((node) => observer.observe(node));
-    return () => {
-      observer.disconnect();
-      document.documentElement.classList.remove("motion");
     };
   }, []);
 
@@ -194,10 +155,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     setOpen(false);
     const element = document.getElementById(id);
     if (!element) return;
-    element.scrollIntoView({
-      behavior: prefersReducedMotion() ? "auto" : "smooth",
-      block: "start",
-    });
+    element.scrollIntoView({ behavior: "auto", block: "start" });
     const nextUrl = `${window.location.pathname}${window.location.search}#${id}`;
     window.history.pushState(null, "", nextUrl);
     window.dispatchEvent(new HashChangeEvent("hashchange"));
@@ -219,7 +177,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       </div>
       <header
         id="site-header"
-        data-compact={compact ? "true" : "false"}
         className="sticky top-0 z-40 border-b border-white/10 bg-forest text-ivory"
       >
         <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3 sm:px-6">
@@ -263,11 +220,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             Menu
           </button>
         </div>
-        <p className="chapter-slot" aria-hidden="true">
-          <span key={chapterLabels[active] ?? "Little Hampden"} className="chapter-label">
-            {chapterLabels[active] ?? "Little Hampden"}
-          </span>
-        </p>
       </header>
 
       {open ? (
