@@ -85,7 +85,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
-    const nodes = [...document.querySelectorAll<HTMLElement>(".chapter")];
+    const nodes = [...document.querySelectorAll<HTMLElement>(".chapter, .reveal")];
     for (const node of nodes) {
       const rect = node.getBoundingClientRect();
       if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {

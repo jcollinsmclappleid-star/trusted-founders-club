@@ -158,7 +158,7 @@ Next.js config redirects cannot carry a hash, so the path redirects are a 301 fr
 
 - Leave Squarespace and the existing email DNS untouched until Dermot approves the preview and the final balance is paid.
 - Point only the website DNS at the new host. Do not change MX or other mail records.
-- Set `NEXT_PUBLIC_SITE_URL=https://www.dermotcox.com` so the preview’s noindex rule lifts. Until that value is set, `robots` disallows crawling.
+- Indexing stays off on every host except `dermotcox.com` and `www.dermotcox.com`. Do not expect `NEXT_PUBLIC_SITE_URL` to lift the preview noindex. After the real domain is serving this site, check the canonical, the sitemap, and indexing.
 - Set `RESEND_API_KEY`, `FROM_EMAIL` and `CONTACT_TO` on a sender that does not require changing Dermot’s mail DNS. Confirm a real test message arrives, and that server logs do not contain the message text.
 - After launch, check HTTPS, the redirects above, the canonical, the sitemap, and indexing. Connect Search Console when access exists.
 - Ask Dermot for higher-resolution photographs, a captioned or transcribed video, and a sharper favicon.

@@ -1,10 +1,13 @@
 import "server-only";
 
+import { enquiryKinds } from "@/lib/enquiry";
+
 type EnquiryMail = {
   name: string;
   email: string;
   phone: string;
   message: string;
+  kind: string;
 };
 
 export function getEnquiryMailConfig() {
@@ -28,6 +31,7 @@ export async function sendEnquiryEmail(input: EnquiryMail) {
   }
 
   const subjectName = input.name.replace(/[\r\n]+/g, " ").slice(0, 80);
+  const kindLabel = enquiryKinds.find((item) => item.id === input.kind)?.label ?? "General enquiry";
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -43,6 +47,7 @@ export async function sendEnquiryEmail(input: EnquiryMail) {
         `Name: ${input.name}`,
         `Email: ${input.email}`,
         `Phone: ${input.phone || "Not given"}`,
+        `Enquiry: ${kindLabel}`,
         "",
         input.message,
         "",

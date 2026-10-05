@@ -1,8 +1,18 @@
+export const enquiryKinds = [
+  { id: "individual", label: "Individual therapy" },
+  { id: "couples", label: "Couples therapy" },
+  { id: "online", label: "Online therapy" },
+  { id: "general", label: "General enquiry" },
+] as const;
+
+export type EnquiryKind = (typeof enquiryKinds)[number]["id"];
+
 export type EnquiryInput = {
   name: string;
   email: string;
   phone: string;
   message: string;
+  kind: string;
   company: string;
 };
 
@@ -18,6 +28,7 @@ export function validateEnquiry(input: EnquiryInput) {
   const email = input.email.trim();
   const phone = input.phone.trim();
   const message = input.message.trim();
+  const kind = enquiryKinds.some((item) => item.id === input.kind) ? input.kind : "general";
 
   if (name.length < 2 || name.length > 80) {
     errors.name = "Please add your name.";
@@ -38,6 +49,6 @@ export function validateEnquiry(input: EnquiryInput) {
   return {
     errors,
     honeypot: input.company.trim().length > 0,
-    clean: { name, email, phone, message },
+    clean: { name, email, phone, message, kind },
   };
 }
