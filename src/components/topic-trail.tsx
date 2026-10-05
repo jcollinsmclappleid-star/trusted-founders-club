@@ -7,6 +7,7 @@ export type Topic = {
   id: string;
   label: string;
   detail: string;
+  more?: boolean;
   catchAll?: boolean;
 };
 
@@ -37,23 +38,24 @@ function TopicBranch({
 
 export function TopicTrail({
   topics,
-  support,
-  promise,
+  enquiry = "general",
 }: {
   topics: Topic[];
-  support: string;
-  promise?: string;
+  enquiry?: "individual" | "couples" | "online" | "general";
 }) {
   const [open, setOpen] = useState<Topic | null>(null);
   const [mounted, setMounted] = useState(false);
   const [moreBelow, setMoreBelow] = useState(false);
+  const [showMore, setShowMore] = useState(false);
   const openerRef = useRef<HTMLButtonElement | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
   const dialogId = useId();
-  const named = topics.filter((topic) => !topic.catchAll);
-  const extras = topics.filter((topic) => topic.catchAll);
+  const hasMore = topics.some((topic) => topic.more);
+  const named = topics.filter((topic) => !topic.more && !topic.catchAll);
+  const extras = topics.filter((topic) => topic.catchAll && !hasMore);
+  const further = topics.filter((topic) => topic.more);
 
   useEffect(() => setMounted(true), []);
 
@@ -68,6 +70,7 @@ export function TopicTrail({
       const id = decodeURIComponent(window.location.hash.replace("#", ""));
       const match = topicsRef.current.find((topic) => topic.id === id);
       if (match) {
+        if (match.more) setShowMore(true);
         openerRef.current = document.getElementById(match.id) as HTMLButtonElement | null;
         setOpen(match);
       }
@@ -86,13 +89,7 @@ export function TopicTrail({
     scroller.scrollTop = 0;
 
     function measure() {
-      const end = scroller.querySelector(".topic-end");
-      if (!end) {
-        setMoreBelow(false);
-        return;
-      }
-      const limit = scroller.getBoundingClientRect().bottom - 12;
-      setMoreBelow(end.getBoundingClientRect().bottom > limit);
+      setMoreBelow(scroller.scrollHeight - scroller.scrollTop - scroller.clientHeight > 24);
     }
 
     measure();
@@ -193,24 +190,6 @@ export function TopicTrail({
                   {open.detail.split(/\n\n+/).map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
-                  {promise ? (
-                    <div className="topic-end">
-                      <div className="topic-promise">
-                        <img
-                          className="promise-mark"
-                          src="/media/garden-room.jpg"
-                          alt="The timber garden consulting room, with a green roof, among the trees"
-                          width={188}
-                          height={188}
-                        />
-                        <p className="topic-promise-title">My promise</p>
-                        <p>{promise}</p>
-                      </div>
-                      <p className="topic-support">{support}</p>
-                    </div>
-                  ) : (
-                    <p className="topic-support">{support}</p>
-                  )}
                 </div>
                 <div className="topic-scroll-fade" aria-hidden="true" />
               </div>
@@ -223,8 +202,13 @@ export function TopicTrail({
                 </p>
               ) : null}
               <div className="topic-dialog-foot">
-                <a className="submit-button topic-dialog-cta" href="#contact" onClick={close}>
-                  Arrange a free conversation
+                <a
+                  className="submit-button topic-dialog-cta"
+                  href="#contact"
+                  data-enquiry={enquiry}
+                  onClick={close}
+                >
+                  Arrange a free first conversation
                 </a>
                 <p>A free 30-minute conversation, by phone or video. It is not a session.</p>
               </div>
@@ -268,18 +252,34 @@ export function TopicTrail({
           ))}
         </div>
       ) : null}
-      <div className="sr-only">
-        {promise ? (
-          <p>
-            My promise. {promise} {support}
-          </p>
-        ) : null}
-        {topics.map((topic) => (
-          <p key={topic.id}>
-            {topic.label}. {topic.detail} {support}
-          </p>
-        ))}
-      </div>
+      {further.length > 0 ? (
+        <div className="topic-more">
+          <button
+            type="button"
+            className="topic-more-toggle"
+            aria-expanded={showMore}
+            onClick={() => setShowMore((value) => !value)}
+          >
+            {showMore ? "Show fewer" : "See more"}
+          </button>
+          {showMore ? (
+            <div className="topic-canopy topic-more-list">
+              {further.map((topic) => (
+                <TopicBranch
+                  key={topic.id}
+                  topic={topic}
+                  open={open?.id === topic.id}
+                  dialogId={dialogId}
+                  onOpen={(button) => {
+                    openerRef.current = button;
+                    setOpen(topic);
+                  }}
+                />
+              ))}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
       {dialog}
     </div>
   );

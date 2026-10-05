@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const paths = [
   { id: "individual-therapy", label: "Individual therapy", hint: "For one person" },
   { id: "couples-therapy", label: "Couples therapy", hint: "For two" },
-  { id: "online", label: "Online", hint: "Wherever you are" },
+  { id: "in-person", label: "The garden room", hint: "In Little Hampden" },
 ] as const;
 
 export function ServicePaths() {

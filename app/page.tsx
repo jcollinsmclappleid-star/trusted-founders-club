@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { AreaDialog } from "@/components/area-dialog";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { HeroSlider } from "@/components/hero-slider";
 import { IntroVideo } from "@/components/intro-video";
@@ -7,16 +6,9 @@ import { OnlineFold } from "@/components/online-fold";
 import { PhoneLinks, WhatsAppInvite } from "@/components/phone-links";
 import { ServicePaths } from "@/components/service-paths";
 import { TopicTrail } from "@/components/topic-trail";
-import { buckinghamshireAnswer, surroundingAreaSentence } from "@/lib/areas";
+import { buckinghamshireAnswer, localPlaces, widerAreaSentence } from "@/lib/areas";
 import { siteConfig } from "@/lib/site";
-import {
-  couplesPromise,
-  couplesSupport,
-  couplesTopics,
-  individualPromise,
-  individualSupport,
-  individualTopics,
-} from "@/lib/topics";
+import { couplesPromise, couplesTopics, individualPromise, individualTopics } from "@/lib/topics";
 
 function Alias({ id }: { id: string }) {
   return <div id={id} className="h-0 scroll-mt-28" />;
@@ -97,17 +89,20 @@ export default function HomePage() {
             <Alias id="counselling" />
             <h1 id="top" tabIndex={-1} className="scroll-mt-28 font-display text-forest">
               <span className="block text-[2.55rem] leading-none sm:text-5xl lg:text-6xl">Dermot Cox</span>
-              <span className="hero-lede mt-3 block text-ink">
-                Psychotherapy and counselling for individuals and couples, in person in Little
-                Hampden, near Great Missenden, and online.
-              </span>
             </h1>
-            <p className="mt-3 max-w-xl">
-              A quiet place to talk, in the garden consulting room, in the countryside around the
-              village, or online.
+            <p className="hero-lede mt-3 max-w-xl text-ink">
+              Psychotherapy and counselling in Little Hampden, near Great Missenden
             </p>
-            <a href="#contact" className="submit-button hero-cta mt-3 inline-flex items-center no-underline">
-              Arrange a first conversation
+            <p className="mt-3 max-w-xl">
+              Individual and couples therapy in a private garden consulting room, outdoors in the
+              Chilterns, or online.
+            </p>
+            <a
+              href="#contact"
+              data-enquiry="general"
+              className="submit-button hero-cta mt-3 inline-flex items-center no-underline"
+            >
+              Arrange a free first conversation
             </a>
           </div>
         </section>
@@ -119,8 +114,122 @@ export default function HomePage() {
             longer be working. It may be time to look inside and try and see what’s going on.
           </p>
           <ServicePaths />
+          <ul className="trust-line">
+            <li>Psychotherapist and counsellor</li>
+            <li>
+              <a
+                href="https://www.bacp.co.uk/therapists/384871/dermot-cox/great-missenden-hp16?search=Dermot%20cox"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                BACP registered member 384871
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.psychotherapy.org.uk/therapist/Dermot-Cox-IZuHmAAL"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                UKCP registered member
+              </a>
+            </li>
+            <li>Re-Vision diplomas</li>
+            <li>In person in Little Hampden</li>
+          </ul>
         </section>
       </div>
+
+      <section id="in-person" aria-labelledby="garden-room" tabIndex={-1} className="place-chapter scroll-mt-28">
+        <div className="garden-arrival">
+          <div className="garden-window-wrap">
+            <figure className="garden-window reveal">
+              <Image
+                src="/media/garden-room.jpg"
+                alt="The timber garden consulting room, with a green roof, among trees and fallen leaves"
+                fill
+                sizes="(min-width: 900px) 56vw, 100vw"
+                className="object-cover object-center"
+              />
+              <figcaption>Little Hampden</figcaption>
+            </figure>
+          </div>
+          <div className="garden-copy reveal">
+            <p className="path-label">In person</p>
+            <h2 id="garden-room" className="font-display text-5xl text-forest sm:text-6xl">
+              The garden room
+            </h2>
+            <p className="mt-5 text-xl leading-relaxed">
+              I work face-to-face with clients from my consulting room in Little Hampden, close to
+              Great Missenden in Buckinghamshire. The timber room sits in the garden, a quiet place
+              among the trees, with the fields and woods beyond the glass.
+            </p>
+            <p className="area-note">
+              The garden room is in Little Hampden, in the Chilterns, close to Great Missenden.{" "}
+              {widerAreaSentence} If the journey is too far, we can meet{" "}
+              <a className="text-link" href="#online">
+                online
+              </a>
+              .
+            </p>
+            <ul className="area-towns" aria-label="Places nearby">
+              {localPlaces.map((place) => (
+                <li key={place}>{place}</li>
+              ))}
+            </ul>
+            <div className="garden-safe">
+              <h3 className="subhead">A safe space</h3>
+              <p>
+                The work needs a safe space: somewhere you can discover how you really feel, without
+                being judged, and where each person’s perspective can be held with equal care.
+              </p>
+            </div>
+            <ol className="garden-path">
+              <li>
+                <img
+                  className="line-mark"
+                  src="/media/marks/room.png"
+                  alt=""
+                  width={256}
+                  height={256}
+                />
+                <span>The room</span>
+                A timber room in the garden, with a green roof, looking out over fields and woods.
+              </li>
+              <li>
+                <img
+                  className="line-mark"
+                  src="/media/marks/outside.png"
+                  alt=""
+                  width={256}
+                  height={256}
+                />
+                <span>Outside</span>
+                We can also have outdoor sessions in the countryside near my home.
+              </li>
+              <li>
+                <img
+                  className="line-mark"
+                  src="/media/marks/journey.png"
+                  alt=""
+                  width={256}
+                  height={256}
+                />
+                <span>The journey</span>
+                About 5 minutes by taxi from Great Missenden station on the Chiltern line, which is
+                about 50 minutes from Marylebone. The postcode is HP16 9PS.
+              </li>
+            </ol>
+            <p className="mt-6 text-lg">
+              <a className="text-link" href="#contact" data-enquiry="general">
+                Arrange a free first conversation
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <TreeBreak line="A time of real difficulty can still hold the beginning of growth." />
 
       <section aria-labelledby="individual-therapy" className="service-region wood-individual chapter">
         <div id="services" className="h-0 scroll-mt-28" />
@@ -185,11 +294,12 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <TopicTrail
-            support={individualSupport}
-            promise={individualPromise}
-            topics={individualTopics}
-          />
+          <TopicTrail enquiry="individual" topics={individualTopics} />
+          <p className="mt-8 text-lg">
+            <a className="text-link" href="#contact" data-enquiry="individual">
+              Arrange a free first conversation
+            </a>
+          </p>
         </div>
       </section>
 
@@ -260,64 +370,14 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <TopicTrail
-            support={couplesSupport}
-            promise={couplesPromise}
-            topics={couplesTopics}
-          />
+          <TopicTrail enquiry="couples" topics={couplesTopics} />
           <p className="mt-8 text-lg">
-            <a className="text-link" href="#contact">
-              Ask about couples work
+            <a className="text-link" href="#contact" data-enquiry="couples">
+              Ask about couples therapy
             </a>
           </p>
         </div>
       </section>
-
-      <OnlineFold>
-          <p className="path-label">Online</p>
-          <h2
-            tabIndex={-1}
-            className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl"
-          >
-            Online sessions
-          </h2>
-          <div className="service-note">
-            <h3 className="subhead">If you are somewhere else</h3>
-            <p>
-              I offer online sessions for clients who prefer this, or who live in a different area.
-              Individual therapy and ‘couples’ therapy can both be held this way. The same fees
-              apply as meeting in person.
-            </p>
-          </div>
-          <div className="service-note">
-            <h3 className="subhead">A quiet corner is enough</h3>
-            <p>
-              We meet by video. You will need a place where you will not be interrupted. It does
-              not have to be a perfect room. A corner, and a door you can close, is enough. I will
-              listen in the same way, and the time is still yours.
-            </p>
-          </div>
-          <div className="service-note">
-            <h3 className="subhead">If you can travel</h3>
-            <p>
-              If the journey is possible, I would encourage you to come in person. The timber room
-              in the garden at Little Hampden is a quiet place of its own, set among the trees,
-              with the fields and woods beyond, and we can also meet outside.
-            </p>
-            <p>
-              <a className="text-link" href="#in-person">
-                See the garden room
-              </a>
-            </p>
-          </div>
-          <p className="mt-8 text-lg">
-            <a className="text-link" href="#contact">
-              Ask about online sessions
-            </a>
-          </p>
-      </OnlineFold>
-
-      <TreeBreak line="A time of real difficulty can still hold the beginning of growth." />
 
       <section aria-labelledby="about" className="about-chapter">
         <div className="about-layout">
@@ -416,8 +476,8 @@ export default function HomePage() {
               </ul>
             </aside>
             <p className="mt-8 text-lg">
-              <a className="text-link" href="#contact">
-                Get in touch about working together
+              <a className="text-link" href="#contact" data-enquiry="general">
+                Arrange a free first conversation
               </a>
             </p>
             <div className="about-film">
@@ -442,6 +502,9 @@ export default function HomePage() {
           <h2 id="approach" tabIndex={-1} className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl">
             How we can work together
           </h2>
+          <p className="mt-5 max-w-3xl text-xl leading-relaxed">
+            {individualPromise} With two people, {couplesPromise}
+          </p>
           <ol className="process">
             <li>
               <img
@@ -492,91 +555,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="in-person" className="place-chapter">
-        <div className="garden-arrival">
-          <div className="garden-window-wrap">
-            <figure className="garden-window reveal">
-              <Image
-                src="/media/garden-room.jpg"
-                alt="The timber garden consulting room, with a green roof, among trees and fallen leaves"
-                fill
-                sizes="(min-width: 900px) 56vw, 100vw"
-                className="object-cover object-center"
-              />
-              <figcaption>Little Hampden</figcaption>
-            </figure>
-          </div>
-          <div className="garden-copy reveal">
-            <p className="path-label">In person</p>
-            <h2
-              id="in-person"
-              tabIndex={-1}
-              className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl"
-            >
-              The garden room
-            </h2>
-            <p className="mt-5 text-xl leading-relaxed">
-              I work face-to-face with clients from my consulting room in Little Hampden, close to
-              Great Missenden in Buckinghamshire. The timber room sits in the garden, a quiet place
-              among the trees, with the fields and woods beyond the glass.
-            </p>
-            <p className="area-note">
-              The garden room is in Little Hampden, in the Chilterns, close to Great Missenden.
-              People can come from across Buckinghamshire and from the surrounding area. If the journey
-              is too far, we can meet online.
-            </p>
-            <div className="garden-safe">
-              <h3 className="subhead">A safe space</h3>
-              <p>
-                The work needs a safe space: somewhere you can discover how you really feel, without
-                being judged, and where each person’s perspective can be held with equal care.
-              </p>
-            </div>
-            <ol className="garden-path">
-              <li>
-                <img
-                  className="line-mark"
-                  src="/media/marks/room.png"
-                  alt=""
-                  width={256}
-                  height={256}
-                />
-                <span>The room</span>
-                A timber room in the garden, with a green roof, looking out over fields and woods.
-              </li>
-              <li>
-                <img
-                  className="line-mark"
-                  src="/media/marks/outside.png"
-                  alt=""
-                  width={256}
-                  height={256}
-                />
-                <span>Outside</span>
-                We can also have outdoor sessions in the countryside near my home.
-              </li>
-              <li>
-                <img
-                  className="line-mark"
-                  src="/media/marks/journey.png"
-                  alt=""
-                  width={256}
-                  height={256}
-                />
-                <span>The journey</span>
-                About 5 minutes by taxi from Great Missenden station on the Chiltern line, which is
-                about 50 minutes from Marylebone. The postcode is HP16 9PS.
-              </li>
-            </ol>
-            <p className="mt-6 text-lg">
-              <a className="text-link" href="#contact">
-                Ask about visiting
-              </a>
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section aria-labelledby="fees" className="fees-chapter">
         <div className="fees-sheet chapter">
           <Alias id="pricing" />
@@ -603,6 +581,50 @@ export default function HomePage() {
         </div>
       </section>
 
+      <OnlineFold>
+          <p className="path-label">Online</p>
+          <h2
+            tabIndex={-1}
+            className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl"
+          >
+            Online sessions
+          </h2>
+          <div className="service-note">
+            <h3 className="subhead">If you are somewhere else</h3>
+            <p>
+              I offer online sessions for clients who prefer this, or who live in a different area.
+              Individual therapy and ‘couples’ therapy can both be held this way. The same fees
+              apply as meeting in person.
+            </p>
+          </div>
+          <div className="service-note">
+            <h3 className="subhead">A quiet corner is enough</h3>
+            <p>
+              We meet by video. You will need a place where you will not be interrupted. It does
+              not have to be a perfect room. A corner, and a door you can close, is enough. I will
+              listen in the same way, and the time is still yours.
+            </p>
+          </div>
+          <div className="service-note">
+            <h3 className="subhead">If you can travel</h3>
+            <p>
+              If the journey is possible, I would encourage you to come in person. The timber room
+              in the garden at Little Hampden is a quiet place of its own, set among the trees,
+              with the fields and woods beyond, and we can also meet outside.
+            </p>
+            <p>
+              <a className="text-link" href="#in-person">
+                See the garden room
+              </a>
+            </p>
+          </div>
+          <p className="mt-8 text-lg">
+              <a className="text-link" href="#contact" data-enquiry="online">
+                Ask about online sessions
+              </a>
+          </p>
+      </OnlineFold>
+
       <section aria-labelledby="questions" className="questions-chapter">
         <div className="questions-sheet">
           <h2 id="questions" tabIndex={-1} className="scroll-mt-28 font-display text-5xl text-forest sm:text-6xl">
@@ -613,8 +635,8 @@ export default function HomePage() {
               <h3>Where do we meet?</h3>
               <p>
                 In the garden consulting room in Little Hampden, in the Chilterns, close to Great
-                Missenden, or outdoors nearby. People can come from across Buckinghamshire and from the
-                surrounding area. If the journey is too far, we can meet online.
+                Missenden, or outdoors nearby. {widerAreaSentence} If the journey is too far, we can
+                meet online.
               </p>
             </div>
             <div className="reveal">
@@ -709,8 +731,7 @@ export default function HomePage() {
             <div>
               <dt>The surrounding area</dt>
               <dd>
-                <p>{surroundingAreaSentence}</p>
-                <AreaDialog />
+                <p>{widerAreaSentence}</p>
               </dd>
             </div>
             <div>

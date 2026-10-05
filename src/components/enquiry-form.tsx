@@ -1,7 +1,7 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { validateEnquiry, type FieldErrors } from "@/lib/enquiry";
+import { FormEvent, useEffect, useState } from "react";
+import { enquiryKinds, validateEnquiry, type EnquiryKind, type FieldErrors } from "@/lib/enquiry";
 import { siteConfig } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -10,6 +10,24 @@ export function EnquiryForm() {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [notice, setNotice] = useState("");
+  const [kind, setKind] = useState<EnquiryKind>("general");
+
+  useEffect(() => {
+    function apply(value: string | null) {
+      if (enquiryKinds.some((item) => item.id === value)) {
+        setKind(value as EnquiryKind);
+      }
+    }
+
+    function onClick(event: MouseEvent) {
+      const link = (event.target as Element | null)?.closest?.("[data-enquiry]");
+      if (!link) return;
+      apply(link.getAttribute("data-enquiry"));
+    }
+
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -20,6 +38,7 @@ export function EnquiryForm() {
       email: String(data.get("email") ?? ""),
       phone: String(data.get("phone") ?? ""),
       message: String(data.get("message") ?? ""),
+      kind,
       company: String(data.get("company") ?? ""),
     };
     const result = validateEnquiry(input);
@@ -44,6 +63,7 @@ export function EnquiryForm() {
       };
       if (response.ok && body.ok) {
         form.reset();
+        setKind("general");
         setErrors({});
         setStatus("sent");
         setNotice("Thank you. Your message has been sent. Dermot will reply by email.");
@@ -64,9 +84,27 @@ export function EnquiryForm() {
 
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-5">
-      <div className="sr-only" aria-hidden="true">
+      <div className="sr-only" aria-hidden="true" inert>
         <label htmlFor="company">Company</label>
         <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+      <div>
+        <label htmlFor="kind" className="field-label">
+          Enquiry
+        </label>
+        <select
+          id="kind"
+          name="kind"
+          className="field-input mt-2"
+          value={kind}
+          onChange={(event) => setKind(event.target.value as EnquiryKind)}
+        >
+          {enquiryKinds.map((item) => (
+            <option key={item.id} value={item.id}>
+              {item.label}
+            </option>
+          ))}
+        </select>
       </div>
       <Field
         id="name"

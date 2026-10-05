@@ -43,76 +43,54 @@ export type MenuItem = {
 };
 
 export const menuItems: MenuItem[] = [
-  { id: "top", label: "Home" },
   { id: "about", label: "About" },
-  {
-    id: "services",
-    label: "Services",
-    children: [
-      { id: "individual-therapy", label: "Individual therapy" },
-      { id: "couples-therapy", label: "Couples therapy" },
-      { id: "online", label: "Online sessions" },
-    ],
-  },
-  { id: "approach", label: "Approach" },
-  { id: "in-person", label: "Visit in person" },
-  { id: "online", label: "Online sessions" },
-  { id: "fees", label: "Fees & questions" },
+  { id: "individual-therapy", label: "Individual" },
+  { id: "couples-therapy", label: "Couples" },
+  { id: "in-person", label: "Location" },
+  { id: "fees", label: "Fees" },
   { id: "contact", label: "Contact" },
 ];
 
 export const desktopNav = [
   { id: "about", label: "About" },
-  { id: "services", label: "Services" },
-  { id: "in-person", label: "Visit" },
-  { id: "online", label: "Online" },
+  { id: "individual-therapy", label: "Individual" },
+  { id: "couples-therapy", label: "Couples" },
+  { id: "in-person", label: "Location" },
   { id: "fees", label: "Fees" },
   { id: "contact", label: "Contact" },
 ] as const;
 
 export const sectionIds = [
   "top",
-  "services",
+  "in-person",
   "individual-therapy",
   "couples-therapy",
-  "online",
   "about",
   "approach",
   "experience",
-  "in-person",
   "fees",
+  "online",
   "questions",
   "contact",
 ] as const;
 
-const serviceIds = new Set([
-  "services",
-  "individual-therapy",
-  "grief",
-  "work-and-life",
-  "couples-therapy",
-  "relating",
-  "online",
-]);
-
 export function navIsCurrent(itemId: string, activeId: string) {
-  if (itemId === "services") return serviceIds.has(activeId);
   if (itemId === "fees") return activeId === "fees" || activeId === "questions";
+  if (itemId === "about") return activeId === "about" || activeId === "approach" || activeId === "experience";
   return itemId === activeId;
 }
 
 export const chapterLabels: Record<string, string> = {
   top: "Little Hampden",
-  services: "Individual, couples, online",
+  "in-person": "The garden room",
   "individual-therapy": "Individual therapy",
-  grief: "Bereavement",
+  grief: "Bereavement and loss",
   "work-and-life": "Work related issues",
   "couples-therapy": "Couples",
   relating: "Sexual identity",
   about: "About",
   approach: "Working together",
   experience: "Training and membership",
-  "in-person": "Little Hampden",
   online: "Online",
   fees: "Fees",
   questions: "Before you get in touch",

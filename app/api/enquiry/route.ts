@@ -48,6 +48,7 @@ export async function POST(request: Request) {
     email: asText(payload.email),
     phone: asText(payload.phone),
     message: asText(payload.message),
+    kind: asText(payload.kind),
     company: asText(payload.company),
   });
 
