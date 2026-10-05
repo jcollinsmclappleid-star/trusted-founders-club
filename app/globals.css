@@ -477,13 +477,16 @@ footer {
 .hero-frame {
   display: flex;
   flex-direction: column;
+  height: calc(100svh - var(--header-offset, 4.75rem));
+  min-height: calc(100svh - var(--header-offset, 4.75rem));
 }
 
 .hero-slider {
   position: relative;
-  flex: none;
+  flex: 1 1 0;
   width: 100%;
-  height: clamp(15rem, 58vw, 24rem);
+  min-height: 5.5rem;
+  height: auto;
   overflow: hidden;
   background: #2a362c;
 }
@@ -556,7 +559,7 @@ footer {
   isolation: isolate;
   overflow: hidden;
   margin: 0;
-  padding: 0.9rem 1.25rem 1.05rem;
+  padding: 0.85rem 1.25rem 1.15rem;
   background: var(--color-ivory);
 }
 
@@ -2281,8 +2284,15 @@ select.field-input {
     scroll-margin-top: calc(5.75rem + 2.25rem);
   }
 
+  .hero-frame {
+    height: auto;
+    min-height: 0;
+  }
+
   .hero-slider {
+    flex: none;
     height: clamp(18rem, 46vh, 34rem);
+    min-height: 18rem;
   }
 
   .hero-copy,
