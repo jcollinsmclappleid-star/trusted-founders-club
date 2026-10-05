@@ -115,14 +115,28 @@ export default function HomePage() {
           </p>
           <ServicePaths />
           <ul className="trust-line">
-            <li>Psychotherapist and counsellor</li>
+            <li>
+              <a href="#about">
+                <span>Psychotherapist and counsellor</span>
+              </a>
+            </li>
             <li>
               <a
                 href="https://www.bacp.co.uk/therapists/384871/dermot-cox/great-missenden-hp16?search=Dermot%20cox"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                BACP registered member 384871
+                <img
+                  className="trust-logo trust-logo-bacp"
+                  src="/media/bacp-mark.png"
+                  alt=""
+                  width={378}
+                  height={138}
+                />
+                <span>
+                  BACP registered member 384871
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </span>
               </a>
             </li>
             <li>
@@ -131,11 +145,29 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                UKCP registered member
+                <img
+                  className="trust-logo trust-logo-ukcp"
+                  src="/media/ukcp-mark.svg"
+                  alt=""
+                  width={420}
+                  height={186}
+                />
+                <span>
+                  UKCP registered member
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </span>
               </a>
             </li>
-            <li>Re-Vision diplomas</li>
-            <li>In person in Little Hampden</li>
+            <li>
+              <a href="#experience">
+                <span>Re-Vision diplomas</span>
+              </a>
+            </li>
+            <li>
+              <a href="#in-person">
+                <span>In person in Little Hampden</span>
+              </a>
+            </li>
           </ul>
         </section>
       </div>
