@@ -1439,7 +1439,18 @@ footer {
 }
 
 .topic-dialog-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
   text-decoration: none;
+  padding: 0.85rem 1rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  line-height: 1.35;
 }
 
 .topic-dialog-foot p {
